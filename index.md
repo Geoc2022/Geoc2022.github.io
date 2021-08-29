@@ -1,6 +1,6 @@
 # Welcome
 
-![pfp](media/_MG_2298.CR2.jpg)
+![img](https://geoc2022.github.io/media/profpic.jpg)
 
 ### George Chemmala 
 Sequoyah High School '22
