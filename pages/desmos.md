@@ -1,10 +1,10 @@
 ## Desmos
 Here are some projects I've done - just messing around - on Desmos, an interactive grapher.
 
-### [Latest Graph:](https://www.desmos.com/calculator/wwv4dhxavn)
+### [Latest Graph:](https://www.desmos.com/calculator/bqsh1owp5b) Projectile Motion
 
 <html>
-<iframe src="https://www.desmos.com/calculator/wwv4dhxavn?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+<iframe src="https://www.desmos.com/calculator/bqsh1owp5b?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
 </html>
 
 ### Desmos Playlist:
@@ -18,7 +18,7 @@ Here are some projects I've done - just messing around - on Desmos, an interacti
 - [Mandelbrot Set](https://www.desmos.com/calculator/v1etnz3esr) [cont.](https://www.desmos.com/calculator/m5dknq6igf)
 - [Mapping Functions Visual](https://www.desmos.com/calculator/dgbgy8vwl5)
 - [Matrix Transformations](https://www.desmos.com/calculator/bzcjv1nc5x)
-- [Rubber Axis](articles/Rubber_Axis.md)
+- [Rubber Axis](articles/Rubber_Axis.md) (Article)
 - [Newton's Method](https://www.desmos.com/calculator/2g6b6m3g7n)
 
 ### [Fourier Transform](https://www.desmos.com/calculator/exgvdivban) - Explanation in Graph
