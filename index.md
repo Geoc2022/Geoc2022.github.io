@@ -1,7 +1,5 @@
 # Welcome
 
-![img](https://geoc2022.github.io/media/pfp.jpeg)
-
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
