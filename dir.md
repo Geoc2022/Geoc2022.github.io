@@ -6,11 +6,11 @@
 _
 
 ### pages:
--  [videos.md](videos.md)
--  [desmos.md](desmos.md)
--  [articles.md](articles.md)
--  [about_contact.md](about_contact.md)
+-  [videos.md](pages/videos.md)
+-  [desmos.md](pages/desmos.md)
+-  [articles.md](pages/articles.md)
+-  [about_contact.md](pages/about_contact.md)
 
     
 ### articles:
--  [Rubber_Axis.md](Rubber_Axis.md)
+-  [Rubber_Axis.md](pages/articles/Rubber_Axis.md)
