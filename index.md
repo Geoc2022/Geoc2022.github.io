@@ -1,22 +1,20 @@
 # Welcome
 
-![img](https://geoc2022.github.io/media/profpic.jpg)
-
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .avatar {
   vertical-align: middle;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 </style>
 </head>
 <body>
 
-<img src="https://geoc2022.github.io/media/profpic.jpg" alt="Avatar" class="avatar">
+<img src="https://geoc2022.github.io/media/pfp.jpeg" alt="Avatar" class="avatar">
 
 </body>
 </html>
