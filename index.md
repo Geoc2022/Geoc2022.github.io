@@ -6,8 +6,8 @@
 Sequoyah High School '22
 
 - [Projects](pages/projects.md)
-- [Videos](pages/projects.md)
-- [Desmos](pages/projects.md)
+- [Videos](pages/videos.md)
+- [Desmos](pages/desmos.md)
 - [About Me/Contact](pages/about_contact.md)
 
 ## Featured
