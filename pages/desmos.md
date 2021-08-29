@@ -7,6 +7,8 @@ Here are some projects I've done - just messing around - on Desmos, an interacti
 <iframe src="https://www.desmos.com/calculator/bqsh1owp5b?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
 </html>
 
+_
+
 ### Desmos Playlist:
 
 <html>
@@ -21,4 +23,10 @@ Here are some projects I've done - just messing around - on Desmos, an interacti
 - [Rubber Axis](articles/Rubber_Axis.md) (Article)
 - [Newton's Method](https://www.desmos.com/calculator/2g6b6m3g7n)
 
+_
+
 ### [Fourier Transform](https://www.desmos.com/calculator/exgvdivban) - Explanation in Graph
+
+#### Extra Graphs:
+- [Fourier Epicycle Drawing](https://www.desmos.com/calculator/hmsk9bu106)
+- [Comparing Mario Party Dice](https://www.desmos.com/calculator/7dqtjnh2dw)

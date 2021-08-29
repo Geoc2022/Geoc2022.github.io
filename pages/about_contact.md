@@ -19,6 +19,6 @@ I am interested in learning math, physics, music, and photography.
 
 
 ## Contact
-Here is my [Linkdin](https://www.linkedin.com/in/george-c-21388420b/) and [Resume](about_contact.md)
+Here is my [LinkedIn](https://www.linkedin.com/in/george-c-21388420b/) and [Resume](about_contact.md)
 
 Feel free to contact me at my email geoc2022 (at) gmail (dot) com
