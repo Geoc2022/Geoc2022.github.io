@@ -1,10 +1,10 @@
 ## Desmos
 Here are some projects I've done - just messing around - on Desmos, an interactive grapher.
 
-### [Latest Graph:](https://www.desmos.com/calculator/bqsh1owp5b) Projectile Motion
+### Featured: [Rubber Axis](pages/articles/Rubber_Axis.md) (article)
 
 <html>
-<iframe src="https://www.desmos.com/calculator/bqsh1owp5b?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+<iframe src="https://www.desmos.com/calculator/2onhgqyyl0?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
 </html>
 
 _
