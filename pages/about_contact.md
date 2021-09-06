@@ -3,6 +3,8 @@ Hello! My name is George Chemmala, and I am a senior at Sequoyah High School
 
 I am interested in learning math, physics, music, and photography.
 
+Here is my [Resume](https://geoc2022.github.io/media/Resume%20(2021).pdf) & [LinkedIn](https://www.linkedin.com/in/george-c-21388420b/) 
+
 ### Awards/Honors
 - GHP Mathematics Major (2021)
 - Member of Mu Alpha Theta Math team, which won 1st place at Reinhardt's county math competition (2019)
@@ -19,6 +21,4 @@ I am interested in learning math, physics, music, and photography.
 
 
 ## Contact
-Here is my [LinkedIn](https://www.linkedin.com/in/george-c-21388420b/) and [Resume](about_contact.md)
-
 Feel free to contact me at my email geoc2022 (at) gmail (dot) com
