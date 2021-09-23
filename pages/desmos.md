@@ -1,7 +1,7 @@
 ## Desmos
 Here are some projects I've done - just messing around - on Desmos, an interactive grapher.
 
-### Featured: [Rubber Axis](pages/articles/Rubber_Axis.md) (article)
+### Featured: [Change of Axis](pages/articles/Rubber_Axis.md) (article)
 
 <html>
 <iframe src="https://www.desmos.com/calculator/2onhgqyyl0?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
@@ -20,7 +20,7 @@ _
 - [Mandelbrot Set](https://www.desmos.com/calculator/v1etnz3esr) [cont.](https://www.desmos.com/calculator/m5dknq6igf)
 - [Mapping Functions Visual](https://www.desmos.com/calculator/dgbgy8vwl5)
 - [Matrix Transformations](https://www.desmos.com/calculator/bzcjv1nc5x)
-- [Rubber Axis](articles/Rubber_Axis.md) (Article)
+- [Change of Axis](articles/Rubber_Axis.md) (Article)
 - [Newton's Method](https://www.desmos.com/calculator/2g6b6m3g7n)
 
 _

@@ -27,7 +27,7 @@ Sequoyah High School '22
 - [Desmos](pages/desmos.md)
 - [About Me/Contact](pages/about_contact.md)
 
-### Featured: [Rubber Axis](pages/articles/Rubber_Axis.md) (article)
+### Featured: [Change of Axis](pages/articles/Rubber_Axis.md) (article)
 
 <html>
 <iframe src="https://www.desmos.com/calculator/2onhgqyyl0?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
