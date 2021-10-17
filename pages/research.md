@@ -2,7 +2,7 @@
 
 ## Motif Analysis in Shostakovich 
 
-I'm currently working on computer analysis of motifs in works of Shostakovich. [Brochure](https://george.chemmala.com/media/Project%20Brochure.pdf)
+I'm currently exploring computer analysis of motifs, building blocks of musical structure, in works of Shostakovich, one of the most preeminent Russian composers who used motifs show his double-voicing and irony in his works. [Brochure](https://george.chemmala.com/media/Project%20Brochure.pdf)
 
 ### Gap/Reasoning:
 There is a lack of comparisons between different methods to find motifs.
