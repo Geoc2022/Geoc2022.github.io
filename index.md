@@ -25,6 +25,7 @@ Sequoyah High School '22
 
 - [Videos](pages/videos.md)
 - [Desmos](pages/desmos.md)
+- [Research](pages/research.md)
 - [About Me/Contact](pages/about_contact.md)
 
 ### Featured: [Change of Axis](pages/articles/Rubber_Axis.md) (article)
