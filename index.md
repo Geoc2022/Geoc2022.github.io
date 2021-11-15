@@ -40,3 +40,4 @@ ex. 0.05sin 500x graphed on parametric (cos 3x, sin 4x)
 ```
 
 ### [Directory](dir.md)
+### [Media Directory](media/media_dir.md)
