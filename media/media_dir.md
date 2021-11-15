@@ -1,4 +1,5 @@
-## Media
+# Media
+
 -  [pfp.jpeg](pfp.jpeg)
 -  [Project Brochure.pdf](Project Brochure.pdf)
 -  [Resume (2021).pdf](https://geoc2022.github.io/media/Resume%20(2021).pdf)
