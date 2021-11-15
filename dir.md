@@ -2,6 +2,7 @@
 
 - [home](index.md)
 - [directory](dir.md)
+- [media directory](media/media_dir.md)
 
 _
 
