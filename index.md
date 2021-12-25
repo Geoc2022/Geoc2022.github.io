@@ -26,7 +26,7 @@ Sequoyah High School '22
 - [Videos](pages/videos.md)
 - [Desmos](pages/desmos.md)
 - [Research](pages/research.md)
-- [Mu Alpha Theta Canvas course](https://github.com/Geoc2022/MuAlphaTheta-CanvasCourse)
+- [Mu Alpha Theta Canvas Course](https://github.com/Geoc2022/MuAlphaTheta-CanvasCourse)
 - [About Me/Contact](pages/about_contact.md)
 
 ### Featured: [Change of Axis](pages/articles/Rubber_Axis.md) (article)
