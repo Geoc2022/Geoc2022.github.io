@@ -20,7 +20,10 @@ Therefore, it would help fill these two gaps by creating a better way to analyze
 
 *Excerpt:*  "Whether sports-diplomacy is viable depends on the question: can sports overcome their tribal half nature in order to promote unity? Given the circumstances of South Asia it is possible for cricket. The need of a replacement to traditional democracy and the turbulent relations between India and Pakistan bring exigence. Moreover, its power to unite Afghanistan and mediation of conflict between India and Pakistan show that cricket-diplomacy is more a uniting force than a divisive one, and sharing cricket with the Olympics shows how it can be enabled to unite more nations. Cricket-diplomacy is still fairly new, and to use it to ally divisions, it is necessary to understand how it promotes unity among South Asian countries."
 
-#### [Presentation](https://www.youtube.com/watch?v=l2-rUfq-szQ) [(Powerpoint File)](https://geoc2022.github.io/media/Cricket_IWA%20Presentation.pdf) 
+#### [Presentation](https://www.youtube.com/watch?v=l2-rUfq-szQ) [(Powerpoint File)](https://geoc2022.github.io/media/Cricket_IWA%20Presentation.pdf)
+*Video was taken with both presenter and instructor vaccinated and separated by more than 6 feet*
+
+—
 
 ### IRR: [Comparison between Quantum Computing and Classical Computing](https://geoc2022.github.io/media/Quantum%20Computing%20-%20Submission%20Copy.pdf)
 
