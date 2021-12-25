@@ -12,13 +12,15 @@ There is also a lack of quantitative data about motifs in Shosikovich’s works 
 
 Therefore, it would help fill these two gaps by creating a better way to analyze Shosikovich while assessing current motif detection algorithms
 
+—
+
 ## AP Seminar (Score: 5)
 
-### Cricket Diplomacy in South Asia
+### [Cricket Diplomacy in South Asia](https://geoc2022.github.io/media/Cricket%20Diplomacy%20in%20South%20Asia%20-%20Submission%20Copy.pdf)
 
 *Excerpt:*  "Whether sports-diplomacy is viable depends on the question: can sports overcome their tribal half nature in order to promote unity? Given the circumstances of South Asia it is possible for cricket. The need of a replacement to traditional democracy and the turbulent relations between India and Pakistan bring exigence. Moreover, its power to unite Afghanistan and mediation of conflict between India and Pakistan show that cricket-diplomacy is more a uniting force than a divisive one, and sharing cricket with the Olympics shows how it can be enabled to unite more nations. Cricket-diplomacy is still fairly new, and to use it to ally divisions, it is necessary to understand how it promotes unity among South Asian countries."
 
-### Comparison between Quantum Computing and Classical Computing
+### [Comparison between Quantum Computing and Classical Computing](https://geoc2022.github.io/media/Quantum%20Computing%20-%20Submission%20Copy.pdf)
 
 *Excerpt:*  "While much of the computational theory is analogous between the two, their differing fundamental physics leads to their disparities. Bits and qubits are both fundamental units of information, but qubits can store information using superposition. How quantum computers store qubits also leads to differences concerning the feasibility of larger machines and their speed. Furthermore, the differences in quantum and classical gates, such as reversibility, can be utilized by quantum algorithms. Quantum computing is currently in its infancy, and to invent more efficient solutions to solve classically challenging problems, it is necessary to understand the differences between quantum and classical computing."
 
