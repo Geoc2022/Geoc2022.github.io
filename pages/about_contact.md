@@ -1,4 +1,4 @@
-## About Me
+## About Me/Contact
 Hello! My name is George Chemmala, and I am a senior at Sequoyah High School
 
 I am interested in learning math, physics, music, and photography.
