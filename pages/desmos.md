@@ -27,6 +27,10 @@ _
 
 ### [Fourier Transform](https://www.desmos.com/calculator/exgvdivban) - Explanation in Graph
 
+<html>
+<iframe src="https://www.desmos.com/calculator/exgvdivban?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+<\html>
+
 #### Extra Graphs:
 - [Fourier Epicycle Drawing](https://www.desmos.com/calculator/hmsk9bu106)
-- [Comparing Mario Party Dice](https://www.desmos.com/calculator/7dqtjnh2dw)
+- [Comparing Mario Party Dice](https://www.desmos.com/calculator/jflwtwdk5h)
