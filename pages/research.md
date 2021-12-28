@@ -36,4 +36,25 @@ Therefore, it would help fill these two gaps by creating a better way to analyze
 </html>
 
 —
- *I will add my other research from GHP here soon.*
+
+## Georgia's Governor's Honors Program ([GHP](https://gosa.georgia.gov/governors-honors-program))
+GHP is a summer program aimed at giving high school students an opportunity to have a college experiance. During the program we completed two research projects.
+
+### Explanation of ["A serendipitous path to a famous inequality" by Robert M. Young](https://www.jstor.org/stable/27821715?seq=2#metadata_info_tab_contents)
+
+We were tasked with studying a research paper and presenting it to the rest of the class with an explanation. This paper is about the [AM-GM inequality]( https://en.wikipedia.org/wiki/Inequality_of_arithmetic_and_geometric_means), a popular inequality in competition math. In the paper, Young derives a new way to find this inequality and uses it in an example to solve an optimization problem.
+
+[Presentation File](https://geoc2022.github.io/media/A%20Serendipitous%20Path%20to%20a%20Famous%20Inequality.pptx)
+
+—
+
+### The Regiomontanus Problem in 3D
+
+We were tasked with creating our own research paper. This paper is based on the 2D [Regiomontanus Problem](https://en.wikipedia.org/wiki/Regiomontanus%27_angle_maximization_problem), a viewing angle optimization problem.
+
+We expanded this idea to 3D constructing our own functions to optimize to find the optimal viewing angle including:
+- Cone: an extension of 2D angles
+- Sphere: an extension of the solution of the 2D circle in the original problem
+- Solid Angle: unfortunately, we only discovered it late in the process, but we address it to further discussion
+
+[Presentation File](https://geoc2022.github.io/media/The%20Regiomontanus%20Problem%20in%203D.pptx)
