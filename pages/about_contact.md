@@ -7,12 +7,12 @@ Here is my [Resume](https://geoc2022.github.io/media/Resume%20(2021).pdf) & [Lin
 
 ### Awards/Honors
 - GHP Mathematics Major (2021)
-- [Mu Alpha Theta president](https://github.com/Geoc2022/MuAlphaTheta-CanvasCourse) (2021)
+- [Mu Alpha Theta President](https://github.com/Geoc2022/MuAlphaTheta-CanvasCourse) (2021)
 - Mu Alpha Theta Math team won 1st place at Reinhardt's county math competition (2019)
 
 
-- Principal horn player at Sequoyah High School (2020)
-- Mellophone section leader (2021)
+- Principal Horn Player at Sequoyah High School (2020)
+- Mellophone Section Leader (2021)
 - 11-12 District Honor Symphonic Band (2021)
 - Received Sequoyah High School Instrumental Music Program’s Most Improved Brass (2019)
 
