@@ -27,7 +27,7 @@ Sequoyah High School '22
 - [Desmos](pages/desmos.md)
 - [Research](pages/research.md)
 
-- [NextGenForestBot](https://github.com/Geoc2022/NextGenForestBot) [Twitter Search Tool](https://twitter.com/NextGenForestB1)
+- [NextGenForestBot](https://github.com/Geoc2022/NextGenForestBot) — [Twitter Search Tool](https://twitter.com/NextGenForestB1)
 - [Mu Alpha Theta Canvas Course](https://github.com/Geoc2022/MuAlphaTheta-CanvasCourse)
 
 - [About Me/Contact](pages/about_contact.md)
