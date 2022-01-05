@@ -32,5 +32,5 @@ _
 </html>
 
 #### Extra Graphs:
-- [Fourier Epicycle Drawing](https://www.desmos.com/calculator/hmsk9bu106)
+- [Fourier Epicycles Drawing](https://www.desmos.com/calculator/hmsk9bu106)
 - [Comparing Mario Party Dice](https://www.desmos.com/calculator/jflwtwdk5h)

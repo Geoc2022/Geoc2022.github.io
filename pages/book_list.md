@@ -1,6 +1,6 @@
 # Book List
 
-Here are some nonfiction books that I've read and kept track of. They are roughly in the order of when I read them. The ones with stars (*) beside them are some of my favorite books on the list.  
+Here are some nonfiction books that I've read and kept track of. They are roughly in the order of when I read them. The ones with stars (*) beside them are some of my favorites on the list.  
 
 - Sync *
 - Joy of X

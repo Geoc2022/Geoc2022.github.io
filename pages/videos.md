@@ -10,7 +10,7 @@ I mainly do videos about math on my [channel](https://www.youtube.com/channel/UC
 _
 
 ### [Desmos Playlist](https://youtu.be/9kkcfW-hJ5M?list=PLUDmqREVkliDp1G-IA0UnZQAz2BJDwVNY):
-*main page: [Desmos](pages/desmos.md)*
+*main page: [Desmos](desmos.md)*
 
 <html>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLUDmqREVkliDp1G-IA0UnZQAz2BJDwVNY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

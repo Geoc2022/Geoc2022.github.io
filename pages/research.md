@@ -8,9 +8,10 @@ I'm currently exploring computer analysis of motifs, the building blocks of musi
 
 There is a lack of comparisons between different methods to find motifs.
 
-There is also a lack of quantitative data about motifs in Shosikovich’s works because of the medium and the fact that it is hard to decipher the ironies in his work.
+There is also a lack of quantitative data about motifs in Shostakovich’s works because of the medium and the fact that it is hard to decipher the ironies in his work.
 
-Therefore, it would help fill these two gaps by creating a better way to analyze Shosikovich while assessing current motif detection algorithms
+
+Therefore, it would help fill these two gaps by creating a better way to analyze Shostakovich while assessing current motif detection algorithms
 
 —
 
@@ -18,9 +19,9 @@ Therefore, it would help fill these two gaps by creating a better way to analyze
 
 ### IWA: [Cricket Diplomacy in South Asia](https://geoc2022.github.io/media/Cricket%20Diplomacy%20in%20South%20Asia%20-%20Submission%20Copy.pdf)
 
-*Excerpt:*  "Whether sports-diplomacy is viable depends on the question: can sports overcome their tribal half nature in order to promote unity? Given the circumstances of South Asia, it is possible for cricket. The need of a replacement to traditional democracy and the turbulent relations between India and Pakistan bring exigence. Moreover, its power to unite Afghanistan and mediation of conflict between India and Pakistan show that cricket-diplomacy is more a uniting force than a divisive one, and sharing cricket with the Olympics shows how it can be enabled to unite more nations. Cricket-diplomacy is still fairly new, and to use it to ally divisions, it is necessary to understand how it promotes unity among South Asian countries."
+*Excerpt:*  "Whether sports-diplomacy is viable depends on the question: can sports overcome their tribal half nature in order to promote unity? Given the circumstances of South Asia, it is possible for cricket. The need of a replacement to traditional democracy and the turbulent relations between India and Pakistan bring exigence. Moreover, its power to unite Afghanistan and mediation of conflict between India and Pakistan show that cricket-diplomacy is more a uniting force than a divisive one, and sharing cricket with the Olympics shows how it can be enabled to unite more nations. Cricket-diplomacy is still fairly new, and to use it to allay divisions, it is necessary to understand how it promotes unity among South Asian countries."
 
-#### [Presentation](https://www.youtube.com/watch?v=l2-rUfq-szQ) ([Powerpoint File](https://geoc2022.github.io/media/Cricket_IWA%20Presentation.pdf))
+#### [Presentation](https://www.youtube.com/watch?v=l2-rUfq-szQ) ([PowerPoint File](https://geoc2022.github.io/media/Cricket_IWA%20Presentation.pdf))
 *Video was taken with both presenter and instructor vaccinated and separated by more than 6 feet*
 
 —
@@ -38,7 +39,7 @@ Therefore, it would help fill these two gaps by creating a better way to analyze
 —
 
 ## Georgia's Governor's Honors Program ([GHP](https://gosa.georgia.gov/governors-honors-program))
-GHP is a summer program aimed at giving high school students an opportunity to have a college experiance. During the program we completed two research projects.
+GHP is a summer program aimed at giving high school students an opportunity to have a college experience. During the program we completed two research projects.
 
 ### Explanation of ["A serendipitous path to a famous inequality" by Robert M. Young](https://www.jstor.org/stable/27821715?seq=2#metadata_info_tab_contents)
 
