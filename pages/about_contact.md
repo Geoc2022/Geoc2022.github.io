@@ -7,6 +7,7 @@ Here is my [Resume](https://geoc2022.github.io/media/Resume%20(2021).pdf) & [Lin
 
 ### Awards/Honors
 - GHP Mathematics Major (2021)
+- Co Star Student of Sequoyah High School
 - [Mu Alpha Theta President](https://github.com/Geoc2022/MuAlphaTheta-CanvasCourse) (2021)
 - Mu Alpha Theta Math team won 1st place at Reinhardt's county math competition (2019)
 
