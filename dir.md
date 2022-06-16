@@ -1,6 +1,6 @@
 ## Directory
 
-- [home](index.md)
+- [home](index.html)
 - [directory](dir.md)
 - [media directory](media/media_dir.md)
 
