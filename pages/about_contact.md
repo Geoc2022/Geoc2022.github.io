@@ -3,7 +3,7 @@ Hello! My name is George Chemmala, and I am a senior at Sequoyah High School
 
 I am interested in learning math, physics, music, and photography.
 
-Here is my [Resume](https://geoc2022.github.io/media/Resume%20(2021).pdf) & [LinkedIn](https://www.linkedin.com/in/george-c-21388420b/) 
+Here is my [Resume](https://geoc2022.github.io/media/Resume%20(2022).pdf) & [LinkedIn](https://www.linkedin.com/in/george-c-21388420b/) 
 
 ### Awards/Honors
 - GHP Mathematics Major (2021)
