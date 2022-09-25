@@ -923,6 +923,10 @@
 	left:-0.0006103515625px;
 	top:3.99505615234375px;
 }
+a.footer{
+	color: rgba(62.23728597164154, 79.52541589736938, 141.76271706819534, 1);
+}
 a.footer, a.footer:link, a.footer:visited, a.footer:hover, a.footer:active{
+	text-decoration: none;
 	color: rgba(62.23728597164154, 79.52541589736938, 141.76271706819534, 1);
 }
