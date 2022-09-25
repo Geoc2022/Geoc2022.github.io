@@ -957,9 +957,8 @@ a.dark, a.dark:link, a.dark:visited, a.dark:hover, a.dark:active{
 	color: rgba(18.000000827014446, 23.000000528991222, 41.00000135600567, 1);
 }
 img.wave {
-	width: 300px
-	transition: transform .5s ease-in-out
+	transition: all .2s ease-in-out;
 }
 img.wave:hover {
-	transform: rotate(15deg)
+	transform: rotate(15deg);
 }
