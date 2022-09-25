@@ -930,3 +930,10 @@ a.footer, a.footer:link, a.footer:visited, a.footer:hover, a.footer:active{
 	text-decoration: none;
 	color: rgba(62.23728597164154, 79.52541589736938, 141.76271706819534, 1);
 }
+a.header{
+	color: rgba(114.47551488876343, 121.06224864721298, 144.77448105812073, 1));
+}
+a.header, a.header:link, a.header:visited, a.header:hover, a.header:active{
+	text-decoration: none;
+	color: rgba(114.47551488876343, 121.06224864721298, 144.77448105812073, 1);
+}
