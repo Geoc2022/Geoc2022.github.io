@@ -958,6 +958,7 @@ a.dark, a.dark:link, a.dark:visited, a.dark:hover, a.dark:active{
 }
 img.wave {
 	width: 300px
+	transition: transform .5s ease-in-out
 }
 img.wave:hover {
 	transform: rotate(15deg)
