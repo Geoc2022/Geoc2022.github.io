@@ -1,3 +1,9 @@
+
+body {
+	background-color: rgba(18.000000827014446, 23.000000528991222, 41.00000135600567, 1);
+	display: block;
+    margin: 0px;
+}
 .2_3 { 
 	overflow:hidden;
 }
@@ -953,4 +959,4 @@ a.dark, a.dark:link, a.dark:visited, a.dark:hover, a.dark:active{
 }
 img.wave:hover {
 	transform: rotate(15deg)
-  }
+}
