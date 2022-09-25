@@ -1,5 +1,4 @@
-
-body {
+ei40_963_39_914body {
 	background-color: rgba(18.000000827014446, 23.000000528991222, 41.00000135600567, 1);
 	display: block;
     margin: 0px;
@@ -956,6 +955,9 @@ a.dark{
 a.dark, a.dark:link, a.dark:visited, a.dark:hover, a.dark:active{
 	text-decoration: none;
 	color: rgba(18.000000827014446, 23.000000528991222, 41.00000135600567, 1);
+}
+img.wave {
+	width: 300px
 }
 img.wave:hover {
 	transform: rotate(15deg)
