@@ -923,26 +923,6 @@
 	left:-0.0006103515625px;
 	top:3.99505615234375px;
 }
-a.footer {
+a.footer, a.footer:link, a.footer:visited, a.footer:hover, a.footer:active{
 	color: rgba(62.23728597164154, 79.52541589736938, 141.76271706819534, 1);
-}
-
-a.footer:link {
-	text-decoration: none;
-	color: rgba(62.23728597164154, 79.52541589736938, 141.76271706819534, 1);
-}
-
-a.footer:visited {
-  text-decoration: none;
-  color: rgba(62.23728597164154, 79.52541589736938, 141.76271706819534, 1);
-}
-
-a.footer:hover {
-  text-decoration: none;
-  color: rgba(62.23728597164154, 79.52541589736938, 141.76271706819534, 1);
-}
-
-a.footer:active {
-  text-decoration: none;
-  color: rgba(62.23728597164154, 79.52541589736938, 141.76271706819534, 1);
 }
