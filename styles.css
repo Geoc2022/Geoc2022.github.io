@@ -4,19 +4,15 @@
 	--base02: rgba(30, 41, 59, 1);
 	--base00: rgba(62, 79, 141, 1);
 	--base1: rgba(114, 121, 144, 1);
-	--base2: rgb(195, 204, 238, 1);
+	--base2: rgba(195, 204, 238, 1);
 	--base3 : rgba(215, 221, 243, 1);
 	--alto: rgba(217, 217, 217, 1);
 	--accent1: rgba(235, 168, 18, 1);
-
 }
 body {
 	background-color: var(--base03);
 	display: block;
     margin: 0px;
-}
-.2_3 { 
-	overflow:hidden;
 }
 .e2_3 { 
 	background-color:var(--base03);
