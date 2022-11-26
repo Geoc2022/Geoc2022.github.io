@@ -36,7 +36,7 @@ body {
 	top:0px;
 }
 .ei40_963_39_903 { 
-	color:var(--base03);
+	color:var(--base00);
 	width:301px;
 	height:24px;
 	position:absolute;
@@ -947,7 +947,7 @@ body {
 }
 a.footer{
 	text-decoration: none;
-	color: var(--base03);
+	color: var(--base00);
 }
 a.header{
 	text-decoration: none;
