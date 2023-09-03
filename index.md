@@ -20,8 +20,7 @@
 </html>
 
 
-### George Chemmala 
-Sequoyah High School '22
+### George Chemmala
 
 - [Videos](pages/videos.md)
 - [Desmos](pages/desmos.md)
