@@ -1,1 +1,0 @@
-- [Projects](pages/projects.md)

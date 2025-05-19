@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on George Chemmala</title>
+    <link>https://george.chemmala.com/</link>
+    <description>Recent content in Home on George Chemmala</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 19 May 2025 01:22:38 -0400</lastBuildDate>
+    <atom:link href="https://george.chemmala.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://george.chemmala.com/about/</link>
+      <pubDate>Mon, 19 May 2025 01:22:38 -0400</pubDate>
+      <guid>https://george.chemmala.com/about/</guid>
+      <description>&lt;p&gt;I’m a junior at Brown University studying Computer Science and Mathematics, with current interests in cryptography, deep learning, and formal proof verification.&lt;/p&gt;&#xA;&lt;p&gt;(Un)related, I&amp;rsquo;m also a big fan of board games, photography, and music.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s my full &lt;a href=&#34;https://george.chemmala.com/main.pdf&#34;&gt;resume&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;!-- &#xA;### **Education**&#xA;&#xA;**Brown University** — Providence, RI&#xA;**Sc.B. in Computer Science &amp; Sc.B. in Mathematics** (Major GPA: 4.0)&#xA;Expected: May 2026&#xA;&#xA;Relevant Coursework: Data Structures &amp; Algorithms, Deep Learning, Machine Learning, Robust Algorithms for ML, Formal Proof and Verification, Applied Cryptography, Computer Systems, Abstract Algebra, Number Theory, Monte Carlo Simulation&#xA;&#xA;---&#xA;&#xA;### **Projects &amp; Research**&#xA;&#xA;**Vote: Cryptographic Voting Protocol Implementation** — *C++, CryptoPP*&#xA;Spring 2025&#xA;&#xA;* Built a secure, end-to-end verifiable voting system using homomorphic encryption and threshold decryption&#xA;* Integrated zero-knowledge proofs and blinding to protect voter anonymity and ensure ballot integrity&#xA;* Extended the protocol to support multiple candidates and restricted voting per user&#xA;&#xA;**WeensyOS: Virtual Memory Kernel Implementation** — *C, C++, x86 Assembly*&#xA;Spring 2025&#xA;&#xA;* Engineered kernel code for managing user/kernel virtual memory and enforcing permissions&#xA;* Enhanced memory utilization with dynamic, non-contiguous page allocation&#xA;* Optimized fork and exit system calls for efficient process handling&#xA;* Implemented overlapping virtual address spaces for process isolation&#xA;&#xA;**[Robust Estimation for the Erdős–Rényi Model](https://github.com/Geoc2022/2952Q_FinalProject)** — *Python, Matplotlib, NumPy, NetworkX*&#xA;Fall 2024&#xA;&#xA;* Developed robust algorithms to estimate edge probability $p$ in adversarial Erdős–Rényi graphs&#xA;* Proved runtime and accuracy guarantees, surpassing baseline methods&#xA;* Evaluated performance on synthetic datasets with 10k+ nodes&#xA;* Followed best practices: modular code, visualizations, and reproducibility&#xA;&#xA;**[Spiderverse Style Transfer &amp; Transfer Learning](https://github.com/AzureCoral/Spider-Verse-Style-Transfer)** — *Python, TensorFlow, CUDA*&#xA;Spring 2024&#xA;&#xA;* Designed a multi-style transfer pipeline using VGG16 to replicate visual styles from Spiderverse media&#xA;* Introduced novel transfer learning techniques for improved texture recognition&#xA;* Used CUDA for GPU acceleration, achieving 10x speedup in model training and inference&#xA;&#xA;---&#xA;&#xA;### **Experience**&#xA;&#xA;**President** — *Math Circle*&#xA;2023–Present&#xA;&#xA;* Launched a student-led outreach program teaching recreational math to local high school students&#xA;* Led program logistics, lesson planning, and administrative oversight&#xA;&#xA;**Teaching Assistant** — *Brown Department of Mathematics &amp; Applied Mathematics*&#xA;2024–2025&#xA;&#xA;* Assisted in courses: Statistical Inference I, Abstract Algebra, Applied ODEs&#xA;* Led problem-solving sessions, hosted office hours, and graded coursework for classes up to 350 students&#xA;&#xA;**Research Assistant** — *Brown University Directed Reading Program*&#xA;2024&#xA;&#xA;* Studied Classical Algebraic Geometry with a focus on algorithmic foundations&#xA;* Investigated Gröbner bases, polynomial systems, and computational algebraic methods&#xA;&#xA;**Computer Technician &amp; Teaching Assistant** — *Georgia Governor’s Honors Program (GHP)*&#xA;2023&#xA;&#xA;* Supported student research in computational mathematics&#xA;* Maintained classroom computing systems for deep learning applications&#xA;* Helped debug Python code and optimize machine learning workflows&#xA;&#xA;---&#xA;&#xA;### **Skills &amp; Interests**&#xA;&#xA;**Languages:** Python, C, C++, Java, Lean, Haskell, Julia, LaTeX, Mathematica, MATLAB&#xA;&#xA;**Tools &amp; Software:** VS Code, Vim, PyCharm, IntelliJ, Google Colab, Jupyter, Git, Unix/Linux, Docker, Figma&#xA;&#xA;**Libraries:** pandas, NumPy, scikit-learn, sympy, scipy, Matplotlib, NetworkX, TensorFlow, PyTorch, TorchVision, OpenCV, Sage&#xA;&#xA;**Interests:** Education, Music, Board/Card Games, Photography, [Manim](https://youtu.be/DQVuFo6CSmE?t=1189) --&gt;</description>
+    </item>
+    <item>
+      <title>Warping a Image into a Mobius Loop</title>
+      <link>https://george.chemmala.com/stuff/mobius_band/</link>
+      <pubDate>Mon, 30 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/mobius_band/</guid>
+      <description>A simple python script to warp an image into a Mobius loop</description>
+    </item>
+    <item>
+      <title>Robust Estimation for the Erdős-Rényi Model</title>
+      <link>https://george.chemmala.com/projects/robust-estimation-for-the-erdos-renyi-model/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/robust-estimation-for-the-erdos-renyi-model/</guid>
+      <description>Final project for CSCI 2952Q: Robust Algorithms in Machine Learning</description>
+    </item>
+    <item>
+      <title>Visualizing Spectral Graph Theory</title>
+      <link>https://george.chemmala.com/projects/spectral_graph_theory/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/spectral_graph_theory/</guid>
+      <description>A Manim project explaining spectral graph theory</description>
+    </item>
+    <item>
+      <title>Across the Spider-Verse Style Transfer</title>
+      <link>https://george.chemmala.com/projects/spiderverse-style-transfer/</link>
+      <pubDate>Fri, 19 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/spiderverse-style-transfer/</guid>
+      <description>A style transfer project using CNNs to recreate the visual style of &lt;em&gt;Across the Spider-Verse&lt;/em&gt;</description>
+    </item>
+    <item>
+      <title>Banger xkcd</title>
+      <link>https://george.chemmala.com/stuff/banger_xkcd/</link>
+      <pubDate>Mon, 21 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/banger_xkcd/</guid>
+      <description>A banger xkcd idea</description>
+    </item>
+    <item>
+      <title>Book_list</title>
+      <link>https://george.chemmala.com/book_list/</link>
+      <pubDate>Thu, 19 May 2022 11:20:05 -0400</pubDate>
+      <guid>https://george.chemmala.com/book_list/</guid>
+      <description>&lt;p&gt;Here are some nonfiction books that I&amp;rsquo;ve read and kept track of. They are roughly in the order of when I read them. The ones with stars (*) beside them are some of my favorites on the list.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Sync *&lt;/li&gt;&#xA;&lt;li&gt;Joy of X&lt;/li&gt;&#xA;&lt;li&gt;The Truffle Underground&lt;/li&gt;&#xA;&lt;li&gt;An Astronaut&amp;rsquo;s Guide to Life on Earth *&lt;/li&gt;&#xA;&lt;li&gt;American Wolf *&lt;/li&gt;&#xA;&lt;li&gt;Guns Germs and Steel *&lt;/li&gt;&#xA;&lt;li&gt;SPQR *&lt;/li&gt;&#xA;&lt;li&gt;The Trojan War: A New History *&lt;/li&gt;&#xA;&lt;li&gt;A Short History of Nearly Everything&lt;/li&gt;&#xA;&lt;li&gt;Surely You&amp;rsquo;re Joking, Mr. Feynman! *&lt;/li&gt;&#xA;&lt;li&gt;The Everyday Life of Rome&lt;/li&gt;&#xA;&lt;li&gt;Leonardo Da Vinci  *&lt;/li&gt;&#xA;&lt;li&gt;Thinking Fast and Slow&lt;/li&gt;&#xA;&lt;li&gt;Infinite Powers *&lt;/li&gt;&#xA;&lt;li&gt;What if *&lt;/li&gt;&#xA;&lt;li&gt;Learning to See Creatively&lt;/li&gt;&#xA;&lt;li&gt;Failure is Not an Option *&lt;/li&gt;&#xA;&lt;li&gt;Short History of Nearly Everything&lt;/li&gt;&#xA;&lt;li&gt;Thing Explainer&lt;/li&gt;&#xA;&lt;li&gt;How to&lt;/li&gt;&#xA;&lt;li&gt;Classic Brainteasers (Gardner, Martin)&lt;/li&gt;&#xA;&lt;li&gt;Fermat&amp;rsquo;s Enigma *&lt;/li&gt;&#xA;&lt;li&gt;The Rise of the Pun *&lt;/li&gt;&#xA;&lt;li&gt;Death of Caesar&lt;/li&gt;&#xA;&lt;li&gt;The Cuckoo&amp;rsquo;s Egg *&lt;/li&gt;&#xA;&lt;li&gt;A Brief History of Time *&lt;/li&gt;&#xA;&lt;li&gt;The Mathematical Tourist&lt;/li&gt;&#xA;&lt;li&gt;Beyond Numeracy&lt;/li&gt;&#xA;&lt;li&gt;Mind and Matter *&lt;/li&gt;&#xA;&lt;li&gt;It&amp;rsquo;s a Numberful World&lt;/li&gt;&#xA;&lt;li&gt;On Writing Well *&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Desmos Fourier Transform Visualization </title>
+      <link>https://george.chemmala.com/stuff/fourier_transform/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/fourier_transform/</guid>
+      <description>3b1b&amp;rsquo;s Fourier Transform visualization on Desmos</description>
+    </item>
+    <item>
+      <title>Change of Axis</title>
+      <link>https://george.chemmala.com/stuff/change_of_axis/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/change_of_axis/</guid>
+      <description>What if you could bend the x axis?</description>
+    </item>
+  </channel>
+</rss>
