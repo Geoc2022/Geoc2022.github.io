@@ -15,5 +15,12 @@
       <guid>https://george.chemmala.com/projects/robust-estimation-for-the-erdos-renyi-model/</guid>
       <description>Final project for CSCI 2952Q: Robust Algorithms in Machine Learning</description>
     </item>
+    <item>
+      <title>Visualizing Spectral Graph Theory</title>
+      <link>https://george.chemmala.com/projects/spectral_graph_theory/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/spectral_graph_theory/</guid>
+      <description>A Manim project explaining spectral graph theory</description>
+    </item>
   </channel>
 </rss>

@@ -6,8 +6,22 @@
     <description>Recent content in Projects on George Chemmala</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://george.chemmala.com/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cryptographic Voting with Multiple Candidates</title>
+      <link>https://george.chemmala.com/projects/vote/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/vote/</guid>
+      <description>Extension of the Helios Voting Protocol to support multiple candidates</description>
+    </item>
+    <item>
+      <title>Unboxing the Black Box</title>
+      <link>https://george.chemmala.com/projects/unboxing-the-blackbox/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/unboxing-the-blackbox/</guid>
+      <description>Human-Inspired CNNs for Explainability and Efficiency</description>
+    </item>
     <item>
       <title>Robust Estimation for the Erdős-Rényi Model</title>
       <link>https://george.chemmala.com/projects/robust-estimation-for-the-erdos-renyi-model/</link>

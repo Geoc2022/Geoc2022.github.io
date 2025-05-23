@@ -6,8 +6,15 @@
     <description>Recent content in Computer-Vision on George Chemmala</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 May 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://george.chemmala.com/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unboxing the Black Box</title>
+      <link>https://george.chemmala.com/projects/unboxing-the-blackbox/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/unboxing-the-blackbox/</guid>
+      <description>Human-Inspired CNNs for Explainability and Efficiency</description>
+    </item>
     <item>
       <title>Across the Spider-Verse Style Transfer</title>
       <link>https://george.chemmala.com/projects/spiderverse-style-transfer/</link>

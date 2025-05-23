@@ -6,14 +6,35 @@
     <description>Recent content in Home on George Chemmala</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 May 2025 01:22:38 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 22 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://george.chemmala.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NYT Connections Solver</title>
+      <link>https://george.chemmala.com/stuff/nyt_connections_solver/</link>
+      <pubDate>Thu, 22 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/nyt_connections_solver/</guid>
+      <description>Solving the NYT Connections using graph partitioning and word vectors</description>
+    </item>
     <item>
       <title>About</title>
       <link>https://george.chemmala.com/about/</link>
       <pubDate>Mon, 19 May 2025 01:22:38 -0400</pubDate>
       <guid>https://george.chemmala.com/about/</guid>
       <description>&lt;p&gt;I’m a junior at Brown University studying Computer Science and Mathematics, with current interests in cryptography, deep learning, and formal proof verification.&lt;/p&gt;&#xA;&lt;p&gt;(Un)related, I&amp;rsquo;m also a big fan of board games, photography, and music.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s my full &lt;a href=&#34;https://george.chemmala.com/main.pdf&#34;&gt;resume&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;!-- &#xA;### **Education**&#xA;&#xA;**Brown University** — Providence, RI&#xA;**Sc.B. in Computer Science &amp; Sc.B. in Mathematics** (Major GPA: 4.0)&#xA;Expected: May 2026&#xA;&#xA;Relevant Coursework: Data Structures &amp; Algorithms, Deep Learning, Machine Learning, Robust Algorithms for ML, Formal Proof and Verification, Applied Cryptography, Computer Systems, Abstract Algebra, Number Theory, Monte Carlo Simulation&#xA;&#xA;---&#xA;&#xA;### **Projects &amp; Research**&#xA;&#xA;**Vote: Cryptographic Voting Protocol Implementation** — *C++, CryptoPP*&#xA;Spring 2025&#xA;&#xA;* Built a secure, end-to-end verifiable voting system using homomorphic encryption and threshold decryption&#xA;* Integrated zero-knowledge proofs and blinding to protect voter anonymity and ensure ballot integrity&#xA;* Extended the protocol to support multiple candidates and restricted voting per user&#xA;&#xA;**WeensyOS: Virtual Memory Kernel Implementation** — *C, C++, x86 Assembly*&#xA;Spring 2025&#xA;&#xA;* Engineered kernel code for managing user/kernel virtual memory and enforcing permissions&#xA;* Enhanced memory utilization with dynamic, non-contiguous page allocation&#xA;* Optimized fork and exit system calls for efficient process handling&#xA;* Implemented overlapping virtual address spaces for process isolation&#xA;&#xA;**[Robust Estimation for the Erdős–Rényi Model](https://github.com/Geoc2022/2952Q_FinalProject)** — *Python, Matplotlib, NumPy, NetworkX*&#xA;Fall 2024&#xA;&#xA;* Developed robust algorithms to estimate edge probability $p$ in adversarial Erdős–Rényi graphs&#xA;* Proved runtime and accuracy guarantees, surpassing baseline methods&#xA;* Evaluated performance on synthetic datasets with 10k+ nodes&#xA;* Followed best practices: modular code, visualizations, and reproducibility&#xA;&#xA;**[Spiderverse Style Transfer &amp; Transfer Learning](https://github.com/AzureCoral/Spider-Verse-Style-Transfer)** — *Python, TensorFlow, CUDA*&#xA;Spring 2024&#xA;&#xA;* Designed a multi-style transfer pipeline using VGG16 to replicate visual styles from Spiderverse media&#xA;* Introduced novel transfer learning techniques for improved texture recognition&#xA;* Used CUDA for GPU acceleration, achieving 10x speedup in model training and inference&#xA;&#xA;---&#xA;&#xA;### **Experience**&#xA;&#xA;**President** — *Math Circle*&#xA;2023–Present&#xA;&#xA;* Launched a student-led outreach program teaching recreational math to local high school students&#xA;* Led program logistics, lesson planning, and administrative oversight&#xA;&#xA;**Teaching Assistant** — *Brown Department of Mathematics &amp; Applied Mathematics*&#xA;2024–2025&#xA;&#xA;* Assisted in courses: Statistical Inference I, Abstract Algebra, Applied ODEs&#xA;* Led problem-solving sessions, hosted office hours, and graded coursework for classes up to 350 students&#xA;&#xA;**Research Assistant** — *Brown University Directed Reading Program*&#xA;2024&#xA;&#xA;* Studied Classical Algebraic Geometry with a focus on algorithmic foundations&#xA;* Investigated Gröbner bases, polynomial systems, and computational algebraic methods&#xA;&#xA;**Computer Technician &amp; Teaching Assistant** — *Georgia Governor’s Honors Program (GHP)*&#xA;2023&#xA;&#xA;* Supported student research in computational mathematics&#xA;* Maintained classroom computing systems for deep learning applications&#xA;* Helped debug Python code and optimize machine learning workflows&#xA;&#xA;---&#xA;&#xA;### **Skills &amp; Interests**&#xA;&#xA;**Languages:** Python, C, C++, Java, Lean, Haskell, Julia, LaTeX, Mathematica, MATLAB&#xA;&#xA;**Tools &amp; Software:** VS Code, Vim, PyCharm, IntelliJ, Google Colab, Jupyter, Git, Unix/Linux, Docker, Figma&#xA;&#xA;**Libraries:** pandas, NumPy, scikit-learn, sympy, scipy, Matplotlib, NetworkX, TensorFlow, PyTorch, TorchVision, OpenCV, Sage&#xA;&#xA;**Interests:** Education, Music, Board/Card Games, Photography, [Manim](https://youtu.be/DQVuFo6CSmE?t=1189) --&gt;</description>
+    </item>
+    <item>
+      <title>Cryptographic Voting with Multiple Candidates</title>
+      <link>https://george.chemmala.com/projects/vote/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/vote/</guid>
+      <description>Extension of the Helios Voting Protocol to support multiple candidates</description>
+    </item>
+    <item>
+      <title>Unboxing the Black Box</title>
+      <link>https://george.chemmala.com/projects/unboxing-the-blackbox/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/unboxing-the-blackbox/</guid>
+      <description>Human-Inspired CNNs for Explainability and Efficiency</description>
     </item>
     <item>
       <title>Warping a Image into a Mobius Loop</title>
@@ -63,6 +84,13 @@
       <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
       <guid>https://george.chemmala.com/stuff/fourier_transform/</guid>
       <description>3b1b&amp;rsquo;s Fourier Transform visualization on Desmos</description>
+    </item>
+    <item>
+      <title>Umbral Calculus</title>
+      <link>https://george.chemmala.com/stuff/umbral/</link>
+      <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/umbral/</guid>
+      <description>How to use umbral calculus to find a closed form for a sequence</description>
     </item>
     <item>
       <title>Change of Axis</title>

@@ -2,22 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://george.chemmala.com/tags/data/</loc>
+    <lastmod>2025-05-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/</loc>
+    <lastmod>2025-05-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/stuff/nyt_connections_solver/</loc>
+    <lastmod>2025-05-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/spectral-graph-theory/</loc>
+    <lastmod>2025-05-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/stuff/</loc>
+    <lastmod>2025-05-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/</loc>
+    <lastmod>2025-05-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/word-vector/</loc>
+    <lastmod>2025-05-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://george.chemmala.com/about/</loc>
     <lastmod>2025-05-19T01:22:38-04:00</lastmod>
   </url><url>
-    <loc>https://george.chemmala.com/</loc>
-    <lastmod>2025-05-19T01:22:38-04:00</lastmod>
+    <loc>https://george.chemmala.com/projects/vote/</loc>
+    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/cryptography/</loc>
+    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/projects/</loc>
+    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/voting/</loc>
+    <lastmod>2025-05-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/cnn/</loc>
+    <lastmod>2025-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/computer-vision/</loc>
+    <lastmod>2025-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/explainability/</loc>
+    <lastmod>2025-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/projects/unboxing-the-blackbox/</loc>
+    <lastmod>2025-05-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/tags/math/</loc>
     <lastmod>2024-12-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/tags/python/</loc>
-    <lastmod>2024-12-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://george.chemmala.com/stuff/</loc>
-    <lastmod>2024-12-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://george.chemmala.com/tags/</loc>
     <lastmod>2024-12-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/stuff/mobius_band/</loc>
@@ -30,9 +66,6 @@
     <lastmod>2024-12-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/tags/machine-learning/</loc>
-    <lastmod>2024-12-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://george.chemmala.com/projects/</loc>
     <lastmod>2024-12-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/tags/random-graphs/</loc>
@@ -57,12 +90,6 @@
     <lastmod>2024-10-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/projects/spiderverse-style-transfer/</loc>
-    <lastmod>2023-05-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://george.chemmala.com/tags/cnn/</loc>
-    <lastmod>2023-05-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://george.chemmala.com/tags/computer-vision/</loc>
     <lastmod>2023-05-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/tags/deep-learning/</loc>
@@ -94,6 +121,9 @@
   </url><url>
     <loc>https://george.chemmala.com/stuff/fourier_transform/</loc>
     <lastmod>2022-01-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/stuff/umbral/</loc>
+    <lastmod>2021-06-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/stuff/change_of_axis/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
