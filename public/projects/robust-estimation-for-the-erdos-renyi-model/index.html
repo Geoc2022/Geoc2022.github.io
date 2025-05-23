@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+<link rel="icon" type="image/ico" href="https://george.chemmala.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://george.chemmala.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://george.chemmala.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://george.chemmala.com/android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://george.chemmala.com/apple-touch-icon.png">
+
+<meta name="description" content="Robust estimation of edge probabilities in Erdős-Rényi graphs under adversarial perturbations. ![Empirical3](emperic3.png)"/>
+
+
+<meta name="fediverse:creator" content="@geoc@mathstodon.xyz">
+
+
+<title>
+    
+    Robust Estimation for the Erdős-Rényi Model | George Chemmala
+    
+</title>
+
+<link rel="canonical" href="https://george.chemmala.com/projects/robust-estimation-for-the-erdos-renyi-model/"/>
+
+<meta property="og:url" content="https://george.chemmala.com/projects/robust-estimation-for-the-erdos-renyi-model/">
+  <meta property="og:site_name" content="George Chemmala">
+  <meta property="og:title" content="Robust Estimation for the Erdős-Rényi Model">
+  <meta property="og:description" content="Robust estimation of edge probabilities in Erdős-Rényi graphs under adversarial perturbations. ![Empirical3](emperic3.png)">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2024-12-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-07T00:00:00+00:00">
+    <meta property="article:tag" content="Graph-Theory">
+    <meta property="article:tag" content="Robustness">
+    <meta property="article:tag" content="Random-Graphs">
+    <meta property="article:tag" content="Machine-Learning">
+    <meta property="article:tag" content="Csci2952q">
+    <meta property="article:tag" content="Spectral-Graph-Theory">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.9eacf2c6b25ba662c63b1b68f4401005ade13e5da0239d3ec760d724936ac414.css" media="all">
+
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxxxxxxx"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-xxxxxxxxx');
+        }
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">
+        <a href="https://george.chemmala.com/">George Chemmala</a>
+    </h1>
+
+    <div class="header-menu">
+        
+
+        
+        
+
+        <p
+            class="small ">
+            <a href="/projects" >
+                /projects
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/stuff" >
+                /stuff
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/about" >
+                /about
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+
+
+<div class="breadcrumbs"><a href="/">~</a><span class="breadcrumbs-separator">/</span><a href="/projects/">Projects</a><span class="breadcrumbs-separator">/</span>
+        <a href="/projects/robust-estimation-for-the-erdos-renyi-model/">Robust Estimation for the Erdős-Rényi Model</a></div>
+
+
+<div >
+  <article>
+    <header class="single-intro-container">
+        
+        <h1 class="single-title">Robust Estimation for the Erdős-Rényi Model</h1>
+        <p class="single-summary">Final project for CSCI 2952Q: Robust Algorithms in Machine Learning</p>
+        
+        <div class="single-subsummary">
+          
+          <div>
+            
+            <p class="single-date">
+              <time datetime="2024-12-07T00:00:00&#43;00:00">December 7, 2024</time>
+            </p>
+          </div>
+        </div>
+        
+    </header>
+    
+    <div class="single-content">
+      <p>This project was completed as part of the course <a href="https://cs.brown.edu/people/ycheng79/csci2952qf24.html">CSCI 2952Q: Robust Algorithms in Machine Learning</a> at Brown University. We study the problem of estimating the edge formation probability $p$ in an Erdős-Rényi random graph under adversarial perturbations.</p>
+<p>We introduce the $(q, \epsilon)$-adversarial model, which generalizes existing frameworks by allowing varying levels of adversarial knowledge (oblivious to omniscient) and control over a fraction $\epsilon$ of corrupted vertices. Within this setting, we propose new algorithms that achieve improved performance in both runtime and robustness.</p>
+<h2 class="heading" id="methods">
+  Methods
+  <a class="anchor" href="#methods">#</a>
+</h2>
+<h3 class="heading" id="mean-adjusted-median">
+  Mean-Adjusted Median
+  <a class="anchor" href="#mean-adjusted-median">#</a>
+</h3>
+<p>This estimator is based on the observation that the median of the degree distribution is more robust to outliers than the mean in the presence of an oblivious adversary. By comparing the median and mean of the degree distribution, and applying a corrective adjustment, we estimate $p$ in $O(n)$ time with provable error guarantees:</p>
+<p>$$
+|p - \hat{p}| \leq O(n^{-1/4}) \quad \text{with high probability}.
+$$</p>
+<h3 class="heading" id="bias-corrected-mean-adjusted-median">
+  Bias-Corrected Mean-Adjusted Median
+  <a class="anchor" href="#bias-corrected-mean-adjusted-median">#</a>
+</h3>
+<p>We extend the previous method to account for a bias term that depends on $n$, $\epsilon$, $p$, and $q$. The corrected estimator removes this bias without requiring knowledge of $p$ or $q$, and retains the same linear runtime.</p>
+<h3 class="heading" id="variance-based-filtering">
+  Variance-Based Filtering
+  <a class="anchor" href="#variance-based-filtering">#</a>
+</h3>
+<p>We propose an iterative filtering algorithm that removes corrupted vertices based on their contribution to the deviation in empirical degree variance. The algorithm identifies uncorrupted subgraphs where the degree distribution better matches the expected binomial variance. This method has runtime $O(\epsilon n^3)$, and performs well in practice. Theoretical guarantees remain a direction for future work.</p>
+<p><strong>Input:</strong> Laplacian matrix $L$, parameter $\epsilon$<br>
+<strong>Output:</strong> Filtered vertex set $V$</p>
+<ol>
+<li>
+<p>Let $n \gets$ number of vertices</p>
+</li>
+<li>
+<p>Initialize $V \gets$ set of all vertices</p>
+</li>
+<li>
+<p>For $t = 0$ to $\epsilon n - 1$:</p>
+<ol>
+<li>For each vertex $v \in V$:
+<ul>
+<li>Compute the subgraph $G_{V \setminus {v}}$ by removing vertex $v$ from $V$</li>
+<li>Compute and store the value<br>
+$$
+\left| s^2_{G_{V \setminus {v}}} - \hat{\sigma}^2_{G_{V \setminus {v}}} \right|
+$$</li>
+</ul>
+</li>
+<li>Find<br>
+$$
+x \gets \arg\max_{v \in V} \left| s^2_{G_{V \setminus {v}}} - \hat{\sigma}^2_{G_{V \setminus {v}}} \right|
+$$</li>
+<li>Update vertex set:<br>
+$$
+V \gets V \setminus {x}
+$$</li>
+</ol>
+</li>
+<li>
+<p>Return $V$</p>
+</li>
+</ol>
+<h2 class="heading" id="empirical-results">
+  Empirical Results
+  <a class="anchor" href="#empirical-results">#</a>
+</h2>
+<!-- \begin{figure}[ht]
+    \centering
+    % First row with two figures
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{latex//img/emperic.png}
+        \caption{$\eps=0.1$, $p = 0.3$, $q = 0.6$}
+        \label{fig:result1}
+    \end{minipage} \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{latex//img/emperic2.png}
+        \caption{$\eps = 0.1$, $p = 0.3$, $q = 0.6$}
+        \label{fig:result2}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[ht]
+    % Second row with two figures
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{latex/img/emperic3.png}
+        \caption{$\eps = 0.01$, $p = 0.3$, $q = 0.6$}
+        \label{fig:result3}
+    \end{minipage} \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{latex/img/emperic4.png}
+        \caption{Each dot represents a trial; $\eps = 0.1$, $p = 0.3$, $q = 0.6$}
+        \label{fig:result4}
+    \end{minipage}
+\end{figure} -->
+<!-- <div class="row">
+    <div class="column">
+        <img src="./emperic.png" alt="Empirical Result 1" style="width:50%">
+        <p> $\varepsilon=0.1$, $p = 0.3$, $q = 0.6$</p>
+    </div>
+    <div class="column">
+        <img src="./emperic2.png" alt="Empirical Result 2" style="width:50%">
+        <p> $\varepsilon = 0.1$, $p = 0.3$, $q = 0.6$</p>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <img src="./emperic3.png" alt="Empirical Result 3" style="width:50%">
+        <p> $\varepsilon = 0.01$, $p = 0.3$, $q = 0.6$</p>
+    </div>
+    <div class="column">
+        <img src="./emperic4.png" alt="Empirical Result 4" style="width:50%">
+        <p> Each dot represents a trial; $\eps = 0.1$, $p = 0.3$, $q = 0.6$</p>
+    </div>
+</div> -->
+<!-- | ![Empirical Result 1](emperic.png) | ![Empirical Result 2](emperic2.png) |
+|:-----------------------------------------:|:------------------------------------------:|
+| $\varepsilon=0.1$, $p = 0.3$, $q = 0.6$   | $\varepsilon = 0.1$, $p = 0.3$, $q = 0.6$  |
+| ![Empirical Result 3](emperic3.png) | ![Empirical Result 4](emperic4.png) |
+| $\varepsilon = 0.01$, $p = 0.3$, $q = 0.6$| Each dot represents a trial; $\varepsilon = 0.1$, $p = 0.3$, $q = 0.6$ | -->
+<p>
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div class="img-container" style="--w: 1338; --h: 679;">
+        <img loading="lazy" alt="Empirical1" src="/projects/emperic.png" width="1338" height="679">
+    </div>
+
+    
+</figure>
+
+$\varepsilon=0.1$, $p = 0.3$, $q = 0.6$</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div class="img-container" style="--w: 1000; --h: 501;">
+        <img loading="lazy" alt="Empirical2" src="/projects/emperic2.png" width="1000" height="501">
+    </div>
+
+    
+</figure>
+
+$\varepsilon = 0.1$, $p = 0.3$, $q = 0.6$</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div class="img-container" style="--w: 1338; --h: 679;">
+        <img loading="lazy" alt="Empirical3" src="/projects/emperic3.png" width="1338" height="679">
+    </div>
+
+    
+</figure>
+
+$\varepsilon = 0.01$, $p = 0.3$, $q = 0.6$</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div class="img-container" style="--w: 1329; --h: 679;">
+        <img loading="lazy" alt="Empirical4" src="/projects/emperic4.png" width="1329" height="679">
+    </div>
+
+    
+</figure>
+
+Varience Method: Each dot represents a trial; $\varepsilon = 0.1$, $p = 0.3$, $q = 0.6$</p>
+<h2 class="heading" id="comparison-of-methods">
+  Comparison of Methods
+  <a class="anchor" href="#comparison-of-methods">#</a>
+</h2>
+
+<div class="table-outer">
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Runtime</th>
+                <th>Authors</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mean/Median</td>
+                <td>$O(n)$</td>
+                <td>Acharya et al.</td>
+            </tr>
+            <tr>
+                <td>Prune then Mean/Median</td>
+                <td>$O(n \log(\epsilon n))$</td>
+                <td>Acharya et al.</td>
+            </tr>
+            <tr>
+                <td>Spectral Method</td>
+                <td>$\tilde{O}(\epsilon n^3)$</td>
+                <td>Acharya et al.</td>
+            </tr>
+            <tr>
+                <td>Mean-Adjusted Median</td>
+                <td>$O(n)$</td>
+                <td>Lee et al.</td>
+            </tr>
+            <tr>
+                <td>Bias-Corrected M.A.M.</td>
+                <td>$O(n)$</td>
+                <td>Lee et al.</td>
+            </tr>
+            <tr>
+                <td>Variance Method</td>
+                <td>$O(\epsilon n^3)$</td>
+                <td>Lee et al.</td>
+            </tr>
+        </tbody>
+    </table>
+</div><h2 class="heading" id="repository">
+  Repository
+  <a class="anchor" href="#repository">#</a>
+</h2>
+<p>The full codebase, including implementation and experiments, is available here:</p>
+<ul>
+<li><a href="https://github.com/Geoc2022/2952Q_FinalProject">GitHub Repository</a></li>
+<li><a href="https://github.com/Geoc2022/2952Q_FinalProject/report/final.pdf">Final Report (PDF)</a></li>
+<li><a href="https://github.com/Geoc2022/2952Q_FinalProject/presentation/CSCI2952Q_Presentation.pdf">Presentation Slides</a></li>
+</ul>
+<p>The repository contains:</p>
+<ul>
+<li><code>algos.py</code>: Implementation of robust estimation methods.</li>
+<li><code>var_adversary.py</code>: Code for simulating adversarial perturbations.</li>
+<li><code>figures.ipynb</code>: Reproducible plotting scripts.</li>
+<li><code>report/</code>: LaTeX sources for the paper.</li>
+</ul>
+<p>This work contributes novel algorithms to the problem of robust estimation in random graphs, and provides both theoretical analysis and practical validation.</p>
+<p><a href="https://github.com/Geoc2022/2952Q_FinalProject">
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div class="img-container" >
+        <img loading="lazy" alt="GitHub" src="https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&amp;logoColor=white" >
+    </div>
+
+    
+</figure>
+</a></p>
+
+    </div>
+  </article>
+
+  
+
+  
+
+  
+  
+
+<div class="single-pagination">
+    <hr />
+
+    <div class="flexnowrap">
+
+        <div class="single-pagination-prev">
+            
+            <div class="single-pagination-container-prev">
+                <div class="single-pagination-text">←</div>
+                <div class="single-pagination-text">
+                    <a href="/projects/spectral_graph_theory/">
+                        Visualizing Spectral Graph Theory
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="single-pagination-next">
+            
+            <div class="single-pagination-container-next">
+                <div class="single-pagination-text">
+                    <a href="/projects/unboxing-the-blackbox/">
+                        Unboxing the Black Box
+                    </a>
+                </div>
+                <div class="single-pagination-text">→</div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <hr />
+</div>
+
+
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </main>
+  </div>
+
+  
+  
+
+
+
+
+
+    
+
+
+
+
+  <footer>
+    
+
+    
+    
+
+
+
+
+
+    
+
+
+
+
+    
+    <p>Powered by
+        <a href="https://gohugo.io/">Hugo</a>
+        and
+        <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+    </p>
+    
+    
+    
+
+
+  </footer>
+
+  
+  <link rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+  
+<script defer 
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+  
+</body>
+
+<script src="/js/theme-switch.js"></script>
+<script defer src="/js/copy-code.js"></script>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+<link rel="icon" type="image/ico" href="https://george.chemmala.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://george.chemmala.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://george.chemmala.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://george.chemmala.com/android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://george.chemmala.com/apple-touch-icon.png">
+
+<meta name="description" content="A Manim project explaining spectral graph theory"/>
+
+
+<meta name="fediverse:creator" content="@geoc@mathstodon.xyz">
+
+
+<title>
+    
+    Visualizing Spectral Graph Theory | George Chemmala
+    
+</title>
+
+<link rel="canonical" href="https://george.chemmala.com/projects/spectral_graph_theory/"/>
+
+<meta property="og:url" content="https://george.chemmala.com/projects/spectral_graph_theory/">
+  <meta property="og:site_name" content="George Chemmala">
+  <meta property="og:title" content="Visualizing Spectral Graph Theory">
+  <meta property="og:description" content="A Manim project explaining spectral graph theory">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2024-10-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-21T00:00:00+00:00">
+    <meta property="article:tag" content="Math">
+    <meta property="article:tag" content="Manim">
+    <meta property="article:tag" content="Graph-Theory">
+    <meta property="article:tag" content="Linear-Algebra">
+    <meta property="article:tag" content="Video">
+    <meta property="article:tag" content="Spectral-Graph-Theory">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.9eacf2c6b25ba662c63b1b68f4401005ade13e5da0239d3ec760d724936ac414.css" media="all">
+
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxxxxxxx"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-xxxxxxxxx');
+        }
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">
+        <a href="https://george.chemmala.com/">George Chemmala</a>
+    </h1>
+
+    <div class="header-menu">
+        
+
+        
+        
+
+        <p
+            class="small ">
+            <a href="/projects" >
+                /projects
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/stuff" >
+                /stuff
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/about" >
+                /about
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+
+
+<div class="breadcrumbs"><a href="/">~</a><span class="breadcrumbs-separator">/</span><a href="/projects/">Projects</a><span class="breadcrumbs-separator">/</span>
+        <a href="/projects/spectral_graph_theory/">Visualizing Spectral Graph Theory</a></div>
+
+
+<div >
+  <article>
+    <header class="single-intro-container">
+        
+        <h1 class="single-title">Visualizing Spectral Graph Theory</h1>
+        <p class="single-summary">A Manim project explaining spectral graph theory</p>
+        
+        <div class="single-subsummary">
+          
+          <div>
+            
+            <p class="single-date">
+              <time datetime="2024-10-21T00:00:00&#43;00:00">October 21, 2024</time>
+            </p>
+          </div>
+        </div>
+        
+    </header>
+    
+    <div class="single-content">
+      <p>As part of the graduate course <a href="https://cs.brown.edu/people/ycheng79/csci2952qf24.html"><strong>CSCI 2952Q: Robust Algorithms for Machine Learning at Brown</strong></a>, we created a video presentation that dives into some of the key ideas from Daniel A. Spielman’s <a href="http://cs-www.cs.yale.edu/homes/spielman/sagt/sagt.pdf"><em>Spectral and Algebraic Graph Theory</em></a>. The project focused on making abstract mathematical concepts more intuitive through visuals and animations with <a href="https://www.manim.community/">Manim</a>.</p>
+<p>Even though graph theory is already pretty visual by nature, linear algebra turns out to be unusually effective at talking about it—especially when we start looking at <strong>eigenvalues</strong> and <strong>eigenvectors</strong>, the <em>spectrum</em> of a graph. Spectral graph theory turns out to reveal deep insights about how graphs behave using these linear algebra tools.</p>
+<p>The presentation starts with some of the basic tools we need to talk about spectra: the <strong>Rayleigh quotient</strong>, and one of the most beautiful results in linear algebra, the <strong>spectral theorem</strong>. From there, we move into the world of <strong>graph Laplacians</strong>, which give us a new way to study graphs using their eigenvalues. For example, we show how you can tell whether a graph is connected just by looking at its smallest nonzero eigenvalue.</p>
+<p>After that, we explore some higher-level ideas like the <strong>isoperimetric ratio</strong> and <strong>conductance</strong>, which are key to problems in <strong>graph partitioning</strong>—an area where spectral methods really shine. We wrap things up with a short look at how spectral graph theory developed and some of the ways it’s used today, from machine learning to network analysis.</p>
+<p><a href="https://youtu.be/DQVuFo6CSmE">CSCI2952Q: Spectral and Algebraic Graph Theory</a></p>
+<iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/DQVuFo6CSmE?si=XMAnLBucuSkY8-kn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p>The full source code of the animations is available on <a href="https://github.com/AzureCoral/spectral-graph-theory">GitHub</a>. While a few of the more experimental 3D animations didn’t make it into the final cut, the code is there if you’re curious to explore more.</p>
+<p><a href="https://github.com/AzureCoral/spectral-graph-theory">
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div class="img-container" >
+        <img loading="lazy" alt="GitHub" src="https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&amp;logoColor=white" >
+    </div>
+
+    
+</figure>
+</a></p>
+
+    </div>
+  </article>
+
+  
+
+  
+
+  
+  
+
+<div class="single-pagination">
+    <hr />
+
+    <div class="flexnowrap">
+
+        <div class="single-pagination-prev">
+            
+            <div class="single-pagination-container-prev">
+                <div class="single-pagination-text">←</div>
+                <div class="single-pagination-text">
+                    <a href="/projects/spiderverse-style-transfer/">
+                        Across the Spider-Verse Style Transfer
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="single-pagination-next">
+            
+            <div class="single-pagination-container-next">
+                <div class="single-pagination-text">
+                    <a href="/projects/robust-estimation-for-the-erdos-renyi-model/">
+                        Robust Estimation for the Erdős-Rényi Model
+                    </a>
+                </div>
+                <div class="single-pagination-text">→</div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <hr />
+</div>
+
+
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </main>
+  </div>
+
+  
+  
+
+
+
+
+
+    
+
+
+
+
+  <footer>
+    
+
+    
+    
+
+
+
+
+
+    
+
+
+
+
+    
+    <p>Powered by
+        <a href="https://gohugo.io/">Hugo</a>
+        and
+        <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+    </p>
+    
+    
+    
+
+
+  </footer>
+
+  
+  <link rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+  
+<script defer 
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+  
+</body>
+
+<script src="/js/theme-switch.js"></script>
+<script defer src="/js/copy-code.js"></script>
+</html>

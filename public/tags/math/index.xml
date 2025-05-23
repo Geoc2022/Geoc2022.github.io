@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Math on George Chemmala</title>
+    <link>https://george.chemmala.com/tags/math/</link>
+    <description>Recent content in Math on George Chemmala</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://george.chemmala.com/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Warping a Image into a Mobius Loop</title>
+      <link>https://george.chemmala.com/stuff/mobius_band/</link>
+      <pubDate>Mon, 30 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/mobius_band/</guid>
+      <description>A simple python script to warp an image into a Mobius loop</description>
+    </item>
+    <item>
+      <title>Visualizing Spectral Graph Theory</title>
+      <link>https://george.chemmala.com/projects/spectral_graph_theory/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/spectral_graph_theory/</guid>
+      <description>A Manim project explaining spectral graph theory</description>
+    </item>
+    <item>
+      <title>Desmos Fourier Transform Visualization </title>
+      <link>https://george.chemmala.com/stuff/fourier_transform/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/fourier_transform/</guid>
+      <description>3b1b&amp;rsquo;s Fourier Transform visualization on Desmos</description>
+    </item>
+    <item>
+      <title>Umbral Calculus</title>
+      <link>https://george.chemmala.com/stuff/umbral/</link>
+      <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/umbral/</guid>
+      <description>How to use umbral calculus to find a closed form for a sequence</description>
+    </item>
+    <item>
+      <title>Change of Axis</title>
+      <link>https://george.chemmala.com/stuff/change_of_axis/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/change_of_axis/</guid>
+      <description>What if you could bend the x axis?</description>
+    </item>
+  </channel>
+</rss>
