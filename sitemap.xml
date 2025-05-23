@@ -2,10 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://george.chemmala.com/tags/data/</loc>
-    <lastmod>2025-05-22T00:00:00+00:00</lastmod>
+    <loc>https://george.chemmala.com/dice/</loc>
+    <lastmod>2025-05-23T13:03:32-04:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/</loc>
+    <lastmod>2025-05-23T13:03:32-04:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/</loc>
+    <lastmod>2025-05-23T13:03:32-04:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/utils/</loc>
+    <lastmod>2025-05-23T13:03:32-04:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/data/</loc>
     <lastmod>2025-05-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/stuff/nyt_connections_solver/</loc>
@@ -15,9 +24,6 @@
     <lastmod>2025-05-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/stuff/</loc>
-    <lastmod>2025-05-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://george.chemmala.com/tags/</loc>
     <lastmod>2025-05-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/tags/word-vector/</loc>
@@ -113,7 +119,7 @@
     <loc>https://george.chemmala.com/book_list/</loc>
     <lastmod>2022-05-19T11:20:05-04:00</lastmod>
   </url><url>
-    <loc>https://george.chemmala.com/tags/secret-pages/</loc>
+    <loc>https://george.chemmala.com/tags/books/</loc>
     <lastmod>2022-05-19T11:20:05-04:00</lastmod>
   </url><url>
     <loc>https://george.chemmala.com/tags/desmos/</loc>
@@ -127,5 +133,15 @@
   </url><url>
     <loc>https://george.chemmala.com/stuff/change_of_axis/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/secret-pages/</loc>
+  </url><url>
+    <loc>https://george.chemmala.com/tags/yo/</loc>
+  </url><url>
+    <loc>https://george.chemmala.com/blank_page/</loc>
+    <lastmod>0000-01-01T12:01:00-04:00</lastmod>
+  </url><url>
+    <loc>https://george.chemmala.com/yo/</loc>
+    <lastmod>0000-01-01T12:00:00-04:00</lastmod>
   </url>
 </urlset>

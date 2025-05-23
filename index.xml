@@ -6,8 +6,15 @@
     <description>Recent content in Home on George Chemmala</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 May 2025 13:03:32 -0400</lastBuildDate>
     <atom:link href="https://george.chemmala.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dice</title>
+      <link>https://george.chemmala.com/dice/</link>
+      <pubDate>Fri, 23 May 2025 13:03:32 -0400</pubDate>
+      <guid>https://george.chemmala.com/dice/</guid>
+      <description>A random number generator</description>
+    </item>
     <item>
       <title>NYT Connections Solver</title>
       <link>https://george.chemmala.com/stuff/nyt_connections_solver/</link>
@@ -72,11 +79,11 @@
       <description>A banger xkcd idea</description>
     </item>
     <item>
-      <title>Book_list</title>
+      <title>Book List</title>
       <link>https://george.chemmala.com/book_list/</link>
       <pubDate>Thu, 19 May 2022 11:20:05 -0400</pubDate>
       <guid>https://george.chemmala.com/book_list/</guid>
-      <description>&lt;p&gt;Here are some nonfiction books that I&amp;rsquo;ve read and kept track of. They are roughly in the order of when I read them. The ones with stars (*) beside them are some of my favorites on the list.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Sync *&lt;/li&gt;&#xA;&lt;li&gt;Joy of X&lt;/li&gt;&#xA;&lt;li&gt;The Truffle Underground&lt;/li&gt;&#xA;&lt;li&gt;An Astronaut&amp;rsquo;s Guide to Life on Earth *&lt;/li&gt;&#xA;&lt;li&gt;American Wolf *&lt;/li&gt;&#xA;&lt;li&gt;Guns Germs and Steel *&lt;/li&gt;&#xA;&lt;li&gt;SPQR *&lt;/li&gt;&#xA;&lt;li&gt;The Trojan War: A New History *&lt;/li&gt;&#xA;&lt;li&gt;A Short History of Nearly Everything&lt;/li&gt;&#xA;&lt;li&gt;Surely You&amp;rsquo;re Joking, Mr. Feynman! *&lt;/li&gt;&#xA;&lt;li&gt;The Everyday Life of Rome&lt;/li&gt;&#xA;&lt;li&gt;Leonardo Da Vinci  *&lt;/li&gt;&#xA;&lt;li&gt;Thinking Fast and Slow&lt;/li&gt;&#xA;&lt;li&gt;Infinite Powers *&lt;/li&gt;&#xA;&lt;li&gt;What if *&lt;/li&gt;&#xA;&lt;li&gt;Learning to See Creatively&lt;/li&gt;&#xA;&lt;li&gt;Failure is Not an Option *&lt;/li&gt;&#xA;&lt;li&gt;Short History of Nearly Everything&lt;/li&gt;&#xA;&lt;li&gt;Thing Explainer&lt;/li&gt;&#xA;&lt;li&gt;How to&lt;/li&gt;&#xA;&lt;li&gt;Classic Brainteasers (Gardner, Martin)&lt;/li&gt;&#xA;&lt;li&gt;Fermat&amp;rsquo;s Enigma *&lt;/li&gt;&#xA;&lt;li&gt;The Rise of the Pun *&lt;/li&gt;&#xA;&lt;li&gt;Death of Caesar&lt;/li&gt;&#xA;&lt;li&gt;The Cuckoo&amp;rsquo;s Egg *&lt;/li&gt;&#xA;&lt;li&gt;A Brief History of Time *&lt;/li&gt;&#xA;&lt;li&gt;The Mathematical Tourist&lt;/li&gt;&#xA;&lt;li&gt;Beyond Numeracy&lt;/li&gt;&#xA;&lt;li&gt;Mind and Matter *&lt;/li&gt;&#xA;&lt;li&gt;It&amp;rsquo;s a Numberful World&lt;/li&gt;&#xA;&lt;li&gt;On Writing Well *&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <description>Some nonfiction books that I&amp;rsquo;ve read</description>
     </item>
     <item>
       <title>Desmos Fourier Transform Visualization </title>
@@ -98,6 +105,20 @@
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
       <guid>https://george.chemmala.com/stuff/change_of_axis/</guid>
       <description>What if you could bend the x axis?</description>
+    </item>
+    <item>
+      <title>·</title>
+      <link>https://george.chemmala.com/blank_page/</link>
+      <pubDate>Sat, 01 Jan 0000 12:01:00 -0400</pubDate>
+      <guid>https://george.chemmala.com/blank_page/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Yo</title>
+      <link>https://george.chemmala.com/yo/</link>
+      <pubDate>Sat, 01 Jan 0000 12:00:00 -0400</pubDate>
+      <guid>https://george.chemmala.com/yo/</guid>
+      <description>&lt;br&gt;&#xA;&lt;div align=&#34;center&#34;&gt;&#xA;&lt;canvas id=&#34;yoBox&#34; width=&#34;300&#34; height=&#34;300&#34; style=&#34;border:1px solid #ccc;&#34;&gt;&lt;/canvas&gt;&#xA;&lt;/div&gt;&#xA;&lt;script&gt;&#xA;const canvas = document.getElementById(&#39;yoBox&#39;);&#xA;const ctx = canvas.getContext(&#39;2d&#39;);&#xA;&#xA;let x = 50, y = 50;&#xA;let dx = 1.6180339887, dy = 2;&#xA;const yoWidth = 30, yoHeight = 30;&#xA;&#xA;//   --red: #FC5D7C;&#xA;//   --orange: #F39660;&#xA;//   --yellow: #E7C664;&#xA;//   --green: #9ED072;&#xA;//   --blue: #76CCE0;&#xA;//   --purple: #B39DF3;&#xA;let colors = [&#xA;    &#39;#FC5D7C&#39;,&#xA;    &#39;#F39660&#39;,&#xA;    &#39;#E7C664&#39;,&#xA;    &#39;#9ED072&#39;,&#xA;    &#39;#76CCE0&#39;,&#xA;    &#39;#B39DF3&#39;&#xA;];&#xA;&#xA;yoColor = colors[4];&#xA;ctx.fillStyle = yoColor;&#xA;ctx.font = &#34;30px sans-serif&#34;;&#xA;&#xA;function getAccentColor() {&#xA;    const rootStyles = getComputedStyle(document.documentElement);&#xA;    return rootStyles.getPropertyValue(&#39;--blue&#39;) || &#39;#0078d4&#39;; // fallback color&#xA;}&#xA;&#xA;function drawYo() {&#xA;    ctx.clearRect(0, 0, canvas.width, canvas.height);&#xA;    ctx.fillStyle = yoColor;&#xA;    ctx.fillText(&#34;yo&#34;, x, y + yoHeight);&#xA;}&#xA;&#xA;function update() {&#xA;    x += dx;&#xA;    y += dy;&#xA;&#xA;    if (x &lt; 0 || x + yoWidth &gt; canvas.width) {&#xA;        dx = -dx;&#xA;        yoColor = colors[Math.floor(Math.random() * colors.length)];&#xA;    }&#xA;    if (y &lt; 0 || y + yoHeight &gt; canvas.height) {&#xA;        dy = -dy;&#xA;        yoColor = colors[Math.floor(Math.random() * colors.length)];&#xA;    }&#xA;    &#xA;    drawYo();&#xA;    requestAnimationFrame(update);&#xA;}&#xA;&#xA;drawYo();&#xA;update();&#xA;&lt;/script&gt;</description>
     </item>
   </channel>
 </rss>

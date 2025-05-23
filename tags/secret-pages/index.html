@@ -42,7 +42,7 @@
 <meta property="og:url" content="https://george.chemmala.com/tags/secret-pages/">
   <meta property="og:site_name" content="George Chemmala">
   <meta property="og:title" content="Secret-Pages">
-  <meta property="og:description" content="njan&#39;s personal website">
+  <meta property="og:description" content="george chemmala personal website">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
@@ -182,50 +182,78 @@
     
     
 
-    <p class="line-date">19 May 2022 </p>
+    <p class="line-date">1 Jan 0000 </p>
 
     <div>
         <p class="line-title">
-            <a href="/book_list/">
-                Book_list
+            <a href="/yo/">
+                Yo
             </a>
         </p>
 
         
-        <p class="line-summary"> <p>Here are some nonfiction books that I&rsquo;ve read and kept track of. They are roughly in the order of when I read them. The ones with stars (*) beside them are some of my favorites on the list.</p>
-<ul>
-<li>Sync *</li>
-<li>Joy of X</li>
-<li>The Truffle Underground</li>
-<li>An Astronaut&rsquo;s Guide to Life on Earth *</li>
-<li>American Wolf *</li>
-<li>Guns Germs and Steel *</li>
-<li>SPQR *</li>
-<li>The Trojan War: A New History *</li>
-<li>A Short History of Nearly Everything</li>
-<li>Surely You&rsquo;re Joking, Mr. Feynman! *</li>
-<li>The Everyday Life of Rome</li>
-<li>Leonardo Da Vinci  *</li>
-<li>Thinking Fast and Slow</li>
-<li>Infinite Powers *</li>
-<li>What if *</li>
-<li>Learning to See Creatively</li>
-<li>Failure is Not an Option *</li>
-<li>Short History of Nearly Everything</li>
-<li>Thing Explainer</li>
-<li>How to</li>
-<li>Classic Brainteasers (Gardner, Martin)</li>
-<li>Fermat&rsquo;s Enigma *</li>
-<li>The Rise of the Pun *</li>
-<li>Death of Caesar</li>
-<li>The Cuckoo&rsquo;s Egg *</li>
-<li>A Brief History of Time *</li>
-<li>The Mathematical Tourist</li>
-<li>Beyond Numeracy</li>
-<li>Mind and Matter *</li>
-<li>It&rsquo;s a Numberful World</li>
-<li>On Writing Well *</li>
-</ul> </p>
+        <p class="line-summary"> <br>
+<div align="center">
+<canvas id="yoBox" width="300" height="300" style="border:1px solid #ccc;"></canvas>
+</div>
+<script>
+const canvas = document.getElementById('yoBox');
+const ctx = canvas.getContext('2d');
+
+let x = 50, y = 50;
+let dx = 1.6180339887, dy = 2;
+const yoWidth = 30, yoHeight = 30;
+
+//   --red: #FC5D7C;
+//   --orange: #F39660;
+//   --yellow: #E7C664;
+//   --green: #9ED072;
+//   --blue: #76CCE0;
+//   --purple: #B39DF3;
+let colors = [
+    '#FC5D7C',
+    '#F39660',
+    '#E7C664',
+    '#9ED072',
+    '#76CCE0',
+    '#B39DF3'
+];
+
+yoColor = colors[4];
+ctx.fillStyle = yoColor;
+ctx.font = "30px sans-serif";
+
+function getAccentColor() {
+    const rootStyles = getComputedStyle(document.documentElement);
+    return rootStyles.getPropertyValue('--blue') || '#0078d4'; // fallback color
+}
+
+function drawYo() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = yoColor;
+    ctx.fillText("yo", x, y + yoHeight);
+}
+
+function update() {
+    x += dx;
+    y += dy;
+
+    if (x < 0 || x + yoWidth > canvas.width) {
+        dx = -dx;
+        yoColor = colors[Math.floor(Math.random() * colors.length)];
+    }
+    if (y < 0 || y + yoHeight > canvas.height) {
+        dy = -dy;
+        yoColor = colors[Math.floor(Math.random() * colors.length)];
+    }
+    
+    drawYo();
+    requestAnimationFrame(update);
+}
+
+drawYo();
+update();
+</script> </p>
         
     </div>
 </div>
