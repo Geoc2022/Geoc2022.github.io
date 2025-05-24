@@ -99,7 +99,7 @@ url = "/about"
 # Syntax highlight on code blocks
 [markup]
 [markup.highlight]
-style = 'monokai'
+style = 'algol'
 
 # Giscus comments
 [params.giscus]
