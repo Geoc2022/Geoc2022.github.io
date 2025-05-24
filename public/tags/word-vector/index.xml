@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Word-Vector on George Chemmala</title>
+    <link>https://george.chemmala.com/tags/word-vector/</link>
+    <description>Recent content in Word-Vector on George Chemmala</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://george.chemmala.com/tags/word-vector/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NYT Connections Solver</title>
+      <link>https://george.chemmala.com/stuff/nyt_connections_solver/</link>
+      <pubDate>Thu, 22 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/nyt_connections_solver/</guid>
+      <description>Solving the NYT Connections using graph partitioning and word vectors</description>
+    </item>
+  </channel>
+</rss>

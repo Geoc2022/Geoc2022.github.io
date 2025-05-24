@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on George Chemmala</title>
+    <link>https://george.chemmala.com/tags/python/</link>
+    <description>Recent content in Python on George Chemmala</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://george.chemmala.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Warping a Image into a Mobius Loop</title>
+      <link>https://george.chemmala.com/stuff/mobius_band/</link>
+      <pubDate>Mon, 30 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/mobius_band/</guid>
+      <description>A simple python script to warp an image into a Mobius loop</description>
+    </item>
+    <item>
+      <title>Umbral Calculus</title>
+      <link>https://george.chemmala.com/stuff/umbral/</link>
+      <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/umbral/</guid>
+      <description>How to use umbral calculus to find a closed form for a sequence</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on George Chemmala</title>
+    <link>https://george.chemmala.com/</link>
+    <description>Recent content in Home on George Chemmala</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 23 May 2025 13:03:32 -0400</lastBuildDate>
+    <atom:link href="https://george.chemmala.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dice</title>
+      <link>https://george.chemmala.com/dice/</link>
+      <pubDate>Fri, 23 May 2025 13:03:32 -0400</pubDate>
+      <guid>https://george.chemmala.com/dice/</guid>
+      <description>A random number generator</description>
+    </item>
+    <item>
+      <title>NYT Connections Solver</title>
+      <link>https://george.chemmala.com/stuff/nyt_connections_solver/</link>
+      <pubDate>Thu, 22 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/nyt_connections_solver/</guid>
+      <description>Solving the NYT Connections using graph partitioning and word vectors</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>https://george.chemmala.com/about/</link>
+      <pubDate>Mon, 19 May 2025 01:22:38 -0400</pubDate>
+      <guid>https://george.chemmala.com/about/</guid>
+      <description>&lt;p&gt;I’m a junior at Brown University studying Computer Science and Mathematics, with current interests in cryptography, deep learning, and formal proof verification.&lt;/p&gt;&#xA;&lt;p&gt;(Un)related, I&amp;rsquo;m also a big fan of board games, photography, and music.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s my full &lt;a href=&#34;https://george.chemmala.com/main.pdf&#34;&gt;resume&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;!-- &#xA;### **Education**&#xA;&#xA;**Brown University** — Providence, RI&#xA;**Sc.B. in Computer Science &amp; Sc.B. in Mathematics** (Major GPA: 4.0)&#xA;Expected: May 2026&#xA;&#xA;Relevant Coursework: Data Structures &amp; Algorithms, Deep Learning, Machine Learning, Robust Algorithms for ML, Formal Proof and Verification, Applied Cryptography, Computer Systems, Abstract Algebra, Number Theory, Monte Carlo Simulation&#xA;&#xA;---&#xA;&#xA;### **Projects &amp; Research**&#xA;&#xA;**Vote: Cryptographic Voting Protocol Implementation** — *C++, CryptoPP*&#xA;Spring 2025&#xA;&#xA;* Built a secure, end-to-end verifiable voting system using homomorphic encryption and threshold decryption&#xA;* Integrated zero-knowledge proofs and blinding to protect voter anonymity and ensure ballot integrity&#xA;* Extended the protocol to support multiple candidates and restricted voting per user&#xA;&#xA;**WeensyOS: Virtual Memory Kernel Implementation** — *C, C++, x86 Assembly*&#xA;Spring 2025&#xA;&#xA;* Engineered kernel code for managing user/kernel virtual memory and enforcing permissions&#xA;* Enhanced memory utilization with dynamic, non-contiguous page allocation&#xA;* Optimized fork and exit system calls for efficient process handling&#xA;* Implemented overlapping virtual address spaces for process isolation&#xA;&#xA;**[Robust Estimation for the Erdős–Rényi Model](https://github.com/Geoc2022/2952Q_FinalProject)** — *Python, Matplotlib, NumPy, NetworkX*&#xA;Fall 2024&#xA;&#xA;* Developed robust algorithms to estimate edge probability $p$ in adversarial Erdős–Rényi graphs&#xA;* Proved runtime and accuracy guarantees, surpassing baseline methods&#xA;* Evaluated performance on synthetic datasets with 10k+ nodes&#xA;* Followed best practices: modular code, visualizations, and reproducibility&#xA;&#xA;**[Spiderverse Style Transfer &amp; Transfer Learning](https://github.com/AzureCoral/Spider-Verse-Style-Transfer)** — *Python, TensorFlow, CUDA*&#xA;Spring 2024&#xA;&#xA;* Designed a multi-style transfer pipeline using VGG16 to replicate visual styles from Spiderverse media&#xA;* Introduced novel transfer learning techniques for improved texture recognition&#xA;* Used CUDA for GPU acceleration, achieving 10x speedup in model training and inference&#xA;&#xA;---&#xA;&#xA;### **Experience**&#xA;&#xA;**President** — *Math Circle*&#xA;2023–Present&#xA;&#xA;* Launched a student-led outreach program teaching recreational math to local high school students&#xA;* Led program logistics, lesson planning, and administrative oversight&#xA;&#xA;**Teaching Assistant** — *Brown Department of Mathematics &amp; Applied Mathematics*&#xA;2024–2025&#xA;&#xA;* Assisted in courses: Statistical Inference I, Abstract Algebra, Applied ODEs&#xA;* Led problem-solving sessions, hosted office hours, and graded coursework for classes up to 350 students&#xA;&#xA;**Research Assistant** — *Brown University Directed Reading Program*&#xA;2024&#xA;&#xA;* Studied Classical Algebraic Geometry with a focus on algorithmic foundations&#xA;* Investigated Gröbner bases, polynomial systems, and computational algebraic methods&#xA;&#xA;**Computer Technician &amp; Teaching Assistant** — *Georgia Governor’s Honors Program (GHP)*&#xA;2023&#xA;&#xA;* Supported student research in computational mathematics&#xA;* Maintained classroom computing systems for deep learning applications&#xA;* Helped debug Python code and optimize machine learning workflows&#xA;&#xA;---&#xA;&#xA;### **Skills &amp; Interests**&#xA;&#xA;**Languages:** Python, C, C++, Java, Lean, Haskell, Julia, LaTeX, Mathematica, MATLAB&#xA;&#xA;**Tools &amp; Software:** VS Code, Vim, PyCharm, IntelliJ, Google Colab, Jupyter, Git, Unix/Linux, Docker, Figma&#xA;&#xA;**Libraries:** pandas, NumPy, scikit-learn, sympy, scipy, Matplotlib, NetworkX, TensorFlow, PyTorch, TorchVision, OpenCV, Sage&#xA;&#xA;**Interests:** Education, Music, Board/Card Games, Photography, [Manim](https://youtu.be/DQVuFo6CSmE?t=1189) --&gt;</description>
+    </item>
+    <item>
+      <title>Cryptographic Voting with Multiple Candidates</title>
+      <link>https://george.chemmala.com/projects/vote/</link>
+      <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/vote/</guid>
+      <description>Extension of the Helios Voting Protocol to support multiple candidates</description>
+    </item>
+    <item>
+      <title>Unboxing the Black Box</title>
+      <link>https://george.chemmala.com/projects/unboxing-the-blackbox/</link>
+      <pubDate>Fri, 09 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/unboxing-the-blackbox/</guid>
+      <description>Human-Inspired CNNs for Explainability and Efficiency</description>
+    </item>
+    <item>
+      <title>Warping a Image into a Mobius Loop</title>
+      <link>https://george.chemmala.com/stuff/mobius_band/</link>
+      <pubDate>Mon, 30 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/mobius_band/</guid>
+      <description>A simple python script to warp an image into a Mobius loop</description>
+    </item>
+    <item>
+      <title>Robust Estimation for the Erdős-Rényi Model</title>
+      <link>https://george.chemmala.com/projects/robust-estimation-for-the-erdos-renyi-model/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/robust-estimation-for-the-erdos-renyi-model/</guid>
+      <description>Final project for CSCI 2952Q: Robust Algorithms in Machine Learning</description>
+    </item>
+    <item>
+      <title>Visualizing Spectral Graph Theory</title>
+      <link>https://george.chemmala.com/projects/spectral_graph_theory/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/spectral_graph_theory/</guid>
+      <description>A Manim project explaining spectral graph theory</description>
+    </item>
+    <item>
+      <title>Across the Spider-Verse Style Transfer</title>
+      <link>https://george.chemmala.com/projects/spiderverse-style-transfer/</link>
+      <pubDate>Fri, 19 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/projects/spiderverse-style-transfer/</guid>
+      <description>A style transfer project using CNNs to recreate the visual style of &lt;em&gt;Across the Spider-Verse&lt;/em&gt;</description>
+    </item>
+    <item>
+      <title>Banger xkcd</title>
+      <link>https://george.chemmala.com/stuff/banger_xkcd/</link>
+      <pubDate>Mon, 21 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/banger_xkcd/</guid>
+      <description>A banger xkcd idea</description>
+    </item>
+    <item>
+      <title>Book List</title>
+      <link>https://george.chemmala.com/book_list/</link>
+      <pubDate>Thu, 19 May 2022 11:20:05 -0400</pubDate>
+      <guid>https://george.chemmala.com/book_list/</guid>
+      <description>Some nonfiction books that I&amp;rsquo;ve read</description>
+    </item>
+    <item>
+      <title>Desmos Fourier Transform Visualization </title>
+      <link>https://george.chemmala.com/stuff/fourier_transform/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/fourier_transform/</guid>
+      <description>3b1b&amp;rsquo;s Fourier Transform visualization on Desmos</description>
+    </item>
+    <item>
+      <title>Umbral Calculus</title>
+      <link>https://george.chemmala.com/stuff/umbral/</link>
+      <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/umbral/</guid>
+      <description>How to use umbral calculus to find a closed form for a sequence</description>
+    </item>
+    <item>
+      <title>Change of Axis</title>
+      <link>https://george.chemmala.com/stuff/change_of_axis/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://george.chemmala.com/stuff/change_of_axis/</guid>
+      <description>What if you could bend the x axis?</description>
+    </item>
+    <item>
+      <title>·</title>
+      <link>https://george.chemmala.com/blank_page/</link>
+      <pubDate>Sat, 01 Jan 0000 12:01:00 -0400</pubDate>
+      <guid>https://george.chemmala.com/blank_page/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Yo</title>
+      <link>https://george.chemmala.com/yo/</link>
+      <pubDate>Sat, 01 Jan 0000 12:00:00 -0400</pubDate>
+      <guid>https://george.chemmala.com/yo/</guid>
+      <description>&lt;br&gt;&#xA;&lt;div align=&#34;center&#34;&gt;&#xA;&lt;canvas id=&#34;yoBox&#34; width=&#34;300&#34; height=&#34;300&#34; style=&#34;border:1px solid #ccc;&#34;&gt;&lt;/canvas&gt;&#xA;&lt;/div&gt;&#xA;&lt;script&gt;&#xA;const canvas = document.getElementById(&#39;yoBox&#39;);&#xA;const ctx = canvas.getContext(&#39;2d&#39;);&#xA;&#xA;let x = 50, y = 50;&#xA;let dx = 1.6180339887, dy = 2;&#xA;const yoWidth = 30, yoHeight = 30;&#xA;&#xA;//   --red: #FC5D7C;&#xA;//   --orange: #F39660;&#xA;//   --yellow: #E7C664;&#xA;//   --green: #9ED072;&#xA;//   --blue: #76CCE0;&#xA;//   --purple: #B39DF3;&#xA;let colors = [&#xA;    &#39;#FC5D7C&#39;,&#xA;    &#39;#F39660&#39;,&#xA;    &#39;#E7C664&#39;,&#xA;    &#39;#9ED072&#39;,&#xA;    &#39;#76CCE0&#39;,&#xA;    &#39;#B39DF3&#39;&#xA;];&#xA;&#xA;yoColor = colors[4];&#xA;ctx.fillStyle = yoColor;&#xA;ctx.font = &#34;30px sans-serif&#34;;&#xA;&#xA;function getAccentColor() {&#xA;    const rootStyles = getComputedStyle(document.documentElement);&#xA;    return rootStyles.getPropertyValue(&#39;--blue&#39;) || &#39;#0078d4&#39;; // fallback color&#xA;}&#xA;&#xA;function drawYo() {&#xA;    ctx.clearRect(0, 0, canvas.width, canvas.height);&#xA;    ctx.fillStyle = yoColor;&#xA;    ctx.fillText(&#34;yo&#34;, x, y + yoHeight);&#xA;}&#xA;&#xA;function update() {&#xA;    x += dx;&#xA;    y += dy;&#xA;&#xA;    if (x &lt; 0 || x + yoWidth &gt; canvas.width) {&#xA;        dx = -dx;&#xA;        yoColor = colors[Math.floor(Math.random() * colors.length)];&#xA;    }&#xA;    if (y &lt; 0 || y + yoHeight &gt; canvas.height) {&#xA;        dy = -dy;&#xA;        yoColor = colors[Math.floor(Math.random() * colors.length)];&#xA;    }&#xA;    &#xA;    drawYo();&#xA;    requestAnimationFrame(update);&#xA;}&#xA;&#xA;drawYo();&#xA;update();&#xA;&lt;/script&gt;</description>
+    </item>
+  </channel>
+</rss>

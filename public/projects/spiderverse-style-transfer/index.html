@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+<link rel="icon" type="image/ico" href="https://george.chemmala.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://george.chemmala.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://george.chemmala.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://george.chemmala.com/android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://george.chemmala.com/apple-touch-icon.png">
+
+<meta name="description" content="A style transfer project using CNNs to recreate the visual style of *Across the Spider-Verse*"/>
+
+
+<meta name="fediverse:creator" content="@geoc@mathstodon.xyz">
+
+
+<title>
+    
+    Across the Spider-Verse Style Transfer | George Chemmala
+    
+</title>
+
+<link rel="canonical" href="https://george.chemmala.com/projects/spiderverse-style-transfer/"/>
+
+<meta property="og:url" content="https://george.chemmala.com/projects/spiderverse-style-transfer/">
+  <meta property="og:site_name" content="George Chemmala">
+  <meta property="og:title" content="Across the Spider-Verse Style Transfer">
+  <meta property="og:description" content="A style transfer project using CNNs to recreate the visual style of *Across the Spider-Verse*">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2023-05-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-05-19T00:00:00+00:00">
+    <meta property="article:tag" content="Deep-Learning">
+    <meta property="article:tag" content="Style-Transfer">
+    <meta property="article:tag" content="Cnn">
+    <meta property="article:tag" content="Computer-Vision">
+    <meta property="article:tag" content="Spiderverse">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.9eacf2c6b25ba662c63b1b68f4401005ade13e5da0239d3ec760d724936ac414.css" media="all">
+
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxxxxxxx"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-xxxxxxxxx');
+        }
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">
+        <a href="https://george.chemmala.com/">George Chemmala</a>
+    </h1>
+
+    <div class="header-menu">
+        
+
+        
+        
+
+        <p
+            class="small ">
+            <a href="/projects" >
+                /projects
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/stuff" >
+                /stuff
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/about" >
+                /about
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+
+
+<div class="breadcrumbs"><a href="/">~</a><span class="breadcrumbs-separator">/</span><a href="/projects/">Projects</a><span class="breadcrumbs-separator">/</span>
+        <a href="/projects/spiderverse-style-transfer/">Across the Spider-Verse Style Transfer</a></div>
+
+
+<div >
+  <article>
+    <header class="single-intro-container">
+        
+        <h1 class="single-title">Across the Spider-Verse Style Transfer</h1>
+        <p class="single-summary">A style transfer project using CNNs to recreate the visual style of <em>Across the Spider-Verse</em></p>
+        
+        <div class="single-subsummary">
+          
+          <div>
+            
+            <p class="single-date">
+              <time datetime="2023-05-19T00:00:00&#43;00:00">May 19, 2023</time>
+            </p>
+          </div>
+        </div>
+        
+    </header>
+    
+    <div class="single-content">
+      <p>
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div class="img-container" style="--w: 3096; --h: 2322;">
+        <img loading="lazy" alt="poster" src="/projects/poster.png" width="3096" height="2322">
+    </div>
+
+    
+</figure>
+</p>
+<p>For our Deep Learning project, we recreated the universe styles of <em>Spider-Man: Across the Spider-Verse</em> using neural style transfer. Building on foundational work by <a href="https://arxiv.org/abs/1508.06576">Gatys et al.</a> and <a href="https://arxiv.org/abs/1610.07629">Dumoulin et al.</a>, we aimed to improve the style transfer pipeline by fine-tuning a CNN on frames taken directly from the movie. This helped us tailor the model’s internal representations to the kinds of textures, patterns, and colors that define the film’s look. We esseintally combined transfer learning with style transfer, which had not been  done in the literature before.</p>
+<h3 class="heading" id="from-transfer-learning-to-style-transfer">
+  From Transfer Learning to Style Transfer
+  <a class="anchor" href="#from-transfer-learning-to-style-transfer">#</a>
+</h3>
+<p>We began by adapting the VGG network through transfer learning. To do this, we trained a classifier that could distinguish between five different universes featured in the movie, using curated frames as our dataset. The goal wasn’t classification accuracy—rather, we wanted to tune the network’s convolutional layers so they’d better reflect the visual features of the Spider-Verse.</p>
+<p>Once trained, we used this CNN as a backbone for the style transfer model. We created a <code>StyleContentModel</code> class that extracts features from selected layers—style layers sampled across the network, and a content layer from deeper in the architecture. For the style features, we computed Gram matrices to capture texture information, while content loss was based on mean squared differences between higher-level features.</p>
+<p>These components were then used in a second class, <code>StyleTransfer</code>, which applies gradient descent directly to a copy of the content image. Over multiple iterations, the image is adjusted to match the style and content targets simultaneously.</p>
+<h3 class="heading" id="results">
+  Results
+  <a class="anchor" href="#results">#</a>
+</h3>
+<p><a href="https://youtu.be/XiqN3pOIVIw">
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div class="img-container" style="--w: 343; --h: 512;">
+        <img loading="lazy" alt="" src="/projects/training_1715365977.gif" width="343" height="512">
+    </div>
+
+    
+</figure>
+</a></p>
+<p><a href="https://github.com/AzureCoral/Spider-Verse-Style-Transfer">
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div class="img-container" >
+        <img loading="lazy" alt="GitHub" src="https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&amp;logoColor=white" >
+    </div>
+
+    
+</figure>
+</a></p>
+
+    </div>
+  </article>
+
+  
+
+  
+
+  
+  
+
+<div class="single-pagination">
+    <hr />
+
+    <div class="flexnowrap">
+
+        <div class="single-pagination-prev">
+            
+        </div>
+
+        <div class="single-pagination-next">
+            
+            <div class="single-pagination-container-next">
+                <div class="single-pagination-text">
+                    <a href="/projects/spectral_graph_theory/">
+                        Visualizing Spectral Graph Theory
+                    </a>
+                </div>
+                <div class="single-pagination-text">→</div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <hr />
+</div>
+
+
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </main>
+  </div>
+
+  
+  
+
+
+
+
+
+    
+
+
+
+
+  <footer>
+    
+
+    
+    
+
+
+
+
+
+    
+
+
+
+
+    
+    <p>Powered by
+        <a href="https://gohugo.io/">Hugo</a>
+        and
+        <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+    </p>
+    
+    
+    
+
+
+  </footer>
+
+  
+  <link rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+  
+<script defer 
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+  
+</body>
+
+<script src="/js/theme-switch.js"></script>
+<script defer src="/js/copy-code.js"></script>
+</html>
