@@ -23,7 +23,7 @@ homeIntroTitle = "Hi there 👋"
 homeIntroContent = '''
 I'm a junior at Brown University studying Computer Science and Mathematics, with current interests in cryptography, deep learning, and formal proof verification.
 
-Check out my projects below, but also take a look at some interesting [stuff](/stuff)
+Check out my projects below, but also take a look at some of my [other](/other) stuff
 <br>
 <a href="#" id="feeling-lucky-link" style="color: var(--bg);">I'm feeling lucky</a>
 <script>
@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
 homeCollectionTitle = 'Projects'
 homeCollection = 'projects'
 
-
 # Lists parameters
 paginationSize = 100
 listSummaries = true
@@ -89,8 +88,8 @@ name = "projects"
 url = "/projects"
 
 [[params.menu]]
-name = "stuff"
-url = "/stuff"
+name = "other"
+url = "/other"
 
 [[params.menu]]
 name = "about"
