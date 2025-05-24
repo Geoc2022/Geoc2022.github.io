@@ -18,6 +18,8 @@ fediverse = "@geoc@mathstodon.xyz"
 
 For our Deep Learning project, we recreated the universe styles of *Spider-Man: Across the Spider-Verse* using neural style transfer. Building on foundational work by [Gatys et al.](https://arxiv.org/abs/1508.06576) and [Dumoulin et al.](https://arxiv.org/abs/1610.07629), we aimed to improve the style transfer pipeline by fine-tuning a CNN on frames taken directly from the movie. This helped us tailor the model’s internal representations to the kinds of textures, patterns, and colors that define the film’s look. We esseintally combined transfer learning with style transfer, which had not been  done in the literature before.
 
+<h2> Read our <a href="./../Across_The_Spider_Verse_Style_Transfer.pdf">report</a> </h2>
+
 ### From Transfer Learning to Style Transfer
 
 We began by adapting the VGG network through transfer learning. To do this, we trained a classifier that could distinguish between five different universes featured in the movie, using curated frames as our dataset. The goal wasn’t classification accuracy—rather, we wanted to tune the network’s convolutional layers so they’d better reflect the visual features of the Spider-Verse.

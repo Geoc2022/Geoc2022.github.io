@@ -16,4 +16,8 @@ fediverse = "@geoc@mathstodon.xyz"
 
 Me and some friends had a idea for a banger xkcd comic that we sent to Randall. Unfortunately, something seems to be wrong with Randall's internet connection because he hasn't responded yet.
 
-[![Banger xkcd](xkcd.png)](./../banger_og.jpg)
+<div align="center">
+    <a href="./../banger_og.jpg">
+        <img src="./../xkcd.png" title="Great news! The cat's alive. Bad news: the virus is too" width=75%/>
+    </a>
+</div>

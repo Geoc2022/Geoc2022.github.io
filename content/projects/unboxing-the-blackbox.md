@@ -29,9 +29,17 @@ Humans don’t process entire scenes at once—we focus on the most informative 
 For example, when classifying a picture of a dog vs a cat, a human would likely focus certain areas like the ears (pointy = cat, floofy = dog), rather than the entire background. 
 
 
-![dog](dog.jpg)
-![cat](cat.jpg) 
-*Von.grzanka CC BY-SA 3.0*
+<div align="center" style="display: flex; flex-direction: column; align-items: center;">
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <div style="margin-right:30px; text-align:center;">
+      <img src="./../dog.jpg" alt="dog" width="250px"/>
+    </div>
+    <div style="text-align:center;">
+      <img src="./../cat.jpg" alt="cat" width="250px"/>
+      <span style="font-size:0.9em; color:gray;">Von.grzanka CC BY-SA 3.0</span>
+    </div>
+  </div>
+</div>
 
 
 Our goals:

@@ -18,6 +18,8 @@ This project was completed as part of the course [CSCI 2952Q: Robust Algorithms 
 
 We introduce the $(q, \epsilon)$-adversarial model, which generalizes existing frameworks by allowing varying levels of adversarial knowledge (oblivious to omniscient) and control over a fraction $\epsilon$ of corrupted vertices. Within this setting, we propose new algorithms that achieve improved performance in both runtime and robustness.
 
+<h2> Read our <a href="https://cs.brown.edu/people/ycheng79/csci2952qf24/Top_Project_2_Heon%20Lee_George%20Chemmala_Arjan%20Chakravarthy_Robust%20Estimation%20for%20the%20Erdo%CC%8Bs-Re%CC%81nyi%20Model.pdf">report</a> </h2>
+
 ## Methods
 
 ### Mean-Adjusted Median
@@ -152,8 +154,8 @@ Varience Method: Each dot represents a trial; $\varepsilon = 0.1$, $p = 0.3$, $q
 The full codebase, including implementation and experiments, is available here:
 
 * [GitHub Repository](https://github.com/Geoc2022/2952Q_FinalProject)
-* [Final Report (PDF)](https://github.com/Geoc2022/2952Q_FinalProject/report/final.pdf)
-* [Presentation Slides](https://github.com/Geoc2022/2952Q_FinalProject/presentation/CSCI2952Q_Presentation.pdf)
+* [Final Report (PDF)](https://cs.brown.edu/people/ycheng79/csci2952qf24/Top_Project_2_Heon%20Lee_George%20Chemmala_Arjan%20Chakravarthy_Robust%20Estimation%20for%20the%20Erdo%CC%8Bs-Re%CC%81nyi%20Model.pdf)
+* [Presentation Slides](https://github.com/Geoc2022/2952Q_FinalProject/blob/main/presentation/CSCI2952Q_Presentation.pdf)
 
 The repository contains:
 

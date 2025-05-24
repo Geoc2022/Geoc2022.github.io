@@ -121,4 +121,6 @@ $$
 \Delta^2 f(x) = \Delta f(x + 1) - \Delta f(x) = (-1 - 3, 1 - (-1)) = (-4, 2)
 $$ -->
 
+*WIP: This is a work in progress. I have a [github repo](https://github.com/Geoc2022/umbral.py) with a more complete version including the jackson difference fan*
+
 You can learn more about umbral calculus from [Vinton's Umbral Calculus Notes](./../Vintons_Umbral_Calculus_Notes.pdf)

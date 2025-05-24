@@ -42,3 +42,4 @@ Here's a small demo using the text interface
 Here we have trained the model on the NYT Connections game data to improve the performance of the solver on more difficult games. The model is trained on the NYT Connections game data, which consists of a small number of games, so maybe more data is needed to improve the performance of the model. The training runs for a few epochs (1 minute) and then the model is used to solve the game. 
 ![trained model](trained.png)
 
+<h2><a href="https://github.com/Geoc2022/nyt-connections-solver">Repo</a> </h2>

@@ -94,3 +94,4 @@ and here's the output of the script, which is a 3D plot of the Mobius loop with 
 and the final poster:
 ![SUMS_poster](sums_poster.png)
 
+<h2><a href="https://github.com/Geoc2022/IMG_to_Mobius_Loop">Repo</a> </h2>

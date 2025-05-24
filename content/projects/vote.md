@@ -16,7 +16,6 @@ fediverse = "@geoc@mathstodon.xyz"
 
 For our Applied Cryptography final project, we implemented an extension of the Helios voting protocal in which each voter can vote for multiple candidates. We enforced the condition that each voter votes for exactly $k$ out of $n$ total candidates, where $k$ and $n$ are global constants (e.g. $k = 2, n = 6$). In order to do this, we modified the project infrastructure to accommodate each voter voting for multiple candidates and each candidate's votes being totaled separately. We also included a zero-knowledge proof (ZKP) to ensure that each voter voted for exactly $k$ candidates.
 
-## Read our [report](/projects/paper.pdf)
 <h2> Read our <a href="./../paper.pdf">report</a> </h2>
 
 ----
@@ -114,4 +113,4 @@ We can use a Non-Interactive Zero-Knowledge Proof (NIZK) to prove that the voter
     - If both checks pass, the tallyer can be sure that the voter voted for exactly $k$ candidates.
 - The tallyer can now strip the signature and continue with the voting process.
 
-## [Read More](./../paper.pdf)
+<h2> <a href="./../paper.pdf">Read our report</a> </h2>
