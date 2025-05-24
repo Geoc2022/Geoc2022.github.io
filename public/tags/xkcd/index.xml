@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Xkcd on George Chemmala</title>
-    <link>https://george.chemmala.com/tags/xkcd/</link>
+    <link>http://localhost:1313/tags/xkcd/</link>
     <description>Recent content in Xkcd on George Chemmala</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 21 Nov 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://george.chemmala.com/tags/xkcd/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/xkcd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Banger xkcd</title>
-      <link>https://george.chemmala.com/stuff/banger_xkcd/</link>
+      <link>http://localhost:1313/stuff/banger_xkcd/</link>
       <pubDate>Mon, 21 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://george.chemmala.com/stuff/banger_xkcd/</guid>
+      <guid>http://localhost:1313/stuff/banger_xkcd/</guid>
       <description>A banger xkcd idea</description>
     </item>
   </channel>

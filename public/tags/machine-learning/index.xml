@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine-Learning on George Chemmala</title>
-    <link>https://george.chemmala.com/tags/machine-learning/</link>
+    <link>http://localhost:1313/tags/machine-learning/</link>
     <description>Recent content in Machine-Learning on George Chemmala</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://george.chemmala.com/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Robust Estimation for the Erdős-Rényi Model</title>
-      <link>https://george.chemmala.com/projects/robust-estimation-for-the-erdos-renyi-model/</link>
+      <link>http://localhost:1313/projects/robust-estimation-for-the-erdos-renyi-model/</link>
       <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://george.chemmala.com/projects/robust-estimation-for-the-erdos-renyi-model/</guid>
+      <guid>http://localhost:1313/projects/robust-estimation-for-the-erdos-renyi-model/</guid>
       <description>Final project for CSCI 2952Q: Robust Algorithms in Machine Learning</description>
     </item>
   </channel>
