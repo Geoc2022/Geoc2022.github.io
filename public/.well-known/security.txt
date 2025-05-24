@@ -1,6 +1,0 @@
-# Notice any security issues with this site? Uh-oh! That's not good :(
-# Please report it using the following details so that I can fix it ASAP.
-# Thanks in advance!
-Contact: mailto:security@sangeeth.dev
-Expires: 2030-12-31T18:30:00.000Z
-Preferred-Languages: en
