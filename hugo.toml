@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const xml = parser.parseFromString(text, 'application/xml');
                 const urls = Array.from(xml.querySelectorAll('url > loc'))
                     .map(loc => new URL(loc.textContent).pathname)
+                    .filter(path => path !== '/google21d0060bd8dc65b8/')
+                    .filter(path => path !== '/yo/')
                     .filter(path => !path.startsWith('/tags/'))
                     .filter(path => path !== window.location.pathname);
                 if (urls.length) {

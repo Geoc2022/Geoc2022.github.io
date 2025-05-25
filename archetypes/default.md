@@ -9,6 +9,7 @@ readTime = false
 autonumber = false
 math = false
 hideBackToTop = false
-showTags = true
+tags = []
+showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
