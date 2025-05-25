@@ -24,7 +24,7 @@ reroll -->
     <h1 style="font-size:2.5em; font-weight:bold; display:flex; align-items:center; justify-content:center; gap:0.5em; width:100%;">
         <span id="result" style="display:inline-block; min-width:3em; width:4em; text-align:right;"></span>
         <span>/</span>
-        <input type="text" id="outOf" value="6" style="font-size:1em; width:4em; min-width:3em; text-align:left;" oninput="rollDice()" autofocus>
+        <input type="text" id="outOf" placeholder="6" style="font-size:1em; width:4em; min-width:3em; text-align:left;" oninput="rollDice()" autofocus>
     </h1>
 </div>
 <div align="center" style="margin-top: 20px;">  
