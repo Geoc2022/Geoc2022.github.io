@@ -85,13 +85,13 @@ But the rendering was a bit more difficult. Basically, it uses a 3D plot in matp
             plt.savefig('mobius_strip_render.png', transparent=True, dpi=400)
 ``` -->
 
-Here's the input image I used, [BWV 1087](https://youtu.be/WeWXmNy-Q7E?t=53):
-![BWV1087](BWV1087.jpg)
+Here's the input image I used:
+[![BWV1087](BWV1087.jpg)](https://youtu.be/WeWXmNy-Q7E?t=53)
 
 and here's the output of the script, which is a 3D plot of the Mobius loop with the image warped around it:
-![BWV1087](mobius_strip_render.png)
+[![BWV1087](mobius_strip_render.png)](./../mobius_strip_render.png)
 
 and the final poster:
-![SUMS_poster](sums_poster.png)
+[![SUMS_poster](sums_poster.png)](./../sums_poster.png)
 
 <h2><a href="https://github.com/Geoc2022/IMG_to_Mobius_Loop">Repo</a> </h2>

@@ -14,7 +14,7 @@ hideBackToTop = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
-![poster](poster.png)
+[![poster](poster.png)](./../poster.png)
 
 For our Deep Learning project, we recreated the universe styles of *Spider-Man: Across the Spider-Verse* using neural style transfer. Building on foundational work by [Gatys et al.](https://arxiv.org/abs/1508.06576) and [Dumoulin et al.](https://arxiv.org/abs/1610.07629), we aimed to improve the style transfer pipeline by fine-tuning a CNN on frames taken directly from the movie. This helped us tailor the model’s internal representations to the kinds of textures, patterns, and colors that define the film’s look. We esseintally combined transfer learning with style transfer, which had not been  done in the literature before.
 

@@ -17,11 +17,11 @@ fediverse = "@geoc@mathstodon.xyz"
 Me and some friends had gotten so stuck on a NYT Connections game that we decided to draw a graph of the words on a whiteboard to see the possible connections. Immediately after drawing it we realized that we could use some of our knowledge in [spectral graph theory](../../projects/spectral_graph_theory) to solve the game. There's a technique called spectral clustering that uses the eigenvalues and eigenvectors of the Laplacian matrix of a graph to find the best partitioning of the graph. We could also use the similarity between the words for the weights of the edges in the graph to improve the performance of the solver.
 
 I thought it would be a fun project to implement this idea and here's the result with a small demo:
-![graph](graph1.png)
+[![graph](graph1.png)](./../graph1.png)
 
 *After solving the first connection*
 
-![graph2](graph2.png)
+[![graph2](graph2.png)](./../graph2.png)
 
 ## How it works:
 ### Word Vectors
@@ -36,10 +36,10 @@ The idea is to represent the words as a graph, where each word is a node and the
 
 ### Using the Base Word Vectors
 Here's a small demo using the text interface
-![untrained model](untrained.png)
+[![untrained model](untrained.png)](./../untrained.png)
 
 ### Using the Trained Word Vectors
 Here we have trained the model on the NYT Connections game data to improve the performance of the solver on more difficult games. The model is trained on the NYT Connections game data, which consists of a small number of games, so maybe more data is needed to improve the performance of the model. The training runs for a few epochs (1 minute) and then the model is used to solve the game. 
-![trained model](trained.png)
+[![trained model](trained.png)](./../trained.png)
 
 <h2><a href="https://github.com/Geoc2022/nyt-connections-solver">Repo</a> </h2>

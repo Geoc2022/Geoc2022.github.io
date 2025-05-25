@@ -125,16 +125,16 @@ We propose an iterative filtering algorithm that removes corrupted vertices base
 | ![Empirical Result 3](emperic3.png) | ![Empirical Result 4](emperic4.png) |
 | $\varepsilon = 0.01$, $p = 0.3$, $q = 0.6$| Each dot represents a trial; $\varepsilon = 0.1$, $p = 0.3$, $q = 0.6$ | -->
 
-![Empirical1](emperic.png)
+[![Empirical1](emperic.png)](./../emperic.png)
 $\varepsilon=0.1$, $p = 0.3$, $q = 0.6$
 
-![Empirical2](emperic2.png)
+[![Empirical2](emperic2.png)](./../emperic2.png)
 $\varepsilon = 0.1$, $p = 0.3$, $q = 0.6$
 
-![Empirical3](emperic3.png)
+[![Empirical3](emperic3.png)](./../emperic3.png)
 $\varepsilon = 0.01$, $p = 0.3$, $q = 0.6$
 
-![Empirical4](emperic4.png)
+[![Empirical4](emperic4.png)](./../emperic4.png)
 Varience Method: Each dot represents a trial; $\varepsilon = 0.1$, $p = 0.3$, $q = 0.6$
 
 
