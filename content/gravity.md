@@ -25,7 +25,7 @@ body {
         transform: translateY(0%);
     }
     to {
-        transform: translateY(70%);
+        transform: translateY(100%);
     }
 }
 </style>
