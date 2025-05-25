@@ -1,10 +1,10 @@
 +++
-title = "Across the Spider-Verse Style Transfer"
+title = "Across the Spider-Verse Style Transfer + Transfer Learning"
 date = "2023-05-19"
 draft = false
 
-summary = "A style transfer project using CNNs to recreate the visual style of *Across the Spider-Verse*"
-description = "A style transfer project using CNNs to recreate the visual style of *Across the Spider-Verse*"
+summary = "Recreating the universes of *Across the Spider-Verse* by using Style Transfer and Transfer Learning"
+description = "Recreating the universes of *Across the Spider-Verse* by using Style Transfer and Transfer Learning"
 readTime = false
 autonumber = false
 math = true
@@ -29,6 +29,7 @@ Once trained, we used this CNN as a backbone for the style transfer model. We cr
 These components were then used in a second class, `StyleTransfer`, which applies gradient descent directly to a copy of the content image. Over multiple iterations, the image is adjusted to match the style and content targets simultaneously.
 
 ### Results
+*The Mona Lisa in Gwen's universe*
 [![](training_1715365977.gif)](https://youtu.be/XiqN3pOIVIw)
 
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/AzureCoral/Spider-Verse-Style-Transfer)
