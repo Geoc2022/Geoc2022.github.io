@@ -3,13 +3,13 @@ date = '2025-05-25T01:21:12-04:00'
 draft = false
 title = 'Gravity'
 
-summary = ""
-description = ""
+summary = "A example of gravity"
+description = "A example of gravity"
 readTime = false
 autonumber = false
 math = false
 hideBackToTop = false
-tags = ['Secret-Pages']
+tags = ["secret-pages"]
 showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
@@ -18,7 +18,7 @@ fediverse = "@geoc@mathstodon.xyz"
 
 <style>
 body {
-    animation: floatText 10s cubic-bezier(1, 0.0, 1, 1) normal forwards;
+    animation: floatText 10s cubic-bezier(1, 0.0, 1, 1) 2s normal forwards;
 }
 @keyframes floatText {
     from {
