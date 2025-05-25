@@ -1,5 +1,5 @@
 +++
-date = '0000-01-01T12:00:00-04:00'
+date = '1970-01-01T00:00:00-00:00'
 draft = false
 title = 'Yo'
 
@@ -7,7 +7,7 @@ readTime = false
 autonumber = false
 math = false
 hideBackToTop = true
-tags = ["secret-pages", "yo"]
+tags = ["yo"]
 showTags = true
 fediverse = "@geoc@mathstodon.xyz"
 +++
