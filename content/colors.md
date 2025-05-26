@@ -36,53 +36,113 @@ fediverse = "@geoc@mathstodon.xyz"
     <span id="colorCount"></span>
 </p>
 
+# Extract colors from IMG
+<input type="file" id="imageInput" accept="image/*" style="margin-bottom: 10px;">
+<br>
+<input type="text" id="imageUrlInput" placeholder="Paste image URL here" style="margin-bottom: 10px; width: 60%;">
+<canvas id="imageCanvas" style="display:none;"></canvas>
+<div id="imgColorContainer"></div>
+<p>
+    <span id="imgColorCount"></span>
+</p>
+
 <script>
+function rgbToHex(r, g, b) {
+    return "#" + [r, g, b].map(x => {
+        const hex = x.toString(16);
+        return hex.length === 1 ? "0" + hex : hex;
+    }).join("");
+}
+
+function getDominantColors(image, colorCount = 8) {
+    const canvas = document.getElementById("imageCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = image.width;
+    canvas.height = image.height;
+    ctx.drawImage(image, 0, 0, image.width, image.height);
+    const data = ctx.getImageData(0, 0, image.width, image.height).data;
+
+    const colorMap = {};
+    for (let i = 0; i < data.length; i += 4) {
+        const r = data[i], g = data[i+1], b = data[i+2], a = data[i+3];
+        if (a < 128) continue; // skip transparent
+        const key = [r, g, b].join(",");
+        colorMap[key] = (colorMap[key] || 0) + 1;
+    }
+
+    const sorted = Object.entries(colorMap)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, colorCount);
+
+    return sorted.map(([key]) => {
+        const [r, g, b] = key.split(",").map(x => parseInt(x, 10));
+        return rgbToHex(r, g, b);
+    });
+}
+
+function showColorBoxes(colors, containerId, countId) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
+    colors.forEach(hex => {
+        const box = document.createElement("div");
+        box.className = "color-box";
+        box.style.backgroundColor = hex;
+        box.title = hex;
+        box.onclick = () => navigator.clipboard.writeText(hex);
+        container.appendChild(box);
+    });
+}
+
 function extractColors() {
     const text = document.getElementById("inputText").value;
-    const container = document.getElementById("colorContainer");
-    container.innerHTML = "";
-
     const regexes = {
-    hex: /#(?:[0-9a-fA-F]{3}){1,2}/g,
-    rgb: /rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)/g,
-    hsl: /hsl\(\s*\d+\s*,\s*\d+%?\s*,\s*\d+%?\s*\)/g
+        hex: /#(?:[0-9a-fA-F]{3}){1,2}/g,
+        rgb: /rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)/g,
+        hsl: /hsl\(\s*\d+\s*,\s*\d+%?\s*,\s*\d+%?\s*\)/g
     };
 
     let matches = [];
     for (let type in regexes) {
-    const found = text.match(regexes[type]);
-    if (found) matches = matches.concat(found);
+        const found = text.match(regexes[type]);
+        if (found) matches = matches.concat(found);
     }
 
     const toHex = (color) => {
-    const ctx = document.createElement("canvas").getContext("2d");
-    ctx.fillStyle = color;
-    return ctx.fillStyle;
+        const ctx = document.createElement("canvas").getContext("2d");
+        ctx.fillStyle = color;
+        return ctx.fillStyle;
     };
 
-    const uniqueColors = [...new Set(matches)];
-
-    uniqueColors.forEach(color => {
-    const hex = toHex(color);
-    const box = document.createElement("div");
-    box.className = "color-box";
-    box.style.backgroundColor = hex;
-    box.title = hex;
-    box.onclick = () => {
-        navigator.clipboard.writeText(hex);
-    };
-    container.appendChild(box);
-    });
-
-    const count = uniqueColors.length;
-    document.getElementById("colorCount").innerText = '# of colors: ' + count;
-    // return count;
+    const uniqueColors = [...new Set(matches)].map(toHex);
+    showColorBoxes(uniqueColors, "colorContainer", "colorCount");
 }
 
 extractColors();
-document.getElementById("inputText").addEventListener("input", function() {
-    extractColors();
+document.getElementById("inputText").addEventListener("input", extractColors);
+
+document.getElementById("imageUrlInput").addEventListener("input", function() {
+    const url = document.getElementById("imageUrlInput").value.trim();
+    if (!url) return;
+    const img = new window.Image();
+    img.crossOrigin = "Anonymous";
+    img.onload = function() {
+        const colors = getDominantColors(img, 8);
+        showColorBoxes(colors, "imgColorContainer", "imgColorCount");
+    };
+    img.onerror = function() {
+        // alert("Could not load image from the provided URL.");
+    };
+    img.src = url;
 });
 
-
+document.getElementById("imageInput").addEventListener("change", function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const img = new window.Image();
+    img.onload = function() {
+        const colors = getDominantColors(img, 8);
+        showColorBoxes(colors, "imgColorContainer", "imgColorCount");
+    };
+    img.src = URL.createObjectURL(file);
+});
 </script>
