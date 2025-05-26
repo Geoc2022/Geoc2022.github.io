@@ -3,8 +3,8 @@ date = '2025-05-26T00:12:00-04:00'
 draft = false
 title = 'Cha Cha Slide'
 
-summary = "Cha Cha real smooth!"
-description = "Cha Cha real smooth!"
+summary = "'Now it's time to get funky'"
+description = "'Now it's time to get funky'"
 readTime = false
 autonumber = false
 math = false
@@ -14,24 +14,12 @@ showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
+Press <button id="start">**here**</button> to start the Cha Cha Slide!
+(works best on desktop)
 
 <style>
 body {
-    animation: 
-    toRight 1s ease-in-out,
-    toLeft 1s 1s ease-in-out,
-    takeItBack 2s 2s ease-in-out,
-    oneHop 1s 4s ease-in-out,
-    oneHop 1s 6s ease-in-out,
-    stompRight .5s 9s ease-in-out,
-    stompRight .5s 9.5s ease-in-out,
-    stompLeft .5s 10.5s ease-in-out,
-    stompLeft .5s 11s ease-in-out,
-    slideLeft 1.5s 12s ease-in-out,
-    slideRight 1.5s 13.5s ease-in-out,
-    crisscross 1s 15s ease-in-out,
-    crisscross 1s 17s ease-in-out,
-    chaChaSmooth 5s 19s ease-in-out;
+    animation: none;
     animation-fill-mode: forwards;
 }
 @keyframes toRight {
@@ -100,137 +88,118 @@ body {
 }
 </style>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wZv62ShoStY?&amp;start=82&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-<!-- <audio id="chaChaAudio" src="chacha.mp3" autoplay></audio>
 <script>
-const chaChaAudio = document.getElementById("chaChaAudio");
-chaChaAudio.currentTime = 0;
-chaChaAudio.play().catch(() => {
-    // Autoplay might be blocked; wait for user interaction
-    const playOnUserGesture = () => {
-        chaChaAudio.play();
-        window.removeEventListener('click', playOnUserGesture);
-        window.removeEventListener('keydown', playOnUserGesture);
-    };
-    window.addEventListener('click', playOnUserGesture);
-    window.addEventListener('keydown', playOnUserGesture);
-});
-</script> -->
+document.addEventListener('DOMContentLoaded', function() {
+  let started = false;
+  let animationTimeouts = [];
 
-<!-- 
-<script>
-const moves = [
-  {
-    name: "toRight",
-    animation: "toRight 1s ease-in-out",
-    beforeMp3: "toRight.mp3"
-  },
-  {
-    name: "slideRight",
-    animation: "slideRight 1s ease-in-out",
-    beforeMp3: "slideRight.mp3"
-  },
-  {
-    name: "takeItBack",
-    animation: "takeItBack 1s ease-in-out",
-    beforeMp3: "takeItBack.mp3"
-  },
-  {
-    name: "oneHop",
-    animation: "oneHop 0.6s ease-in-out",
-    beforeMp3: "oneHop_before.mp3",
-    duringMp3: "oneHop_during.mp3"
-  },
-  {
-    name: "stompRight",
-    animation: "stompRight 0.5s ease-in-out",
-    beforeMp3: "stompRight.mp3"
-  },
-  {
-    name: "crisscross",
-    animation: "crisscross 1s ease-in-out",
-    beforeMp3: "crisscross.mp3"
-  },
-  {
-    name: "chaChaSmooth",
-    animation: "chaChaSmooth 1.5s ease-in-out",
-    beforeMp3: "chaChaSmooth_before.mp3",
-    duringMp3: "chaChaSmooth_during.mp3"
+  const audio = document.createElement('audio');
+  audio.src = '/chacha.mp3';
+  audio.preload = 'auto';
+
+  const emojiSteps = [
+    { time: 0.5, emoji: '➡️', label: 'toRight' },
+    { time: 1.5, emoji: '⬅️', label: 'toLeft' },
+    { time: 2.5, emoji: '🔙', label: 'takeItBack' },
+    { time: 4.5, emoji: '🦘', label: 'oneHop' },
+    { time: 6.5, emoji: '🐸', label: 'oneHop' },
+    { time: 9.5, emoji: '👟', label: 'stompRight' },
+    { time: 10.0, emoji: '👠', label: 'stompRight' },
+    { time: 11.0, emoji: '👞', label: 'stompLeft' },
+    { time: 11.5, emoji: '👢', label: 'stompLeft' },
+    { time: 13.0, emoji: '🛝', label: 'slideLeft' },
+    { time: 14.5, emoji: '🛝', label: 'slideRight' },
+    { time: 16.0, emoji: '🔀', label: 'crisscross' },
+    { time: 18.0, emoji: '🔀', label: 'crisscross' },
+    { time: 20.0, emoji: '💃', label: 'chaChaSmooth' }
+  ];
+
+  const emojiDiv = document.createElement('div');
+  emojiDiv.style.position = 'fixed';
+  emojiDiv.style.top = '30%';
+  emojiDiv.style.left = '50%';
+  emojiDiv.style.transform = 'translate(-50%, -50%)';
+  emojiDiv.style.fontSize = '5rem';
+  emojiDiv.style.pointerEvents = 'none';
+  emojiDiv.style.zIndex = '9999';
+  emojiDiv.style.transition = 'opacity 0.3s';
+  emojiDiv.style.opacity = '0';
+  document.body.appendChild(emojiDiv);
+
+  function showEmoji(emoji) {
+    emojiDiv.textContent = emoji;
+    emojiDiv.style.opacity = '1';
+    setTimeout(() => {
+      emojiDiv.style.opacity = '0';
+    }, 900);
   }
-];
 
-let moveOrder = [];
-let currentMove = 0;
-let isPlaying = false;
-
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+  function clearAnimations() {
+    document.body.style.animation = 'none';
+    void document.body.offsetWidth;
+    document.body.style.animationFillMode = 'forwards';
   }
-}
 
-function playAudio(src) {
-  if (!src) return null;
-  const audio = new Audio(src);
-  audio.play();
-  return audio;
-}
+  function clearTimeouts() {
+    animationTimeouts.forEach(t => clearTimeout(t));
+    animationTimeouts = [];
+  }
 
-function doMove(move) {
-  isPlaying = true;
-  document.body.style.animation = "none";
-  void document.body.offsetWidth; // force reflow
+  document.body.appendChild(audio);
 
-  // Play before-move audio
-  const beforeAudio = playAudio(move.beforeMp3);
-  beforeAudio && beforeAudio.addEventListener("ended", () => {
-    // Play during-move audio if needed
-    let duringAudio = null;
-    if (move.duringMp3) {
-      duringAudio = playAudio(move.duringMp3);
+  function chachaSlide() {
+    if (started) return;
+      started = true;
+
+      clearAnimations();
+      clearTimeouts();
+
+      // Set up the animation string
+      document.body.style.animation =
+        'toRight 1s 0.5s ease-in-out,' +
+        'toLeft 1s 1.5s ease-in-out,' +
+        'takeItBack 2s 2.5s ease-in-out,'  +
+        'oneHop 1s 4.5s ease-in-out,' +
+        'oneHop 1s 6.5s ease-in-out,' +
+        'stompRight .5s 9.5s ease-in-out,' +
+        'stompRight .5s 10s ease-in-out,' +
+        'stompLeft .5s 11s ease-in-out,' +
+        'stompLeft .5s 11.5s ease-in-out,' +
+        'slideLeft 1.5s 13s ease-in-out,' +
+        'slideRight 1.5s 14.5s ease-in-out,' +
+        'crisscross 1s 16s ease-in-out,' +
+        'crisscross 1s 18s ease-in-out,' +
+        'chaChaSmooth 5s 20s ease-in-out';
+      document.body.style.animationFillMode = 'forwards';
+
+      audio.currentTime = 0;
+      audio.play();
+
+      emojiSteps.forEach(step => {
+        const t = setTimeout(() => {
+          showEmoji(step.emoji);
+        }, step.time * 1000);
+        animationTimeouts.push(t);
+      });
+
+      const resetTimeout = setTimeout(() => {
+        started = false;
+        clearAnimations();
+      }, 25000);
+      animationTimeouts.push(resetTimeout);
+  }
+
+  document.body.addEventListener('keydown', function(e) {
+    if (e.code === 'Space') {
+      chachaSlide();
     }
-    document.body.style.animation = move.animation;
-    // Wait for animation to finish
-    const duration = parseFloat(move.animation.match(/([\d.]+)s/)[1]) * 1000;
-    setTimeout(() => {
-      document.body.style.animation = "none";
-      if (duringAudio) duringAudio.pause();
-      isPlaying = false;
-    }, duration);
   });
-  if (!beforeAudio) {
-    // If no before audio, just animate
-    let duringAudio = null;
-    if (move.duringMp3) duringAudio = playAudio(move.duringMp3);
-    document.body.style.animation = move.animation;
-    const duration = parseFloat(move.animation.match(/([\d.]+)s/)[1]) * 1000;
-    setTimeout(() => {
-      document.body.style.animation = "none";
-      if (duringAudio) duringAudio.pause();
-      isPlaying = false;
-    }, duration);
-  }
-}
 
-function nextMove() {
-  if (isPlaying) return;
-  if (moveOrder.length === 0 || currentMove >= moveOrder.length) {
-    moveOrder = [...moves];
-    shuffle(moveOrder);
-    currentMove = 0;
-  }
-  doMove(moveOrder[currentMove]);
-  currentMove++;
-}
-
-window.addEventListener("keydown", (e) => {
-  if (e.code === "Space") {
-    e.preventDefault();
-    nextMove();
-  }
+  const btn = document.getElementById('start');
+  btn.addEventListener('click', function(e) {
+    chachaSlide();
+  });
 });
 </script>
 
-> Press <kbd>Spacebar</kbd> to cha-cha through the moves! -->
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/wZv62ShoStY?&amp;start=82&autoplay=1&mute=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
