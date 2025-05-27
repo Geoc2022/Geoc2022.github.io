@@ -19,7 +19,7 @@ fediverse = "@geoc@mathstodon.xyz"
   <div id="count">0</div>
 
   <script>
-    const apiBase = "https://fojj2q1igl.execute-api.us-east-1.amazonaws.com/";
+    const apiBase = "https://u51ps471td.execute-api.us-east-1.amazonaws.com";
 
     window.addEventListener("load", () => {
       fetch(`${apiBase}/enter`, { method: "POST" });
