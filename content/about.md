@@ -6,9 +6,25 @@ title = 'About'
 
 I’m a junior at Brown University studying Computer Science and Mathematics, with current interests in cryptography, deep learning, and formal proof verification.
 
-(Un)related, I'm also a big fan of board games, photography, and music. 
+(Un)related, I'm a big fan of board games, photography, and music. 
 
-Here's my full [resume](/main.pdf).
+<span id="hover-area" style="color: var(--bg0)">░░░░░░░░░░░░░░░░░░</span>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hoverArea = document.getElementById('hover-area');
+        let timer;
+        hoverArea.onmouseenter = () => {
+            timer = setTimeout(() => {
+                hoverArea.outerHTML = '<span id="revealed-text">Also, I\'m a friend of Riley Hartman and Mitchell Perales</span>';
+            }, 3000);
+        };
+        hoverArea.onmouseleave = () => {
+            clearTimeout(timer);
+        };
+    });
+</script>
+
+Here's my [resume](/George_Chemmala_resume.pdf).
 <!-- 
 ### **Education**
 

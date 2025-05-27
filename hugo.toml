@@ -11,7 +11,7 @@ tag = 'tags'
 
 [params]
 # Meta description
-description = "george chemmala personal website"
+description = "George Chemmala's Personal Website"
 
 # Appearance settings
 theme = 'auto'
