@@ -15,7 +15,7 @@ I’m a junior at Brown University studying Computer Science and Mathematics, wi
         let timer;
         hoverArea.onmouseenter = () => {
             timer = setTimeout(() => {
-                hoverArea.outerHTML = '<span id="revealed-text">Also, I\'m a friend of Riley Hartman and Mitchell Perales</span>';
+                hoverArea.outerHTML = '<span id="revealed-text">References: Riley Hartman and Mitchell Perales</span>';
             }, 3000);
         };
         hoverArea.onmouseleave = () => {
