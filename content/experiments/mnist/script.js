@@ -69,6 +69,7 @@ async function run() {
   ctx.lineWidth = 25;
   ctx.lineCap = 'round';
   let drawing = false;
+  let predictTimeout = null;
 
   function getPos(e) {
     if (e.touches) {
@@ -81,52 +82,21 @@ async function run() {
     return { x: e.offsetX, y: e.offsetY };
   }
 
-  userCanvas.addEventListener('mousedown', () => { drawing = true; ctx.beginPath(); });
-  userCanvas.addEventListener('mouseup', () => { drawing = false; });
-  userCanvas.addEventListener('mouseleave', () => { drawing = false; });
-  userCanvas.addEventListener('mousemove', e => {
-    if (!drawing) return;
-    const { x, y } = getPos(e);
-    ctx.lineTo(x, y);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-  });
-  userCanvas.addEventListener('touchstart', () => { drawing = true; ctx.beginPath(); });
-  userCanvas.addEventListener('touchend', () => { drawing = false; });
-  userCanvas.addEventListener('touchcancel', () => { drawing = false; });
-  userCanvas.addEventListener('touchmove', e => {
-    if (!drawing) return;
-    e.preventDefault();
-    const { x, y } = getPos(e);
-    ctx.lineTo(x, y);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-  }, { passive: false });
-
-  document.getElementById('clear-btn').onclick = () => {
-    ctx.clearRect(0, 0, userCanvas.width, userCanvas.height);
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fillRect(0, 0, userCanvas.width, userCanvas.height);
-    document.getElementById('prediction-result').textContent = '';
-  };
-
-  document.getElementById('predict-btn').onclick = async () => {
+  function doPredictionFromCanvas() {
     const userCtx = userCanvas.getContext('2d');
     const userImgData = userCtx.getImageData(0, 0, userCanvas.width, userCanvas.height);
     let minX = userCanvas.width, minY = userCanvas.height, maxX = 0, maxY = 0;
     let found = false;
     for (let y = 0; y < userCanvas.height; y++) {
       for (let x = 0; x < userCanvas.width; x++) {
-      const idx = (y * userCanvas.width + x) * 4;
-      if (userImgData.data[idx] < 250 || userImgData.data[idx + 1] < 250 || userImgData.data[idx + 2] < 250) {
-        found = true;
-        if (x < minX) minX = x;
-        if (y < minY) minY = y;
-        if (x > maxX) maxX = x;
-        if (y > maxY) maxY = y;
-      }
+        const idx = (y * userCanvas.width + x) * 4;
+        if (userImgData.data[idx] < 250 || userImgData.data[idx + 1] < 250 || userImgData.data[idx + 2] < 250) {
+          found = true;
+          if (x < minX) minX = x;
+          if (y < minY) minY = y;
+          if (x > maxX) maxX = x;
+          if (y > maxY) maxY = y;
+        }
       }
     }
 
@@ -165,18 +135,55 @@ async function run() {
       input.push(1 - (avg / 255));
     }
 
-    // document.body.appendChild(smallCanvas);
-
     const inputTensor = tf.tensor(input, [1, 28, 28, 1]);
     const prediction = model.predict(inputTensor);
-    console.log('Prediction:', prediction);
     const predIdx = prediction.argMax(-1).dataSync()[0];
     document.getElementById('prediction-result').textContent =
       `Prediction: ${predIdx}`;
 
     inputTensor.dispose();
     prediction.dispose();
+  }
+
+  function schedulePrediction() {
+    if (predictTimeout) clearTimeout(predictTimeout);
+    predictTimeout = setTimeout(doPredictionFromCanvas, 150);
+  }
+
+  userCanvas.addEventListener('mousedown', () => { drawing = true; ctx.beginPath(); });
+  userCanvas.addEventListener('mouseup', () => { drawing = false; });
+  userCanvas.addEventListener('mouseleave', () => { drawing = false; });
+  userCanvas.addEventListener('mousemove', e => {
+    if (!drawing) return;
+    const { x, y } = getPos(e);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    schedulePrediction();
+  });
+  userCanvas.addEventListener('touchstart', () => { drawing = true; ctx.beginPath(); });
+  userCanvas.addEventListener('touchend', () => { drawing = false; });
+  userCanvas.addEventListener('touchcancel', () => { drawing = false; });
+  userCanvas.addEventListener('touchmove', e => {
+    if (!drawing) return;
+    e.preventDefault();
+    const { x, y } = getPos(e);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    schedulePrediction();
+  }, { passive: false });
+
+  document.getElementById('clear-btn').onclick = () => {
+    ctx.clearRect(0, 0, userCanvas.width, userCanvas.height);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, userCanvas.width, userCanvas.height);
+    document.getElementById('prediction-result').textContent = '';
   };
+
+  document.getElementById('predict-btn').onclick = doPredictionFromCanvas;
 }
 
 document.addEventListener('DOMContentLoaded', run);

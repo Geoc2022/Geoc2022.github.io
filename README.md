@@ -7,3 +7,4 @@ Todo:
 - pfp? 
 - more desmos
 - email icon?
+- add TensorFlow.js page
