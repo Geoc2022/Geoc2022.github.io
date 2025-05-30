@@ -33,16 +33,14 @@ fediverse = "@geoc@mathstodon.xyz"
   <!-- Import the main script file -->
   <script src="script.js" type="module"></script>
 
-  <p>Here are some examples of the training and testing data for the MNIST dataset:</p>
-  <div id="mnist-examples"></div>
-  <div id="model-summary"></div>
-  <div id="draw-canvas"></div>
+  <p>Here is a simple TensorFlow.js example that loads the MNIST dataset, trains a model, and allows you to draw digits to see how well the model predicts them.</p>
+
+  <div id="mnist-examples"><h3>Loading...</h3></div>
+  <div id="model-summary"><h3>Loading...</h3></div>
+  <div id="draw-canvas"><h3>Waiting on training...</h3></div>
 
 </head>
 
 <body>
 </body>
 </html>
-
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

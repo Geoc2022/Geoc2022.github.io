@@ -2,24 +2,35 @@ import {MnistData} from './data.js';
 
 async function showExamples(data) {
   let examplesDiv = document.getElementById('mnist-examples');
-  examplesDiv.innerHTML = '';
+  examplesDiv.innerHTML = '<h3>MNIST Data</h3>';
 
-  const examples = data.nextTestBatch(20);
+  const examples = data.nextTestBatch(4);
   const numExamples = examples.xs.shape[0];
   
   for (let i = 0; i < numExamples; i++) {
     const imageTensor = tf.tidy(() => {
       return examples.xs
-        .slice([i, 0], [1, examples.xs.shape[1]])
-        .reshape([28, 28, 1]);
+      .slice([i, 0], [1, examples.xs.shape[1]])
+      .reshape([28, 28, 1]);
     });
-    
-    const canvas = document.createElement('canvas');
-    canvas.width = 28;
-    canvas.height = 28;
-    canvas.style = 'margin: 4px;';
-    await tf.browser.toPixels(imageTensor, canvas);
-    examplesDiv.appendChild(canvas);
+
+    const smallCanvas = document.createElement('canvas');
+    smallCanvas.width = 28;
+    smallCanvas.height = 28;
+
+    await tf.browser.toPixels(imageTensor, smallCanvas);
+
+    const scale = 5;
+    const largeCanvas = document.createElement('canvas');
+    largeCanvas.width = 28 * scale;
+    largeCanvas.height = 28 * scale;
+    largeCanvas.style = `margin: 4px; width: ${28 * scale}px; height: ${28 * scale}px; image-rendering: pixelated;`;
+
+    const ctx = largeCanvas.getContext('2d');
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(smallCanvas, 0, 0, largeCanvas.width, largeCanvas.height);
+
+    examplesDiv.appendChild(largeCanvas);
 
     imageTensor.dispose();
   }
@@ -44,7 +55,7 @@ async function run() {
   const drawDiv = document.getElementById('draw-canvas');
   drawDiv.innerHTML = `
     <h3>Draw a digit</h3>
-    <canvas id="user-canvas" width="280" height="280" style="border:1px solid #ccc; background:#fff; touch-action:none; cursor:crosshair;"></canvas>
+    <canvas id="user-canvas" width="280" height="280" style="border:1px solid #ccc; background:#ffffff; touch-action:none; cursor:crosshair;"></canvas>
     <br>
     <button id="predict-btn">Predict</button>
     <button id="clear-btn">Clear</button>
@@ -53,7 +64,7 @@ async function run() {
 
   const userCanvas = document.getElementById('user-canvas');
   const ctx = userCanvas.getContext('2d');
-  ctx.lineWidth = 20;
+  ctx.lineWidth = 25;
   ctx.lineCap = 'round';
   let drawing = false;
 
@@ -100,21 +111,63 @@ async function run() {
   };
 
   document.getElementById('predict-btn').onclick = async () => {
+    const userCtx = userCanvas.getContext('2d');
+    const userImgData = userCtx.getImageData(0, 0, userCanvas.width, userCanvas.height);
+    let minX = userCanvas.width, minY = userCanvas.height, maxX = 0, maxY = 0;
+    let found = false;
+    for (let y = 0; y < userCanvas.height; y++) {
+      for (let x = 0; x < userCanvas.width; x++) {
+      const idx = (y * userCanvas.width + x) * 4;
+      if (userImgData.data[idx] < 250 || userImgData.data[idx + 1] < 250 || userImgData.data[idx + 2] < 250) {
+        found = true;
+        if (x < minX) minX = x;
+        if (y < minY) minY = y;
+        if (x > maxX) maxX = x;
+        if (y > maxY) maxY = y;
+      }
+      }
+    }
+
+    let sx = 0, sy = 0, sw = userCanvas.width, sh = userCanvas.height;
+    if (found) {
+      sx = minX;
+      sy = minY;
+      sw = maxX - minX + 1;
+      sh = maxY - minY + 1;
+    }
+
+    const targetSize = 20;
+    const scale = Math.min(targetSize / sw, targetSize / sh);
+
+    const dx = Math.floor((28 - Math.round(sw * scale)) / 2);
+    const dy = Math.floor((28 - Math.round(sh * scale)) / 2);
+
     const smallCanvas = document.createElement('canvas');
     smallCanvas.width = 28;
     smallCanvas.height = 28;
     const smallCtx = smallCanvas.getContext('2d');
-    smallCtx.drawImage(userCanvas, 0, 0, 28, 28);
+    smallCtx.fillStyle = "#FFF";
+    smallCtx.fillRect(0, 0, 28, 28);
+    smallCtx.imageSmoothingEnabled = true;
+    smallCtx.imageSmoothingQuality = 'high';
+    smallCtx.drawImage(
+      userCanvas,
+      sx, sy, sw, sh,
+      dx, dy, Math.round(sw * scale), Math.round(sh * scale)
+    );
     const imgData = smallCtx.getImageData(0, 0, 28, 28);
 
     const input = [];
     for (let i = 0; i < imgData.data.length; i += 4) {
       const avg = (imgData.data[i] + imgData.data[i + 1] + imgData.data[i + 2]) / 3;
-      input.push(1 - (avg / 255)); // normalize and invert
+      input.push(1 - (avg / 255));
     }
+
+    // document.body.appendChild(smallCanvas);
 
     const inputTensor = tf.tensor(input, [1, 28, 28, 1]);
     const prediction = model.predict(inputTensor);
+    console.log('Prediction:', prediction);
     const predIdx = prediction.argMax(-1).dataSync()[0];
     document.getElementById('prediction-result').textContent =
       `Prediction: ${predIdx}`;
@@ -133,9 +186,6 @@ function getModel() {
   const IMAGE_HEIGHT = 28;
   const IMAGE_CHANNELS = 1;  
   
-  // In the first layer of our convolutional neural network we have 
-  // to specify the input shape. Then we specify some parameters for 
-  // the convolution operation that takes place in this layer.
   model.add(tf.layers.conv2d({
     inputShape: [IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_CHANNELS],
     kernelSize: 5,
@@ -145,12 +195,8 @@ function getModel() {
     kernelInitializer: 'varianceScaling'
   }));
 
-  // The MaxPooling layer acts as a sort of downsampling using max values
-  // in a region instead of averaging.  
   model.add(tf.layers.maxPooling2d({poolSize: [2, 2], strides: [2, 2]}));
   
-  // Repeat another conv2d + maxPooling stack. 
-  // Note that we have more filters in the convolution.
   model.add(tf.layers.conv2d({
     kernelSize: 5,
     filters: 16,
@@ -160,13 +206,8 @@ function getModel() {
   }));
   model.add(tf.layers.maxPooling2d({poolSize: [2, 2], strides: [2, 2]}));
   
-  // Now we flatten the output from the 2D filters into a 1D vector to prepare
-  // it for input into our last layer. This is common practice when feeding
-  // higher dimensional data to a final classification output layer.
   model.add(tf.layers.flatten());
 
-  // Our last layer is a dense layer which has 10 output units, one for each
-  // output class (i.e. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9).
   const NUM_OUTPUT_CLASSES = 10;
   model.add(tf.layers.dense({
     units: NUM_OUTPUT_CLASSES,
@@ -174,9 +215,6 @@ function getModel() {
     activation: 'softmax'
   }));
 
-  
-  // Choose an optimizer, loss function and accuracy metric,
-  // then compile and return the model
   const optimizer = tf.train.adam();
   model.compile({
     optimizer: optimizer,
@@ -190,6 +228,7 @@ function getModel() {
 async function showSummary(model) {
   let summaryDiv = document.getElementById('model-summary');
   summaryDiv.innerHTML = '<h3>Model Architecture</h3>';
+  const borderColor = getComputedStyle(document.documentElement).getPropertyValue('--bg1') || "#ccc";
 
   const table = document.createElement('table');
   table.style.borderCollapse = 'collapse';
@@ -199,7 +238,7 @@ async function showSummary(model) {
   ['Layer (type)', 'Output Shape', 'Param #'].forEach(text => {
     const th = document.createElement('th');
     th.textContent = text;
-    th.style.border = '1px solid #ccc';
+    th.style.border = `1px solid ${borderColor}`;
     th.style.padding = '4px 8px';
     header.appendChild(th);
   });
@@ -208,20 +247,21 @@ async function showSummary(model) {
   model.layers.forEach(layer => {
     const tr = document.createElement('tr');
     const tdName = document.createElement('td');
-    tdName.textContent = `${layer.name} (${layer.getClassName()})`;
-    tdName.style.border = '1px solid #ccc';
+    tdName.textContent = `${layer.getClassName()}`;
+    tdName.style.border = `1px solid ${borderColor}`;
     tdName.style.padding = '4px 8px';
     tr.appendChild(tdName);
 
     const tdShape = document.createElement('td');
-    tdShape.textContent = JSON.stringify(layer.outputShape);
-    tdShape.style.border = '1px solid #ccc';
+    const shape = Array.isArray(layer.outputShape) ? layer.outputShape.slice(1) : [];
+    tdShape.textContent = JSON.stringify(shape);
+    tdShape.style.border = `1px solid ${borderColor}`;
     tdShape.style.padding = '4px 8px';
     tr.appendChild(tdShape);
 
     const tdParams = document.createElement('td');
     tdParams.textContent = layer.countParams();
-    tdParams.style.border = '1px solid #ccc';
+    tdParams.style.border = `1px solid ${borderColor}`;
     tdParams.style.padding = '4px 8px';
     tr.appendChild(tdParams);
 
@@ -268,80 +308,3 @@ async function train(model, data) {
 }
 
 const classNames = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
-
-async function testModel(model) {
-  const drawDiv = document.getElementById('draw-canvas-container');
-  drawDiv.innerHTML = '';
-
-  const canvas = document.createElement('canvas');
-  canvas.width = 28;
-  canvas.height = 28;
-  canvas.style.border = '1px solid #333';
-  canvas.style.background = '#000';
-  canvas.style.cursor = 'crosshair';
-  drawDiv.appendChild(canvas);
-
-  const clearBtn = document.createElement('button');
-  clearBtn.textContent = 'Clear';
-  clearBtn.style.margin = '8px';
-  drawDiv.appendChild(clearBtn);
-
-  const predictBtn = document.createElement('button');
-  predictBtn.textContent = 'Predict';
-  drawDiv.appendChild(predictBtn);
-
-  const resultDiv = document.createElement('div');
-  resultDiv.style.marginTop = '12px';
-  drawDiv.appendChild(resultDiv);
-
-  let drawing = false;
-  const ctx = canvas.getContext('2d');
-  ctx.lineWidth = 2;
-  ctx.lineCap = 'round';
-  ctx.strokeStyle = '#fff';
-
-  canvas.addEventListener('mousedown', e => {
-    drawing = true;
-    ctx.beginPath();
-    ctx.moveTo(e.offsetX, e.offsetY);
-  });
-  canvas.addEventListener('mousemove', e => {
-    if (!drawing) return;
-    ctx.lineTo(e.offsetX, e.offsetY);
-    ctx.stroke();
-  });
-  canvas.addEventListener('mouseup', () => drawing = false);
-  canvas.addEventListener('mouseleave', () => drawing = false);
-
-  clearBtn.onclick = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    resultDiv.textContent = '';
-  };
-
-  predictBtn.onclick = async () => {
-  const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-
-  const input = tf.tidy(() => {
-    let img = tf.browser.fromPixels(imgData); // shape: [28, 28, 4]
-    
-    // Convert to grayscale by averaging across RGB channels (exclude alpha)
-    img = img.mean(2); // shape: [28, 28]
-
-    // Normalize to [0, 1] and invert for white digits on black bg
-    img = img.toFloat().div(tf.scalar(255.0));
-    img = tf.scalar(1.0).sub(img); // invert: black bg, white digit
-
-    // Reshape to [1, 28, 28, 1]
-    return img.expandDims(0).expandDims(-1);
-  });
-
-  const output = model.predict(input); // shape: [1, 10]
-  const probs = await output.data(); // array of probabilities
-
-  const predIdx = probs.indexOf(Math.max(...probs));
-  resultDiv.textContent = `Prediction: ${classNames[predIdx]}`;
-
-  input.dispose();
-  output.dispose();
-};
-}
