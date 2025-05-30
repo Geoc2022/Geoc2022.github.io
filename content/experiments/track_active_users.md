@@ -3,8 +3,8 @@ date = '2025-05-26T23:44:59-04:00'
 draft = false
 title = 'Track Active Users'
 
-summary = ""
-description = ""
+summary = "An experiment in using a serverless cloud function"
+description = "An experiment in using a serverless cloud function"
 readTime = false
 autonumber = false
 math = false
@@ -30,3 +30,4 @@ fediverse = "@geoc@mathstodon.xyz"
   setInterval(updateCounter, 10000); // update every 10 seconds
 </script>
 
+This page tracks the number of active users currently viewing it. It uses a simple serverless function to count the number of users and display it in real-time.
