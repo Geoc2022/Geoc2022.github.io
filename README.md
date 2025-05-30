@@ -6,3 +6,4 @@ Todo:
 - /about on right side
 - pfp? 
 - more desmos
+- email icon?
