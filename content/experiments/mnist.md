@@ -1,15 +1,15 @@
 +++
 date = '2025-05-28T19:09:06-04:00'
-draft = true
+draft = false
 title = 'Mnist'
 
-summary = ""
-description = ""
+summary = "A simple TensorFlow.js example of MNIST "
+description = "A simple TensorFlow.js example of MNIST "
 readTime = false
 autonumber = false
 math = false
 hideBackToTop = false
-tags = []
+tags = ["TensorFlow.js", "MNIST", "Machine Learning", "JavaScript"]
 showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
@@ -39,6 +39,9 @@ fediverse = "@geoc@mathstodon.xyz"
   <div id="model-summary"><h3>Loading...</h3></div>
   <div id="draw-canvas"><h3>Waiting on training...</h3></div>
 
+  The model is pretty small in order to run in the browser, so it may not be very accurate. I've also noticed that the model has a couple weird quirks like you have to draw some of the digits in a specific way for it to recognize them correctly. For example, it seems to prefer the 7 to be drawn with a curved line at the top.
+
+  I also suspect that it has to do with the fact that the input box here doesn't output images with the same style as the MNIST dataset, so it may not be able to recognize the digits as well as it could as from the actual MNIST dataset which is partially an issue with the model not generalizing well.
 </head>
 
 <body>

@@ -60,10 +60,9 @@ async function run() {
     <h3>Draw a digit</h3>
     <canvas id="user-canvas" width="280" height="280" style="border:1px solid #ccc; background:#ffffff; touch-action:none; cursor:crosshair;"></canvas>
     <br>
-    <button id="predict-btn">Predict</button>
-    <button id="clear-btn">Clear</button>
-    <div id="prediction-result" style="margin-top:10px;font-size:1.2em;"></div>
-  `;
+    <button id="predict-btn" style="border-radius: 6px; border: 1px solid #ccc; padding: 2px 5px; font-size: 1em;" >Predict</button>
+    <button id="clear-btn" style="border-radius: 6px; border: 1px solid #ccc; padding: 2px 5px; font-size: 1em;" >Clear</button>
+    <div id="prediction-result" style="margin-top:10px;font-size:1.2em;"></div>`;
 
   const userCanvas = document.getElementById('user-canvas');
   const ctx = userCanvas.getContext('2d');
@@ -209,7 +208,16 @@ function getModel() {
   }));
   model.add(tf.layers.maxPooling2d({poolSize: [2, 2], strides: [2, 2]}));
   
+  model.add(tf.layers.dropout({rate: 0.25}));
+
   model.add(tf.layers.flatten());
+
+  model.add(tf.layers.dense({
+    units: 32,
+    kernelInitializer: 'varianceScaling',
+    activation: 'relu'
+  }));
+  model.add(tf.layers.dropout({rate: 0.5}));
 
   const NUM_OUTPUT_CLASSES = 10;
   model.add(tf.layers.dense({
