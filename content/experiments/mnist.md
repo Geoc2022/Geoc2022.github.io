@@ -33,7 +33,9 @@ fediverse = "@geoc@mathstodon.xyz"
   <!-- Import the main script file -->
   <script src="script.js" type="module"></script>
 
-  <p>Here is a simple TensorFlow.js example that loads the MNIST dataset, trains a model, and allows you to draw digits to see how well the model predicts them.</p>
+  Here is a simple TensorFlow.js example that loads the MNIST dataset, trains a model, and allows you to draw digits to see how well the model predicts them. Once the model is trained, you can draw a digit in the box below and it will predict what digit you drew. The model is trained on the MNIST dataset, which consists of 28x28 pixel grayscale images of handwritten digits (0-9).
+
+  *Also, once the model is trained, feel free to hide the sidebar (top right) to get a better view of the canvas.*
 
   <div id="mnist-examples"><h3>Loading...</h3></div>
   <div id="model-summary"><h3>Loading...</h3></div>
@@ -41,7 +43,7 @@ fediverse = "@geoc@mathstodon.xyz"
 
   The model is pretty small in order to run in the browser, so it may not be very accurate. I've also noticed that the model has a couple weird quirks like you have to draw some of the digits in a specific way for it to recognize them correctly. For example, it seems to prefer the 7 to be drawn with a curved line at the top.
 
-  I also suspect that it has to do with the fact that the input box here doesn't output images with the same style as the MNIST dataset, so it may not be able to recognize the digits as well as it could as from the actual MNIST dataset which is partially an issue with the model not generalizing well.
+  I also suspect the poor accuracy has to do with the fact that the input box here doesn't output images with the same style as the MNIST dataset, so it may not be able to recognize the digits as well as it could as from the actual MNIST dataset which is partially an issue with the model not being able to generalize well.
 </head>
 
 <body>
