@@ -4,7 +4,7 @@ async function showExamples(data) {
   let examplesDiv = document.getElementById('mnist-examples');
   examplesDiv.innerHTML = '<h3>MNIST Data</h3>';
 
-  const examples = data.nextTestBatch(4);
+  const examples = data.nextTestBatch(20);
   const numExamples = examples.xs.shape[0];
   
   for (let i = 0; i < numExamples; i++) {
@@ -20,7 +20,7 @@ async function showExamples(data) {
 
     await tf.browser.toPixels(imageTensor, smallCanvas);
 
-    const scale = 5;
+    const scale = 1;
     const largeCanvas = document.createElement('canvas');
     largeCanvas.width = 28 * scale;
     largeCanvas.height = 28 * scale;
@@ -186,7 +186,19 @@ async function run() {
   document.getElementById('predict-btn').onclick = doPredictionFromCanvas;
 }
 
-document.addEventListener('DOMContentLoaded', run);
+document.addEventListener('DOMContentLoaded', () => {
+  const startBtn = document.getElementById('start-button');
+  startBtn.textContent = 'Start MNIST Demo';
+  startBtn.style = 'border-radius:6px; border:1px solid #ccc; padding:6px 16px; font-size:1.1em; margin:16px 0;';
+
+  startBtn.addEventListener('click', () => {
+    startBtn.disabled = true;
+    startBtn.textContent = 'Loading...';
+    run().finally(() => {
+      startBtn.style.display = 'none';
+    });
+  });
+});
 
 function getModel() {
   const model = tf.sequential();
