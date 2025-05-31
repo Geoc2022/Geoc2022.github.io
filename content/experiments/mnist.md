@@ -39,9 +39,9 @@ fediverse = "@geoc@mathstodon.xyz"
 
   <button id="start-button">Loading Content</button>
 
-  <div id="mnist-examples"><h3>Loading...</h3></div>
-  <div id="model-summary"><h3>Loading...</h3></div>
-  <div id="draw-canvas"><h3>Waiting on training...</h3></div>
+  <div id="mnist-examples"></div>
+  <div id="model-summary"></div>
+  <div id="draw-canvas"></div>
 
   The model is pretty small in order to run in the browser, so it may not be very accurate. I've also noticed that the model has a couple weird quirks like you have to draw some of the digits in a specific way for it to recognize them correctly. For example, it seems to prefer the 7 to be drawn with a curved line at the top.
 

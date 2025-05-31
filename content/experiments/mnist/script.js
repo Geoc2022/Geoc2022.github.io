@@ -194,6 +194,13 @@ document.addEventListener('DOMContentLoaded', () => {
   startBtn.addEventListener('click', () => {
     startBtn.disabled = true;
     startBtn.textContent = 'Loading...';
+
+    // mnist-examples
+    // model-summary
+    // draw-canvas
+    document.getElementById("mnist-examples").innerHTML = '<h3>Waiting on loading data...</h3>';
+    document.getElementById("model-summary").innerHTML = '<h3>Waiting on loading model...</h3>';
+    document.getElementById("draw-canvas").innerHTML = '<h3>Waiting on training to finish...</h3>';
     run().finally(() => {
       startBtn.style.display = 'none';
     });
