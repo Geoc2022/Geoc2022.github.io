@@ -14,9 +14,11 @@ hideBackToTop = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 <div align="center">
-    <iframe src="https://www.desmos.com/calculator/lujhlxwdhg?embed" width="100%" height="500" frameborder="0"></iframe>
-    $\cos\left(3x\right)+\cos\left(7x\right)$ wrapped around a circle
+
+<iframe src="https://www.desmos.com/calculator/lujhlxwdhg?embed" width="100%" height="500" frameborder="0"></iframe>
+
 </div>
+$\cos\left(3x\right)+\cos\left(7x\right)$ wrapped around a circle
 
 This Desmos implementation offers a hands-on visual of 3Blue1Brown’s video on the [Fourier Transform](https://youtu.be/spUNpyF58BY?t=153).
 

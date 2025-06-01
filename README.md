@@ -2,9 +2,13 @@
 
 Todo:
 - fix desmos embeds on mobile 
-- finish umbral calculus 
-- /about on right side
 - pfp? 
-- more desmos
 - email icon?
-- add TensorFlow.js page
+- /about on right side
+- add other to homepage
+
+- Add pages:
+    - [ ] TensorFlow.js page
+    - [ ] papers to projects
+    - [x] desmos
+    - [ ] update umbral calculus 
