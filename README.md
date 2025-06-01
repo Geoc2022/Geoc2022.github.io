@@ -1,7 +1,6 @@
 # [Personal Site](https://george.chemmala.com)
 
 Todo:
-- fix desmos embeds on mobile 
 - pfp? 
 - email icon?
 - /about on right side
@@ -10,5 +9,10 @@ Todo:
 - Add pages:
     - [ ] TensorFlow.js page
     - [ ] papers to projects
-    - [x] desmos
+    - [ ] desmos
     - [ ] update umbral calculus 
+
+Archive:
+- fix desmos embeds on mobile 
+    - yeah not really sure whats causing this
+    - maybe it's the embed no having the function sidebar?
