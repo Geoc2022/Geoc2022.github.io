@@ -2,7 +2,7 @@
 date = '2025-05-19T01:22:38-04:00'
 aliases = ['/pages/about_contact.html', '/pages/about_contact']
 draft = false
-title = 'About'
+title = 'whoami'
 +++
 
 I’m a junior at Brown University studying Computer Science and Mathematics, with current interests in cryptography, deep learning, and formal proof verification.

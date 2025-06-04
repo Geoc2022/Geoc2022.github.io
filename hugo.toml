@@ -96,9 +96,9 @@ url = "/projects"
 name = "other"
 url = "/other"
 
-[[params.menu]]
-name = "about"
-url = "/about"
+[[params.about]]
+name = "whoami"
+url = "/whoami"
 
 # Syntax highlight on code blocks
 [markup]

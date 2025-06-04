@@ -3,8 +3,6 @@
 Todo:
 - pfp? 
 - email icon?
-- /about on right side
-- add other to homepage
 
 - Add pages:
     - [ ] TensorFlow.js page
