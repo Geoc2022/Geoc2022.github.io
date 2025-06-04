@@ -56,9 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- <a href="#" id="feeling-lucky-link" style="background-color: var(--bg); padding: 2px 6px; border-radius: 4px;">I'm feeling lucky</a> -->
 '''
 
+# # Collection to display on home
+# homeCollectionTitle = 'Projects'
+# homeCollection = 'projects'
+
 # Collection to display on home
-homeCollectionTitle = 'Projects'
-homeCollection = 'projects'
+homeSections = ['projects', 'other']
 
 # Lists parameters
 paginationSize = 100
