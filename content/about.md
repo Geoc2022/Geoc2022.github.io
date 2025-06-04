@@ -1,5 +1,6 @@
 +++
 date = '2025-05-19T01:22:38-04:00'
+aliases = ['/pages/about_contact.html', '/pages/about_contact']
 draft = false
 title = 'About'
 +++
