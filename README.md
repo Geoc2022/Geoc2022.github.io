@@ -2,7 +2,6 @@
 
 Todo:
 - pfp? 
-- email icon?
 
 - Add pages:
     - [ ] TensorFlow.js page

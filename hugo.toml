@@ -74,14 +74,14 @@ enabled = true
 showCurrentPage = true
 home = "~"
 
-# # Social icons
-# [[params.social]]
-# name = "linkedin"
-# url = "https://www.linkedin.com/in/user/"
-
+# Social icons
 [[params.social]]
 name = "github"
 url = "https://github.com/Geoc2022"
+
+[[params.social]]
+name = "gmail"
+url = "mailto:george_chemmala@brown.edu"
 
 # Main menu pages
 # [[params.menu]]
@@ -103,7 +103,7 @@ url = "/whoami"
 # Syntax highlight on code blocks
 [markup]
 [markup.highlight]
-style = 'algol'
+style = 'arduino'
 
 # Giscus comments
 [params.giscus]
