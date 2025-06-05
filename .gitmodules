@@ -1,3 +1,6 @@
 [submodule "themes/typo"]
 	path = themes/typo
 	url = https://github.com/Geoc2022/typo.git
+[submodule "content/experiments/mnist"]
+	path = content/experiments/mnist
+	url = https://github.com/Geoc2022/mnist-tensorflow-js-demo.git
