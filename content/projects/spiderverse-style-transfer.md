@@ -1,5 +1,5 @@
 +++
-title = "Across the Spider-Verse Style Transfer + Transfer Learning"
+title = "Across the Spider-Verse Style Transfer"
 date = "2023-05-19"
 draft = false
 

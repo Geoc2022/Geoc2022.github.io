@@ -1,10 +1,10 @@
 +++
 date = '2025-05-28T19:09:06-04:00'
 draft = false
-title = 'An Interactive MNIST Example Using TensorFlow.js'
+title = 'An MNIST Demo Using TensorFlow.js'
 
-summary = "A simple TensorFlow.js implementation of of MNIST "
-description = "A simple TensorFlow.js implementation of of MNIST "
+summary = "A simple TensorFlow.js implementation of MNIST "
+description = "A simple TensorFlow.js implementation of MNIST "
 readTime = false
 autonumber = false
 math = false
