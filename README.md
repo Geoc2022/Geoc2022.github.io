@@ -4,7 +4,6 @@ Todo:
 - pfp? 
 
 - Add pages:
-    - [ ] TensorFlow.js page
     - [ ] papers to projects
     - [ ] desmos
     - [ ] update umbral calculus 

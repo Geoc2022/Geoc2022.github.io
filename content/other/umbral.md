@@ -108,18 +108,62 @@ You can check the math by copying your closed form into $f(x)$ in this [desmos g
 
 </div>
 
-<!-- The finite difference operator is defined as:
+The finite difference operator is defined as:
 $$
 \Delta f(x) = f(x + 1) - f(x)
 $$
-This operator is used to find the difference between consecutive terms in a sequence. For example, if we have a sequence $1, 4, 3, 4$, we can find the first difference:
+This operator is used to find the difference between consecutive terms in a sequence. For example, if we have a sequence $1, 4, 3, 4$ based on $f(x) = x^3 - 8x^2 + 20x - 12$
+
+we can apply the finite difference operator to find the first difference:
+
 $$
-\Delta f(x) = f(x + 1) - f(x) = (4 - 1, 3 - 4, 4 - 3) = (3, -1, 1)
+\Delta f(x)
 $$
-You can also continue to find the second difference:
 $$
-\Delta^2 f(x) = \Delta f(x + 1) - \Delta f(x) = (-1 - 3, 1 - (-1)) = (-4, 2)
-$$ -->
+f(x + 1) - f(x)
+$$
+$$
+(x + 1)^3 - 8(x + 1)^2 + 20(x + 1) - 12 - (x^3 - 8x^2 + 20x - 12)
+$$
+$$
+3 x^2 - 13 x + 13
+$$
+
+And naturally, the sequence based on $3 x^2 - 13 x + 13$ is the difference of the previous sequence, and we have: $3, -1, 1$.
+
+We can continue applying the finite difference operator to find higher-order differences which we write as 
+$$
+\Delta^n f(x) = \Delta(\Delta^{n-1} f(x))
+$$
+
+This is a linear operator:
+$$
+\Delta (a f(x) + b g(x))
+$$
+$$
+(a f(x + 1)  + b g(x + 1)) - (a f(x) + b g(x)) 
+$$
+$$
+(a f(x + 1) - a f(x)) + (b g(x + 1) - b g(x))
+$$
+$$
+a (f(x + 1) - f(x)) + b (g(x + 1) - g(x))
+$$
+$$
+a \Delta f(x) + b \Delta g(x)
+$$
+
+This means we can apply the finite difference operator to a linear combination of functions, and it will distribute over the sum.
+
+*Lemma*: If $h(x)$ is defined on the integers and $\Delta h(x) = 0$ for all $x$, then $h(x)$ is a constant function. By definition, $\Delta h(x) = h(x+1) - h(x)$, so if $\Delta h(x) = 0$ for all integers $x$ then it must be that $h(x+1) = h(x)$ for all integers $x$.
+
+Using this lemma, we can observe that if $f$ and $g$ are functions defined on the integers and $\Delta f(x) = \Delta g(x)$ then $f(x) = g(x) + c$. 
+
+This should look familiar to you if you've seen calculus, where you know that if $f'(x) = g'(x)$ then $f(x) = g(x) + c$.
+
+*Proof*:
+
+$\Delta f(x) = \Delta g(x) \Rightarrow \Delta f(x) - \Delta g(x) = 0 \Rightarrow \Delta[f(x) - g(x)] = 0 \Rightarrow f(x) - g(x) = c$.
 
 *WIP: This is a work in progress. I have a [github repo](https://github.com/Geoc2022/umbral.py) with a more complete version including the jackson difference fan*
 
