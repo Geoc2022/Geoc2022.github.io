@@ -42,10 +42,10 @@ When I first implemented the Mandelbrot set in Desmos, we didn't have recursion 
 
 </div>
 
-A grid using [Vogel's model](https://en.wikipedia.org/wiki/Fibonacci_sequence#Nature), which can cram more points into the same space, allowing for a more detailed view of the Mandelbrot set. This is why sunflowers and pinecones have that spiral pattern, as it allows for the most efficient packing of seeds or scales.
+A grid using [Vogel's model](https://en.wikipedia.org/wiki/Fibonacci_sequence#Nature) can cram more points into the same space, allowing for a more detailed view of the Mandelbrot set. This is why sunflowers and pinecones have that spiral pattern, as it allows for the most efficient packing of seeds or scales.
 
 
-Then we got actions, which allowed us to do recursion by adding steps to the function. Here you could choose how many iterations you wanted to run, but it was still pretty slow for large numbers of iterations.
+Then actions got added to Desmos, which allowed us to do recursion by adding steps to the function. Here you could choose how many iterations you wanted to run, but it was still pretty slow for large numbers of iterations.
 
 <div align="center">
 
@@ -54,11 +54,11 @@ Then we got actions, which allowed us to do recursion by adding steps to the fun
 </div>
 
 
-Finally, we got recursion, which allowed us to create the Mandelbrot set in a much more efficient way. This is the current implementation, which is much faster and loads instantly comapred to the others.
+Finally, we got recursion, which allows us to create the Mandelbrot set in a much more efficient way. This is the current implementation, which is much faster, loading quite a bit faster than the previous ones.
 
 
 <div align="center">
 
-<iframe src="https://www.desmos.com/calculator/ytfl6giwz1?embed" width="100%" height="500" frameborder="0"></iframe>
+<iframe src="https://www.desmos.com/calculator/ytfl6giwz1" width="100%" height="500" frameborder="0"></iframe>
 
 </div>
