@@ -15,7 +15,7 @@ fediverse = "@geoc@mathstodon.xyz"
 +++
 <div align="center">
 
-<iframe src="https://www.desmos.com/calculator/lujhlxwdhg" width="100%" height="500" frameborder="0"></iframe>
+<iframe src="https://www.desmos.com/calculator/lujhlxwdhg?embed" width="100%" height="500" frameborder="0"></iframe>
 
 </div>
 $\cos\left(3x\right)+\cos\left(7x\right)$ wrapped around a circle
