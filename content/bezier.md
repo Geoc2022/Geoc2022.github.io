@@ -41,7 +41,7 @@ fediverse = "@geoc@mathstodon.xyz"
     }
 </style>
 
-<textarea id="inputText" rows="5" cols=35% style="border-radius: 6px; border: 1px solid #ccc; padding: 6px 10px; font-size: 1em; color: var(--fg); width: auto;">
+<textarea id="inputText" rows="5" cols=35% style="border-radius: 6px; border: 1px solid #ccc; padding: 6px 10px; font-size: 1em; color: var(--fg); width: 350px;">
 animation-timing-function: cubic-bezier(0.42, 0, 1, 1); /* ease-in */
 animation-timing-function: cubic-bezier(0, 0, 0.58, 1); /* ease-out */
 animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1); /* ease-in-out */

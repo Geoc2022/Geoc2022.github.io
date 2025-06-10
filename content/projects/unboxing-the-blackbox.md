@@ -88,11 +88,17 @@ We tested our models on MNIST, Fashion-MNIST, and CIFAR-10. Below are some quali
 
 ### Performance Summary
 
-| Model           | MNIST | Fashion-MNIST | CIFAR-10 | Efficiency |
-| --------------- | ----- | ------------- | -------- | ---------- |
-| Focus (learned) | 98%   | 86%           | 52%      | Medium     |
-| Focus (corners) | 86%   | 72%           | 34%      | High       |
-| Attention-based | —     | —             | 79%      | Low        |
+| Model           | MNIST | Fashion | CIFAR-10 |
+| --------------- | ----- | ------- | -------- |
+| Focus (learned) | 98%   | 86%     | 52%      |
+| Focus (corners) | 86%   | 72%     | 34%      |
+| Attention-based | —     | —       | 79%      |
+
+| Model           | Efficiency |
+| --------------- | ---------- |
+| Focus (learned) | Medium     |
+| Focus (corners) | High       |
+| Attention-based | Low        |
 
 * **Focus models** reduce computation and improve transparency by limiting input to selected regions.
 * **Attention models** retain high accuracy and offer insight into the model's decision process through visualized attention.

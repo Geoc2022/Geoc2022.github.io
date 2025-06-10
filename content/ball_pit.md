@@ -15,7 +15,7 @@ fediverse = "@geoc@mathstodon.xyz"
 +++
 <br>
 <!-- <div align="center" style="width: 100%; height: 100%; overflow: hidden;"> -->
-<canvas id="canvas" width="400" height="400" overflow="hidden"></canvas>
+<canvas id="canvas" width="350" height="350" overflow="hidden"></canvas>
 <!-- </div> -->
 <script>
     const canvas = document.getElementById('canvas');
