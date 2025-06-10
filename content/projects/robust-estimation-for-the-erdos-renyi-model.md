@@ -1,5 +1,6 @@
 +++
 title = "Robust Estimation for the Erdős-Rényi Model"
+aliases = ['/pages/research.html', '/pages/research']
 date = "2024-12-07"
 draft = false
 

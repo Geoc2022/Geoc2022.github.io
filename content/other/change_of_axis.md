@@ -1,6 +1,6 @@
 +++
 title = "Change of Axis"
-aliases = ['/pages/articles/Rubber_Axis.html', '/pages/articles/Rubber_Axis']
+aliases = ['/pages/articles/Rubber_Axis.html', '/pages/articles/Rubber_Axis', '/pages/desmos.html', '/pages/desmos']
 date = "2020-10-16"
 draft = false
 

@@ -2,6 +2,7 @@
 date = '2025-05-28T19:09:06-04:00'
 draft = false
 title = 'An MNIST Demo Using TensorFlow.js'
+aliases = ['/experiments/mnist.html', '/experiments/mnist']
 
 summary = "A simple TensorFlow.js implementation of MNIST "
 description = "A simple TensorFlow.js implementation of MNIST "
