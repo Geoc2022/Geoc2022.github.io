@@ -20,11 +20,44 @@ hideHeader = false
 
 # Intro on main page, content is markdown
 homeIntroTitle = '''
-Hi there <span class="wave-hand" style="display:inline-block; transition: transform 0.2s;">👋</span>
+Hi there <span class="wave-hand" style="display:inline-block; transition: transform 0.2s; cursor:pointer;">👋</span>
 <style>
+.confetti-piece {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.8;
+}
+.thank-you {
+    position: fixed;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+    background-color: inherit;
+    color: inherit;
+    padding: 7.5px 15px;
+    border-radius: 8px;
+    z-index: 999;
+    font-size: 1em;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    animation: thank-you-fade 1.5s forwards;
+}
+
+@keyframes thank-you-fade {
+    0% { opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { opacity: 0; }
+}
 .wave-hand {
     display: inline-block;
     transition: transform 0.2s;
+    cursor: pointer;
 }
 .wave-hand:hover {
     animation: wave-animation 1s;
@@ -57,6 +90,49 @@ document.addEventListener('DOMContentLoaded', function() {
     hand.addEventListener('animationend', function() {
         hand.classList.remove('waving');
     });
+
+    hand.addEventListener('click', function(e) {
+        launchConfetti(e.clientX, e.clientY);
+    });
+
+    function launchConfetti(x, y) {
+        const colors = ['#ff595e', '#ffca3a', '#8ac926', '#1982c4', '#6a4c93', '#fff', '#f72585', '#b5179e'];
+        const count = 30;
+        for (let i = 0; i < count; i++) {
+            const conf = document.createElement('div');
+            conf.className = 'confetti-piece';
+            conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.left = (x - 4) + 'px';
+            conf.style.top = (y - 4) + 'px';
+            conf.style.pointerEvents = 'none';
+            document.body.appendChild(conf);
+
+            const angle = Math.random() * 2 * Math.PI;
+            const distance = 80 + Math.random() * 80;
+            const dx = Math.cos(angle) * distance;
+            const dy = Math.sin(angle) * distance;
+            const rotate = Math.random() * 360;
+
+            const animation = conf.animate([
+                { transform: `translate(0,0) rotate(0deg)`, opacity: 1 },
+                { transform: `translate(${dx}px,${dy}px) rotate(${rotate}deg)`, opacity: 0 }
+            ], {
+                duration: 900 + Math.random() * 600,
+                easing: 'cubic-bezier(.62,.01,.5,1)'
+            });
+
+            animation.onfinish = () => conf.remove();
+            // Fallback in case animationend doesn't fire
+            setTimeout(() => conf.remove(), 2000);
+        }
+
+        // Thanks for not leaving me hanging!
+        const thankYou = document.createElement('div');
+        thankYou.className = 'thank-you';
+        thankYou.textContent = 'didn\'t leave me hanging!';
+        document.body.appendChild(thankYou);
+        setTimeout(() => thankYou.remove(), 1500);
+    }
 });
 </script>
 '''
