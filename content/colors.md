@@ -25,6 +25,16 @@ fediverse = "@geoc@mathstodon.xyz"
       border: 0px solid #ccc;
       box-shadow: 0 0 4px rgba(0,0,0,0.2);
     }
+
+    .dropzone {
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 10px;
+      color: #888;
+      cursor: pointer;
+    }
 </style>
 
 <textarea id="inputText" rows="5" cols=25% style="border-radius: 6px; border: 1px solid #ccc; padding: 6px 10px; font-size: 1em; color: var(--fg); width: auto;">
@@ -136,6 +146,64 @@ document.getElementById("imageUrlInput").addEventListener("input", function() {
 });
 
 document.getElementById("imageInput").addEventListener("change", function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const img = new window.Image();
+    img.onload = function() {
+        const colors = getDominantColors(img, 8);
+        showColorBoxes(colors, "imgColorContainer", "imgColorCount");
+    };
+    img.src = URL.createObjectURL(file);
+});
+
+// Add drag-and-drop and click-to-select support
+const dropZone = document.createElement("div");
+dropZone.className = "dropzone";
+dropZone.innerHTML = "Drag and drop an image here or click to select";
+
+const imageInput = document.getElementById("imageInput");
+imageInput.style.display = "none"; // Hide the original input
+imageInput.parentNode.insertBefore(dropZone, imageInput);
+
+// Drag events
+["dragenter", "dragover"].forEach(eventName => {
+    dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.style.borderColor = "#888";
+        dropZone.style.background = "#f8f8f8";
+    });
+});
+
+["dragleave", "drop"].forEach(eventName => {
+    dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.style.borderColor = "#ccc";
+        dropZone.style.background = "";
+    });
+});
+
+// Drop event
+dropZone.addEventListener("drop", function(e) {
+    const file = e.dataTransfer.files[0];
+    if (!file || !file.type.startsWith("image/")) return;
+    const img = new window.Image();
+    img.onload = function() {
+        const colors = getDominantColors(img, 8);
+        showColorBoxes(colors, "imgColorContainer", "imgColorCount");
+    };
+    img.src = URL.createObjectURL(file);
+});
+
+// Click-to-select support
+dropZone.addEventListener("click", function() {
+    imageInput.value = ""; // Reset so change always fires
+    imageInput.click();
+});
+
+// File input change event (already present, but ensure it works with dropZone)
+imageInput.addEventListener("change", function(e) {
     const file = e.target.files[0];
     if (!file) return;
     const img = new window.Image();
