@@ -5,7 +5,13 @@ draft = false
 title = 'whoami'
 +++
 
-I’m a junior at Brown University studying Computer Science and Mathematics, with current interests in cryptography, deep learning, and formal proof verification.
+I’m an undergraduate at Brown University pursuing dual Sc.B. degrees in Computer Science and Mathematics (expected May 2026). 
+
+My interests currently center on cryptography, deep learning, and formal proof verification. Some of my recent projects include implementing a [cryptographic voting protocol](../projects/vote), developing methods for [robust estimation in adversarial graph models](../projects/robust-estimation-for-the-erdos-renyi-model), and creating a [Abstract Algebra Lean game](https://github.com/Geoc2022/AlgebraGame). 
+
+I've used languages like Python, C/C++, Java, and Lean among others, and I’m comfortable with tools like TensorFlow, PyTorch, and CUDA for deep learning, as well Matplotlib, NumPy, and pandas for data analysis.
+
+Outside the classroom, I’m also active in teaching and outreach, serving as President of Brown's Math Circle.
 
 (Un)related, I'm a big fan of board games, photography, and music. 
 
