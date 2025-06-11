@@ -78,6 +78,10 @@ Hi there <span class="wave-hand" style="display:inline-block; transition: transf
 document.addEventListener('DOMContentLoaded', function() {
     const hand = document.querySelector('.wave-hand');
     let timeout;
+    hand.classList.add('waving');
+    setTimeout(() => {
+        hand.classList.remove('waving');
+    }, 1000);
     hand.addEventListener('mouseenter', function() {
         hand.classList.add('waving');
         clearTimeout(timeout);
