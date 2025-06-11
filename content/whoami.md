@@ -7,14 +7,14 @@ title = 'whoami'
 
 <style>
 .annotation__text {
-    background: color-mix(in srgb, var(--accent) 40%, transparent);
+    background: color-mix(in srgb, var(--annotation-accent, var(--accent)) 40%, transparent);
     transition: background 0.3s;
     cursor: pointer;
     position: relative;
     color: inherit;
 }
 .annotation__text--active {
-    background: var(--accent);
+    background: var(--annotation-accent, var(--accent));
 }
 #annotation__footnote-box {
     display: none;
@@ -22,10 +22,10 @@ title = 'whoami'
     bottom: 5%;
     right: 2%;
     max-width: 320px;
-    background: color-mix(in srgb, var(--bg) 95%, var(--black));
+    background: color-mix(in srgb, var(--annotation-bg, var(--bg)) 95%, var(--black));
     color: inherit;
-    border: 2px solid var(--accent);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    border: 2px solid var(--annotation-accent, var(--accent));
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2), 0 4px 24px rgba(0,0,0,.08);
     padding: 1em 1.2em;
     z-index: 9999;
     font-size: .9em;
@@ -53,7 +53,7 @@ title = 'whoami'
         display: none !important;
     }
     .annotation__text {
-        background: color-mix(in srgb, var(--accent) 40%, transparent);
+        background: color-mix(in srgb, var(--annotation-accent, var(--accent)) 40%, transparent);
         transition: background 0.3s;
         cursor: pointer;
         position: relative;
@@ -68,6 +68,14 @@ title = 'whoami'
     const isMobile = () => window.matchMedia('(max-width: 700px)').matches;
     let activeAnno = null;
     let animTimeout = null;
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.annotation__text').forEach(function(el) {
+            const accent = el.getAttribute('data-annotation-accent');
+            if (accent) {
+                el.style.setProperty('--annotation-accent', accent);
+            }
+        });
+    });
     function showFootnote(el) {
         if (activeAnno && activeAnno !== el) {
             hideFootnote();
@@ -77,10 +85,20 @@ title = 'whoami'
         const note = el.getAttribute('data-annotation');
         if (!note) return;
         const box = document.getElementById('annotation__footnote-box');
+        const accent = el.getAttribute('data-annotation-accent');
+        const accent_solid = el.getAttribute('data-annotation-accent-solid') || 'var(--blue)';
+        const bg = el.getAttribute('data-annotation-bg');
+        if (accent) box.style.setProperty('--annotation-accent', accent);
+        else box.style.removeProperty('--annotation-accent');
+        if (bg) box.style.setProperty('--annotation-bg', bg);
+        else box.style.removeProperty('--annotation-bg');
         if (isMobile()) {
             el.classList.add('annotation__text--mobile');
             el.setAttribute('data-original', el.innerText);
-            el.innerHTML = el.getAttribute('data-original') + ' <span style="color:var(--blue)">[</span>' + note + '<span style="color:var(--blue)">]</span>';
+            el.innerHTML = el.getAttribute('data-original') + 
+            ' <span style="color:' + accent_solid + '">[</span>' + 
+            note + 
+            '<span style="color:' + accent_solid + '">]</span>';
         } else {
             el.classList.add('annotation__text--active');
             box.innerText = note;
@@ -107,6 +125,8 @@ title = 'whoami'
             animTimeout = setTimeout(() => {
                 box.style.display = 'none';
                 box.classList.remove('hide');
+                box.style.removeProperty('--annotation-accent');
+                box.style.removeProperty('--annotation-bg');
             }, 350);
         }
         activeAnno = null;
@@ -152,27 +172,10 @@ My interests currently center on cryptography, deep learning, and formal proof v
 
 I've used languages like Python, C/C++, Java, and Lean among others, and I’m comfortable with tools like TensorFlow, PyTorch, and CUDA for deep learning, as well Matplotlib, NumPy, and pandas for data analysis.
 
-<span class="annotation__text" data-annotation="Or rather in the classroom">Outside the classroom</span>, I’m also active in teaching and outreach, serving as President of Brown's Math Circle. 
-
-<!-- Outside the classroom, I’m also active in teaching and outreach, serving as President of Brown's Math Circle. -->
-
 <span class="annotation__text" data-annotation="Ironically, I find a lot of people who like math also like music. It makes sense why they might like board games though">(Un)related</span>, I'm a big fan of board games, photography, and music. 
 
-<span id="hover-area" style="color: var(--bg0)">░░░░░░░░░░░░░░░░░░</span>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const hoverArea = document.getElementById('hover-area');
-        let timer;
-        hoverArea.onmouseenter = () => {
-            timer = setTimeout(() => {
-                hoverArea.outerHTML = '<span id="revealed-text">References: Riley Hartman and Mitchell Perales</span>';
-            }, 3000);
-        };
-        hoverArea.onmouseleave = () => {
-            clearTimeout(timer);
-        };
-    });
-</script>
+<span class="annotation__text" data-annotation="References: Riley Hartman and Mitchell Perales" data-annotation-accent="#00000000">
+<span style="color: var(--bg0)">░░</span></span>
 
 Here's my [resume](/George_Chemmala_resume.pdf).
 <!-- 
