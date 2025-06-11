@@ -50,8 +50,8 @@ Hi there <span class="wave-hand" style="display:inline-block; transition: transf
 
 @keyframes thank-you-fade {
     0% { opacity: 0; }
-    15% { opacity: 1; }
-    85% { opacity: 1; }
+    15% { opacity: .9; }
+    85% { opacity: .9; }
     100% { opacity: 0; }
 }
 .wave-hand {
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Thanks for not leaving me hanging!
         const thankYou = document.createElement('div');
         thankYou.className = 'thank-you';
-        thankYou.textContent = 'didn\'t leave me hanging!';
+        thankYou.textContent = 'didn\'t leave me hanging! :D';
         document.body.appendChild(thankYou);
         setTimeout(() => thankYou.remove(), 1500);
     }
@@ -157,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     .map(loc => new URL(loc.textContent).pathname)
                     .filter(path => path !== '/google21d0060bd8dc65b8/')
                     .filter(path => path !== '/yo/')
+                    .filter(path => !path.startsWith('/experiments/'))
                     .filter(path => !path.startsWith('/tags/'))
                     .filter(path => path !== window.location.pathname);
                 if (urls.length) {
