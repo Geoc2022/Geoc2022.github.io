@@ -5,15 +5,152 @@ draft = false
 title = 'whoami'
 +++
 
+<style>
+.annotation__text {
+    background: color-mix(in srgb, var(--accent) 40%, transparent);
+    transition: background 0.3s;
+    cursor: pointer;
+    position: relative;
+    color: inherit;
+}
+.annotation__text--active {
+    background: var(--accent);
+}
+#annotation__footnote-box {
+    display: none;
+    position: fixed;
+    top: 80%;
+    right: 2%;
+    max-width: 320px;
+    background: color-mix(in srgb, var(--bg) 95%, var(--black));
+    color: inherit;
+    border: 2px solid var(--accent);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    padding: 1em 1.2em;
+    z-index: 9999;
+    font-size: .9em;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(5px) scale(0.98);
+    transition:
+        opacity 0.35s cubic-bezier(.4,0,.2,1),
+        transform 0.35s cubic-bezier(.4,0,.2,1);
+    pointer-events: none;
+}
+#annotation__footnote-box.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+#annotation__footnote-box.hide {
+    opacity: 0;
+    transform: translateY(5px) scale(0.98);
+    pointer-events: none;
+}
+@media (max-width: 700px) {
+    #annotation__footnote-box {
+        display: none !important;
+    }
+    .annotation__text {
+        background: color-mix(in srgb, var(--accent) 40%, transparent);
+        transition: background 0.3s;
+        cursor: pointer;
+        position: relative;
+        color: inherit;
+        padding: 0 0.2em;
+    }
+}
+</style>
+<div id="annotation__footnote-box"></div>
+<script>
+(function() {
+    const isMobile = () => window.matchMedia('(max-width: 700px)').matches;
+    let activeAnno = null;
+    let animTimeout = null;
+    function showFootnote(el) {
+        const note = el.getAttribute('data-annotation');
+        if (!note) return;
+        const box = document.getElementById('annotation__footnote-box');
+        if (isMobile()) {
+            el.classList.add('annotation__text--mobile');
+            el.setAttribute('data-original', el.innerText);
+            el.innerHTML = el.getAttribute('data-original') + ' <span style="color:var(--blue)">[</span>' + note + '<span style="color:var(--blue)">]</span>';    } else {
+            el.classList.add('annotation__text--active');
+            box.innerText = note;
+            box.classList.remove('hide');
+            box.style.display = 'block';
+            void box.offsetWidth;
+            box.classList.add('show');
+        }
+        activeAnno = el;
+    }
+    function hideFootnote() {
+        if (!activeAnno) return;
+        const box = document.getElementById('annotation__footnote-box');
+        if (isMobile()) {
+            if (activeAnno.hasAttribute('data-original')) {
+                activeAnno.innerText = activeAnno.getAttribute('data-original');
+                activeAnno.classList.remove('annotation__text--mobile');
+            }
+        } else {
+            activeAnno.classList.remove('annotation__text--active');
+            box.classList.remove('show');
+            box.classList.add('hide');
+            clearTimeout(animTimeout);
+            animTimeout = setTimeout(() => {
+                box.style.display = 'none';
+                box.classList.remove('hide');
+            }, 350);
+        }
+        activeAnno = null;
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.annotation__text').forEach(function(el) {
+            if (isMobile()) {
+                el.addEventListener('click', function(e) {
+                    if (activeAnno !== el) {
+                        showFootnote(el);
+                    } else {
+                        hideFootnote();
+                    }
+                });
+            } else {
+                el.addEventListener('mouseenter', function() {
+                    if (activeAnno !== el) {
+                        showFootnote(el);
+                    }
+                });
+                el.addEventListener('click', function() {
+                    if (activeAnno !== el) {
+                        showFootnote(el);
+                    } else {
+                        hideFootnote();
+                    }
+                });
+            }
+        });
+        window.addEventListener('scroll', function() {
+            if (activeAnno) {
+                hideFootnote();
+            }
+        });
+    });
+})();
+</script>
+
+
 I’m an undergraduate at Brown University pursuing dual Sc.B. degrees in Computer Science and Mathematics (expected May 2026). 
 
 My interests currently center on cryptography, deep learning, and formal proof verification. Some of my recent projects include implementing a [cryptographic voting protocol](../projects/vote), developing methods for [robust estimation in adversarial graph models](../projects/robust-estimation-for-the-erdos-renyi-model), and creating a [Abstract Algebra Lean game](https://github.com/Geoc2022/AlgebraGame). 
 
 I've used languages like Python, C/C++, Java, and Lean among others, and I’m comfortable with tools like TensorFlow, PyTorch, and CUDA for deep learning, as well Matplotlib, NumPy, and pandas for data analysis.
 
-Outside the classroom, I’m also active in teaching and outreach, serving as President of Brown's Math Circle.
+<!-- <span class="annotation__text" data-annotation="Or rather in the classroom">Outside the classroom</span>, I’m also active in teaching and outreach, serving as President of Brown's Math Circle.  -->
 
-(Un)related, I'm a big fan of board games, photography, and music. 
+<!-- Outside the classroom, I’m also active in teaching and outreach, serving as President of Brown's Math Circle. -->
+
+<span class="annotation__text" data-annotation="Ironically, I find a lot of people who like math also like music. It makes sense why they might like board games though">(Un)related</span>, I'm a big fan of board games, photography, and music. 
 
 <span id="hover-area" style="color: var(--bg0)">░░░░░░░░░░░░░░░░░░</span>
 <script>
