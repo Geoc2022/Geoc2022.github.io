@@ -19,7 +19,7 @@ title = 'whoami'
 #annotation__footnote-box {
     display: none;
     position: fixed;
-    top: 80%;
+    bottom: 5%;
     right: 2%;
     max-width: 320px;
     background: color-mix(in srgb, var(--bg) 95%, var(--black));
