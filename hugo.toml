@@ -196,7 +196,7 @@ name = "github"
 url = "https://github.com/Geoc2022"
 
 [[params.social]]
-name = "gmail"
+name = "email"
 url = "mailto:george_chemmala@brown.edu"
 
 # Main menu pages
