@@ -69,13 +69,19 @@ title = 'whoami'
     let activeAnno = null;
     let animTimeout = null;
     function showFootnote(el) {
+        if (activeAnno && activeAnno !== el) {
+            hideFootnote();
+            setTimeout(() => showFootnote(el), 360);
+            return;
+        }
         const note = el.getAttribute('data-annotation');
         if (!note) return;
         const box = document.getElementById('annotation__footnote-box');
         if (isMobile()) {
             el.classList.add('annotation__text--mobile');
             el.setAttribute('data-original', el.innerText);
-            el.innerHTML = el.getAttribute('data-original') + ' <span style="color:var(--blue)">[</span>' + note + '<span style="color:var(--blue)">]</span>';    } else {
+            el.innerHTML = el.getAttribute('data-original') + ' <span style="color:var(--blue)">[</span>' + note + '<span style="color:var(--blue)">]</span>';
+        } else {
             el.classList.add('annotation__text--active');
             box.innerText = note;
             box.classList.remove('hide');
@@ -146,7 +152,7 @@ My interests currently center on cryptography, deep learning, and formal proof v
 
 I've used languages like Python, C/C++, Java, and Lean among others, and I’m comfortable with tools like TensorFlow, PyTorch, and CUDA for deep learning, as well Matplotlib, NumPy, and pandas for data analysis.
 
-<!-- <span class="annotation__text" data-annotation="Or rather in the classroom">Outside the classroom</span>, I’m also active in teaching and outreach, serving as President of Brown's Math Circle.  -->
+<span class="annotation__text" data-annotation="Or rather in the classroom">Outside the classroom</span>, I’m also active in teaching and outreach, serving as President of Brown's Math Circle. 
 
 <!-- Outside the classroom, I’m also active in teaching and outreach, serving as President of Brown's Math Circle. -->
 
