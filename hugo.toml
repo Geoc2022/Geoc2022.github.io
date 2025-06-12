@@ -50,8 +50,8 @@ Hi there <span class="wave-hand" style="display:inline-block; transition: transf
 
 @keyframes thank-you-fade {
     0% { opacity: 0; }
-    15% { opacity: .9; }
-    85% { opacity: .9; }
+    15% { opacity: .95; }
+    85% { opacity: .95; }
     100% { opacity: 0; }
 }
 .wave-hand {
