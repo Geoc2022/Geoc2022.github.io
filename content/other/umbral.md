@@ -14,10 +14,10 @@ hideBackToTop = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
-Using umbral calculus, we can find a closed form for a sequence by using the finite difference operator — the analogue of the derivative for sequences. I've written a simple script to do this, which you can try out below:
+Using umbral calculus, we can find a closed form for a sequence by using the finite difference operator — the analogue of the derivative for sequences. I've written a simple script to do this, which you can try below:
 
 <div align="left">
-    <h4>Sequence: </h4>
+    <h4>Sequence:</h4>
     <input type="text" id="seqInput" value="1, 4, 3, 4" style="border-radius: 6px; border: 1px solid #ccc; padding: 6px 10px; font-size: 1em;">
     <h4>Closed Form:</h4>
     <p id="result"></p>
@@ -101,7 +101,7 @@ document.getElementById("seqInput").addEventListener("input", function() {
 
 </script>
 
-You can check the math by copying your closed form into $f(x)$ in this [desmos graph](https://www.desmos.com/calculator/vtcrpcqgxc):
+You can check the math by copying your closed form into $f(x)$ in this [Desmos graph](https://www.desmos.com/calculator/vtcrpcqgxc):
 <div align="center">
 
 <iframe src="https://www.desmos.com/calculator/vtcrpcqgxc" width="100%" height="500" frameborder="0"></iframe>
@@ -112,7 +112,7 @@ The finite difference operator is defined as:
 $$
 \Delta f(x) = f(x + 1) - f(x)
 $$
-This operator is used to find the difference between consecutive terms in a sequence. For example, if we have a sequence $1, 4, 3, 4$ based on $f(x) = x^3 - 8x^2 + 20x - 12$
+This operator is used to find the difference between consecutive terms in a sequence. For example, if we have the sequence $1, 4, 3, 4$ based on $f(x) = x^3 - 8x^2 + 20x - 12$,
 
 we can apply the finite difference operator to find the first difference:
 
@@ -129,9 +129,9 @@ $$
 3 x^2 - 13 x + 13
 $$
 
-And naturally, the sequence based on $3 x^2 - 13 x + 13$ is the difference of the previous sequence, and we have: $3, -1, 1$.
+Naturally, the sequence based on $3 x^2 - 13 x + 13$ is the difference of the previous sequence, so we have: $3, -1, 1$.
 
-We can continue applying the finite difference operator to find higher-order differences which we write as 
+We can continue applying the finite difference operator to find higher-order differences, which we write as 
 $$
 \Delta^n f(x) = \Delta(\Delta^{n-1} f(x))
 $$
@@ -155,16 +155,16 @@ $$
 
 This means we can apply the finite difference operator to a linear combination of functions, and it will distribute over the sum.
 
-*Lemma*: If $h(x)$ is defined on the integers and $\Delta h(x) = 0$ for all $x$, then $h(x)$ is a constant function. By definition, $\Delta h(x) = h(x+1) - h(x)$, so if $\Delta h(x) = 0$ for all integers $x$ then it must be that $h(x+1) = h(x)$ for all integers $x$.
+*Lemma*: If $h(x)$ is defined on the integers and $\Delta h(x) = 0$ for all $x$, then $h(x)$ is a constant function. By definition, $\Delta h(x) = h(x+1) - h(x)$, so if $\Delta h(x) = 0$ for all integers $x$, then it must be that $h(x+1) = h(x)$ for all integers $x$.
 
-Using this lemma, we can observe that if $f$ and $g$ are functions defined on the integers and $\Delta f(x) = \Delta g(x)$ then $f(x) = g(x) + c$. 
+Using this lemma, we can observe that if $f$ and $g$ are functions defined on the integers and $\Delta f(x) = \Delta g(x)$, then $f(x) = g(x) + c$. 
 
-This should look familiar to you if you've seen calculus, where you know that if $f'(x) = g'(x)$ then $f(x) = g(x) + c$.
+This should look familiar if you've seen calculus, where if $f'(x) = g'(x)$ then $f(x) = g(x) + c$.
 
 *Proof*:
 
 $\Delta f(x) = \Delta g(x) \Rightarrow \Delta f(x) - \Delta g(x) = 0 \Rightarrow \Delta[f(x) - g(x)] = 0 \Rightarrow f(x) - g(x) = c$.
 
-*WIP: This is a work in progress. I have a [github repo](https://github.com/Geoc2022/umbral.py) with a more complete version including the Jackson Difference Fan*
+*WIP: This is a work in progress. I have a [GitHub repo](https://github.com/Geoc2022/umbral.py) with a more complete version, including the Jackson Difference Fan.*
 
 You can learn more about umbral calculus from [Vinton's Umbral Calculus Notes](./../Vintons_Umbral_Calculus_Notes.pdf)
