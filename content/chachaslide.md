@@ -14,8 +14,7 @@ showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
-Press <button id="start">**here**</button> to start the Cha Cha Slide!
-(works best on desktop)
+Press <button id="start">**here**</button> to start the Cha Cha Slide! (Works best on desktop)
 
 <style>
 body {

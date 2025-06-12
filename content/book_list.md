@@ -28,7 +28,6 @@ Here are some nonfiction books that I've read and kept track of. They are roughl
 - What if *
 - Learning to See Creatively
 - Failure is Not an Option *
-- Short History of Nearly Everything
 - Thing Explainer
 - How to
 - Classic Brainteasers (Gardner, Martin)

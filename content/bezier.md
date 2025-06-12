@@ -14,7 +14,7 @@ showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
-# Extract Cubic-Bezier Curves from Text
+# Extract Cubic Bezier Curves from Text
 <style>
     .bezier-box {
       display: inline-block;

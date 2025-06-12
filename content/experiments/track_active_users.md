@@ -30,4 +30,4 @@ fediverse = "@geoc@mathstodon.xyz"
   setInterval(updateCounter, 10000); // update every 10 seconds
 </script>
 
-This page tracks the number of active users currently viewing it. It uses a simple serverless function to count the number of users and display it in real-time.
+This page tracks the number of active users currently viewing it. It uses a simple serverless function to count the number of users and displays it in real time.

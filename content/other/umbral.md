@@ -165,6 +165,6 @@ This should look familiar to you if you've seen calculus, where you know that if
 
 $\Delta f(x) = \Delta g(x) \Rightarrow \Delta f(x) - \Delta g(x) = 0 \Rightarrow \Delta[f(x) - g(x)] = 0 \Rightarrow f(x) - g(x) = c$.
 
-*WIP: This is a work in progress. I have a [github repo](https://github.com/Geoc2022/umbral.py) with a more complete version including the jackson difference fan*
+*WIP: This is a work in progress. I have a [github repo](https://github.com/Geoc2022/umbral.py) with a more complete version including the Jackson Difference Fan*
 
 You can learn more about umbral calculus from [Vinton's Umbral Calculus Notes](./../Vintons_Umbral_Calculus_Notes.pdf)

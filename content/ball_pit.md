@@ -82,13 +82,13 @@ fediverse = "@geoc@mathstodon.xyz"
             }
         }
         if (mouseDown) {
-            this.gravitate_to_mouse();
+            this.gravitateToMouse();
         } else {
             this.dx *= 0.999;
             this.dy *= 0.999;
         }
     };
-    Ball.prototype.gravitate_to_mouse = function() {
+    Ball.prototype.gravitateToMouse = function() {
         const dx = mouseX - this.x;
         const dy = mouseY - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);

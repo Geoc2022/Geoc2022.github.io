@@ -3,8 +3,8 @@ date = '2025-05-25T01:21:12-04:00'
 draft = false
 title = 'Gravity'
 
-summary = "A example of gravity"
-description = "A example of gravity"
+summary = "An example of gravity"
+description = "An example of gravity"
 readTime = false
 autonumber = false
 math = false
