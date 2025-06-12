@@ -33,7 +33,7 @@ fediverse = "@geoc@mathstodon.xyz"
 </head>
 <body>
   <p>
-    Here is a simple TensorFlow.js example that loads the MNIST dataset, trains a model, and allows you to draw digits to see how well the model predicts them. Once the model is trained, you can draw a digit in the box below and it will predict what digit you drew. The model is trained on the MNIST dataset, which consists of 28x28 pixel grayscale images of handwritten digits (0-9).
+    Here is a simple TensorFlow.js example that loads the <span class="annotation__text" data-annotation="The MNIST dataset is a large database of handwritten digits (28x28 pixel images) that is commonly used as a 'Hello World' for machine learning.">MNIST dataset</span>, trains a model, and allows you to draw digits to see how well the model predicts them. Once the model is trained, you can draw a digit in the box below and it will predict what digit you drew.
   </p>
   <p>
     <em>Also, once the model is trained, feel free to hide the sidebar (top right) to get a better view of the canvas.</em>
@@ -46,7 +46,7 @@ fediverse = "@geoc@mathstodon.xyz"
   <div id="draw-canvas"></div>
 
   <p>
-    The model is pretty small in order to run in the browser, so it may not be very accurate. I've also noticed that the model has a couple weird quirks like you have to draw some of the digits in a specific way for it to recognize them correctly. For example, it seems to prefer the 7 to be drawn with a curved line at the top.
+    The model is pretty small in order to run in the browser, so it's not accurate all the time. I've also noticed that the model has a couple weird quirks like you have to draw some of the digits in a <span class="annotation__text" data-annotation="For example, it seems to prefer the 7 to be drawn with a curved line at the top.">specific way</span> for it to recognize them correctly.
   </p>
   <p>
     I suspect this has to do with the fact that the input box here doesn't output images with the same style as the MNIST dataset, so it may not be able to recognize the digits as well as it could as from the actual MNIST dataset which is partially an issue with the model not being able to generalize well.

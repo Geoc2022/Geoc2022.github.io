@@ -26,16 +26,16 @@ Inspired by human visual attention, we developed two complementary strategies ai
 
 Humans don’t process entire scenes at once—we focus on the most informative parts. Traditional CNNs, by contrast, process full images in detail, regardless of which regions are actually relevant for the task. This approach is not only inefficient but also makes it difficult to interpret how the model reaches its decisions.
 
-For example, when classifying a picture of a dog vs a cat, a human would likely focus certain areas like the ears (pointy = cat, floofy = dog), rather than the entire background. 
+For example, when classifying a picture of a dog vs a cat, a human would likely focus certain areas like the <span class="annotation__text" data-annotation="pointy = cat, floofy = dog">ears</span>, rather than the entire background. 
 
 
 <div align="center" style="display: flex; flex-direction: column; align-items: center;">
   <div style="display: flex; justify-content: center; align-items: center;">
     <span class="annotation__text" data-annotation="Janneke Vreugdenhil derivative work: Anka Friedrich Public Domain">
-      <img src="./../dog.jpg" alt="dog" height="150px"/> 
+      <img src="./../dog.jpg" alt="dog" height="175px"/> 
     </span>
     <span class="annotation__text" data-annotation="Von.grzanka CC BY-SA 3.0">
-      <img src="./../cat.jpg" alt="cat" height="150px"/> 
+      <img src="./../cat.jpg" alt="cat" height="175px"/> 
     </span>
   </div>
 </div>
@@ -75,16 +75,13 @@ We tested our models on MNIST, Fashion-MNIST, and CIFAR-10. Below are some quali
 ### Sample Outputs
 
 * **Learned Focus on MNIST**
-  ![img](Picture3.png)
-  Keypoints align with digit-defining regions, such as the curves of the number 3.
+  <span class="annotation__text" data-annotation="Keypoints align with digit-defining regions, such as the coves of the number 3 and the middle line."> <img src="./../Picture3.png" alt="Focus"/></span>
 
 * **Corner Focus on Fashion-MNIST**
-  ![img](corner_on_FashionMNIST.png)
-  Keypoints focus on structural parts like shoulders and sleeve ends.
+  <span class="annotation__text" data-annotation="Keypoints focus on structural parts like shoulders and sleeve ends."> <img src="./../corner_on_FashionMNIST.png" alt="Corner Focus"/></span>
 
 * **Attention on CIFAR-10**
-  ![img](attentionheatmap.png)
-  Heatmaps reveal focus on foreground objects such as animals and vehicles.
+  <span class="annotation__text" data-annotation="Heatmaps reveal focus on foreground objects such as animals and vehicles."> <img src="./../attentionheatmap.png" alt="Attention Heatmap"/></span>
 
 ### Performance Summary
 

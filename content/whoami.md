@@ -11,7 +11,7 @@ My interests currently center on cryptography, deep learning, and formal proof v
 
 I've used languages like Python, C/C++, Java, and Lean among others, and I’m comfortable with tools like TensorFlow, PyTorch, and CUDA for deep learning, as well Matplotlib, NumPy, and pandas for data analysis.
 
-<span class="annotation__text" data-annotation="Ironically, I find a lot of people who like math also like music. It makes sense why they might like board games though">(Un)related</span>, I'm a big fan of board games, photography, and music. 
+<span class="annotation__text" data-annotation="Or maybe it is related - I find a lot of people who like math also like this stuff too. It makes sense why they might like board games, but playing music feels a little ironic for STEM people.">Unrelated</span>, I'm a big fan of board games, photography, and music. 
 
 <span class="annotation__text" data-annotation="References: Riley Hartman and Mitchell Perales" data-annotation-accent="#00000000">
 <span style="color: var(--bg0)">░░</span></span>

@@ -24,7 +24,7 @@ The [Mandelbrot set](https://en.wikipedia.org/wiki/Mandelbrot_set) is a set of c
 $$
 z_{n+1} = z_n^2 + c
 $$
-where $z$ is a complex number and $c$ is a constant complex number. The set is defined as the set of all complex numbers $c$ for which the sequence does not diverge when starting with $z_0 = 0$. Once $z_n$ exceeds a magnitude of 2, we can assume that the sequence will diverge, and we can stop iterating.
+where $z$ is a complex number and $c$ is a constant complex number. The set is defined as the set of all complex numbers $c$ for which the sequence does not <span class="annotation__text" data-annotation="Once z_n exceeds a magnitude of 2, we can assume that the sequence will diverge, and we can stop iterating.">diverge</span> when starting with $z_0 = 0$.
 
 <!-- The Julia set is defined similarly, but instead of varying $c$, we vary $z$ and keep $c$ constant. The Julia set is defined as the set of all complex numbers $z$ for which the sequence does not diverge when starting with a fixed complex number $c$. -->
 
