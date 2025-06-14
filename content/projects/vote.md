@@ -14,6 +14,63 @@ hideBackToTop = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
+<script>
+function hashTitle(text) {
+  return text.split('').map(c => {
+    let code = c.charCodeAt(0);
+    let base = (c <= 'Z') ? 65 : 97;
+    if (!/[a-zA-Z]/.test(c)) return c;
+    return String.fromCharCode(((code - base + 3) % 26) + base);
+  }).join('');
+}
+
+const text = "Cryptographic Voting with Multiple Candidates";
+let i = 0;
+const el = document.getElementsByClassName("single-title")[0];
+function decode() {
+  function decodeChar(c) {
+    let code = c.charCodeAt(0);
+    let base = (c <= 'Z') ? 65 : 97;
+    if (!/[a-zA-Z]/.test(c)) return c;
+    return String.fromCharCode(((code - base - 3 + 26) % 26) + base);
+  }
+
+  const hashedTitle = hashTitle(text);
+  let current = hashedTitle.split('');
+  const target = hashedTitle.split('').map(decodeChar);
+
+  function randomIndices(arr, count) {
+    const indices = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] !== target[i]) indices.push(i);
+    }
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+    return indices.slice(0, count);
+  }
+
+  function step() {
+    const unrevealed = [];
+    for (let i = 0; i < current.length; i++) {
+      if (current[i] !== target[i]) unrevealed.push(i);
+    }
+    if (unrevealed.length === 0) return;
+
+    const idx = unrevealed[Math.floor(Math.random() * unrevealed.length)];
+    current[idx] = target[idx];
+    el.textContent = current.join('');
+
+    setTimeout(step, 40);
+  }
+
+  el.textContent = hashedTitle;
+  step();
+}
+if (el) decode();
+</script>
+
 For our Applied Cryptography final project, we implemented an extension of the Helios voting protocal in which each voter can vote for multiple candidates. We enforced the condition that each voter votes for exactly $k$ out of $n$ total candidates, where $k$ and $n$ are <span class="annotation__text" data-annotation="(e.g. $k = 2, n = 6$)">global constants</span>. In order to do this, we modified the project infrastructure to accommodate each voter voting for multiple candidates and each candidate's votes being totaled separately. We also included a zero-knowledge proof (ZKP) to ensure that each voter voted for exactly $k$ candidates.
 
 <h2> Read our <a href="./../paper.pdf">report</a> </h2>
