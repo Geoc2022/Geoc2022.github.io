@@ -5,6 +5,20 @@ draft = false
 title = 'whoami'
 +++
 
+<script>
+const text = "whoami";
+let i = 0;
+const el = document.getElementsByClassName("single-title")[0];
+function type() {
+    if (i <= text.length) {
+        el.textContent = text.slice(0, i) + (i < text.length ? "_" : "");
+        i++;
+        setTimeout(type, 150);
+    }
+}
+if (el) type();
+</script>
+
 I’m an undergraduate at Brown University pursuing dual Sc.B. degrees in Computer Science and Mathematics (expected May 2026). 
 
 My interests currently center on cryptography, deep learning, and formal proof verification. Some of my recent projects include implementing a [cryptographic voting protocol](../projects/vote), developing methods for [robust estimation in adversarial graph models](../projects/robust-estimation-for-the-erdos-renyi-model), and creating a [Abstract Algebra Lean game](https://github.com/Geoc2022/AlgebraGame). 
