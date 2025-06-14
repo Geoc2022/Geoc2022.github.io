@@ -14,7 +14,7 @@ hideBackToTop = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
-For our Applied Cryptography final project, we implemented an extension of the Helios voting protocal in which each voter can vote for multiple candidates. We enforced the condition that each voter votes for exactly $k$ out of $n$ total candidates, where $k$ and $n$ are global constants (e.g. $k = 2, n = 6$). In order to do this, we modified the project infrastructure to accommodate each voter voting for multiple candidates and each candidate's votes being totaled separately. We also included a zero-knowledge proof (ZKP) to ensure that each voter voted for exactly $k$ candidates.
+For our Applied Cryptography final project, we implemented an extension of the Helios voting protocal in which each voter can vote for multiple candidates. We enforced the condition that each voter votes for exactly $k$ out of $n$ total candidates, where $k$ and $n$ are <span class="annotation__text" data-annotation="(e.g. $k = 2, n = 6$)">global constants</span>. In order to do this, we modified the project infrastructure to accommodate each voter voting for multiple candidates and each candidate's votes being totaled separately. We also included a zero-knowledge proof (ZKP) to ensure that each voter voted for exactly $k$ candidates.
 
 <h2> Read our <a href="./../paper.pdf">report</a> </h2>
 
