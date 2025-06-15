@@ -2,14 +2,12 @@
 date = '2025-05-26T00:12:00-04:00'
 draft = false
 title = 'Cha Cha Slide'
-
 summary = "'Now it's time to get funky'"
 description = "'Now it's time to get funky'"
 readTime = false
 autonumber = false
 math = false
 hideBackToTop = false
-tags = ["secret-pages"]
 showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++

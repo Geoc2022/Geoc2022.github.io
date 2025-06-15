@@ -2,7 +2,6 @@
 date = '2022-05-19T11:20:05-04:00'
 draft = false
 title = 'Book List'
-
 summary = "Some nonfiction books that I've read"
 description = "Some nonfiction books that I've read"
 tags = ["books"]

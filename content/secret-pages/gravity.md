@@ -2,14 +2,12 @@
 date = '2025-05-25T01:21:12-04:00'
 draft = false
 title = 'Gravity'
-
 summary = "An example of gravity"
 description = "An example of gravity"
 readTime = false
 autonumber = false
 math = false
 hideBackToTop = false
-tags = ["secret-pages"]
 showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++

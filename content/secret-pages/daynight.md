@@ -2,9 +2,8 @@
 date = '2025-05-25T22:42:35-04:00'
 draft = true
 title = 'Daynight'
-
-summary = ""
-description = ""
+summary = "Daynight"
+description = "Daynight"
 readTime = false
 autonumber = false
 math = false

@@ -2,9 +2,8 @@
 date = '2025-05-25T01:45:15-04:00'
 draft = false
 title = 'Ball Pit'
-
-summary = ""
-description = ""
+summary = "Playground for your cursor"
+description = "Playground for your cursor"
 readTime = false
 autonumber = false
 math = false

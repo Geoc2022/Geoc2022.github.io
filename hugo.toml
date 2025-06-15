@@ -221,6 +221,10 @@ url = "/projects"
 name = "other"
 url = "/other"
 
+[[params.menu]]
+name = "utils"
+url = "/utils"
+
 [[params.about]]
 name = "whoami"
 url = "/whoami"

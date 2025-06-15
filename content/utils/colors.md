@@ -10,7 +10,7 @@ autonumber = false
 math = false
 hideBackToTop = false
 tags = ["utils"]
-showTags = true
+showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
