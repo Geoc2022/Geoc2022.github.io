@@ -30,12 +30,12 @@ For example, when classifying a picture of a dog vs a cat, a human would likely 
 
 
 <div align="center" style="display: flex; flex-direction: column; align-items: center;">
-  <div style="display: flex; justify-content: center; align-items: center;">
+  <div style="display: flex; justify-content: center; align-items: center; gap: 1em;">
     <span class="annotation__text" data-annotation="Janneke Vreugdenhil derivative work: Anka Friedrich Public Domain">
-      <img src="./../dog.jpg" alt="dog" height="175px"/> 
+      <img src="./../dog.jpg" alt="dog" style="width: 300px; height: auto; max-width: 100%;"/> 
     </span>
     <span class="annotation__text" data-annotation="Von.grzanka CC BY-SA 3.0">
-      <img src="./../cat.jpg" alt="cat" height="175px"/> 
+      <img src="./../cat.jpg" alt="cat" style="width: 300px; height: auto; max-width: 100%;"/> 
     </span>
   </div>
 </div>
