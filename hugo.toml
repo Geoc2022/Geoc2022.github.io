@@ -45,7 +45,9 @@ Hi there <span class="wave-hand" style="display:inline-block; transition: transf
     text-align: center;
     pointer-events: none;
     opacity: 0;
-    animation: thank-you-fade 1.5s forwards;
+    animation-name: thank-you-fade;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
 }
 
 @keyframes thank-you-fade {
@@ -60,17 +62,19 @@ Hi there <span class="wave-hand" style="display:inline-block; transition: transf
     cursor: pointer;
 }
 .wave-hand:hover {
-    animation: wave-animation 1s;
-    animation-fill-mode: forwards;
+    animation-name: wave-animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
 }
 .wave-hand.waving {
-    animation: wave-animation 1s;
-    animation-fill-mode: forwards;
+    animation-name: wave-animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
 }
 @keyframes wave-animation {
     0% { transform: rotate(0deg);}
     30% { transform: rotate(-10deg);}
-    75% { transform: rotate(10deg);}
+    70% { transform: rotate(10deg);}
     100% { transform: rotate(0deg);}
 }
 </style>
