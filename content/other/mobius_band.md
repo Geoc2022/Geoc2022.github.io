@@ -1,10 +1,10 @@
 +++
-title = "Warping a Image into a Mobius Loop"
+title = "Warping an Image into a Möbius Loop"
 date = "2024-12-30"
 draft = false
 
-summary = "A simple python script to warp an image into a Mobius loop"
-description = "A simple python script to warp an image into a Mobius loop"
+summary = "A simple Python script to warp an image into a Möbius loop"
+description = "A simple Python script to warp an image into a Möbius loop"
 readTime = false
 autonumber = false
 math = false
@@ -14,13 +14,13 @@ hideBackToTop = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
-Me and the rest of the organizers of [SUMS 2025](https://sites.google.com/brown.edu/sums), a math symposium at Brown where we combine math + another field - in this case music, were working on making a poster for the event. 
+Me and the rest of the organizers of [SUMS 2025](https://sites.google.com/brown.edu/sums), a math symposium at Brown where we combine math + another field—in this case, music—were working on making a poster for the event. 
 
-I had head that Bach did a lot of work with symmetries (relefection, inversion, etc.) in his music and I had even heard that he incorporated a section that was essentially played on a Mobius loop. Since the loop is such a well known visual, I thought it would be fun to make a poster with music warped into a Mobius loop.
+I had heard that Bach did a lot of work with symmetries (reflection, inversion, etc.) in his music, and I had even heard that he incorporated a section that was essentially played on a Möbius loop. Since the loop is such a well-known visual, I thought it would be fun to make a poster with music warped into a Möbius loop.
 
 I couldn't find any good scripts to do this online, so I quickly bodged together a python script to do this.
 
-The formula for a Mobius loop was pretty easy to come up with on Desmos:
+The formula for a Möbius loop was pretty easy to come up with on Desmos:
 
 <div align="center">
 
@@ -40,7 +40,7 @@ def mobius(u, v, band_size=0.5):
             (band(((tau * u) + (tau / 4)) / 2, v) * band_size)
 ```
 
-But the rendering was a bit more difficult. Basically, it uses a 3D plot in matplotlib to render the loop and then it for each cell in the grid (or mesh) on the loop, it finds the color of the pixel in the image that corresponds to that cell. The downside is that it takes a while to render for large images but the upside is that you can actually rotate it around in the 3D plot.
+But the rendering was a bit more difficult. Basically, it uses a 3D plot in matplotlib to render the loop, and for each cell in the grid (or mesh) on the loop, it finds the color of the pixel in the image that corresponds to that cell. The downside is that it takes a while to render for large images, but the upside is that you can actually rotate it around in the 3D plot.
 
 <!-- ```python
     def render(self, elev=25, azim=-45, perspective=0.8, zoom=2.2, image_shift=0, res_factor=1, transparent=False, save=True):
@@ -88,10 +88,10 @@ But the rendering was a bit more difficult. Basically, it uses a 3D plot in matp
 Here's the input image I used:
 [![BWV1087](BWV1087.jpg)](https://youtu.be/WeWXmNy-Q7E?t=53)
 
-and here's the output of the script, which is a 3D plot of the Mobius loop with the image warped around it:
+and here's the output of the script, which is a 3D plot of the Möbius loop with the image warped around it:
 [![BWV1087](mobius_strip_render.png)](./../mobius_strip_render.png)
 
-and the final poster:
+And the final poster:
 [![SUMS_poster](sums_poster.png)](./../sums_poster.png)
 
 <h2><a href="https://github.com/Geoc2022/IMG_to_Mobius_Loop">Repo</a> </h2>

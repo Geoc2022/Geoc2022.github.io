@@ -15,7 +15,6 @@ showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,10 +45,10 @@ fediverse = "@geoc@mathstodon.xyz"
   <div id="draw-canvas"></div>
 
   <p>
-    The model is pretty small in order to run in the browser, so it's not accurate all the time. I've also noticed that the model has a couple weird quirks like you have to draw some of the digits in a <span class="annotation__text" data-annotation="For example, it seems to prefer the 7 to be drawn with a curved line at the top.">specific way</span> for it to recognize them correctly.
+    The model is pretty small in order to run in the browser, so it is not accurate all the time. I've also noticed that the model has a couple of weird quirks, like you have to draw some of the digits in a <span class="annotation__text" data-annotation="For example, it seems to prefer the 7 to be drawn with a curved line at the top.">specific way</span> for it to recognize them correctly.
   </p>
   <p>
-    I suspect this has to do with the fact that the input box here doesn't output images with the same style as the MNIST dataset, so it may not be able to recognize the digits as well as it could as from the actual MNIST dataset which is partially an issue with the model not being able to generalize well.
+    I suspect this has to do with the fact that the input box here does not output images with the same style as the MNIST dataset, so it may not be able to recognize the digits as well as it could from the actual MNIST dataset, which is partially an issue with the model not being able to generalize well.
   </p>
 </body>
 </html>

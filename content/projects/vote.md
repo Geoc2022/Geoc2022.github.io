@@ -71,7 +71,7 @@ function decode() {
 if (el) decode();
 </script>
 
-For our Applied Cryptography final project, we implemented an extension of the Helios voting protocal in which each voter can vote for multiple candidates. We enforced the condition that each voter votes for exactly $k$ out of $n$ total candidates, where $k$ and $n$ are <span class="annotation__text" data-annotation="(e.g. $k = 2, n = 6$)">global constants</span>. In order to do this, we modified the project infrastructure to accommodate each voter voting for multiple candidates and each candidate's votes being totaled separately. We also included a zero-knowledge proof (ZKP) to ensure that each voter voted for exactly $k$ candidates.
+For our Applied Cryptography final project, we implemented an extension of the Helios voting protocol in which each voter can vote for multiple candidates. We enforced the condition that each voter votes for exactly $k$ out of $n$ total candidates, where $k$ and $n$ are <span class="annotation__text" data-annotation="(e.g. $k = 2, n = 6$)">global constants</span>. In order to do this, we modified the project infrastructure to accommodate each voter voting for multiple candidates and each candidate's votes being totaled separately. We also included a zero-knowledge proof (ZKP) to ensure that each voter voted for exactly $k$ candidates.
 
 <h2> Read our <a href="./../paper.pdf">report</a> </h2>
 
@@ -148,7 +148,7 @@ $$
 
 where $n$ is the number of candidates, $v_i$ is the vote for candidate $i$, and $r_i$ is a random number. 
 
-Therefore, when we multiply the votes together componentwise and preseve first component, we get
+Therefore, when we multiply the votes together componentwise and preserve first component, we get
 $$
   (g^{sk}, g^{r}, g^{sk \cdot r + \sum_{i=1}^n v_i})
 $$
