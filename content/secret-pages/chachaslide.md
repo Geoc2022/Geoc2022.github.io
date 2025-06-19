@@ -14,6 +14,8 @@ fediverse = "@geoc@mathstodon.xyz"
 
 Press <button id="start">**here**</button> to start the Cha Cha Slide! (Works best on desktop)
 
+<a href="chacha.mp3" download="chacha.mp3" style="display: none;" id="audioDownload">Download Audio</a>
+
 <style>
 body {
     animation: none;
@@ -91,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let animationTimeouts = [];
 
   const audio = document.createElement('audio');
-  audio.src = '/chacha.mp3';
+  audio.src = './../../chacha.mp3';
   audio.preload = 'auto';
 
   const emojiSteps = [
