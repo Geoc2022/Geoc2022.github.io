@@ -1,5 +1,5 @@
 +++
-date = '2021-07-30T12:23:57-04:00'
+date = '2024-07-30T12:23:57-04:00'
 draft = false
 title = 'Desmos Mandelbrot Set'
 

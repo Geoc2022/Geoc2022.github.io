@@ -1,5 +1,5 @@
 +++
-date = '2023-05-20T12:00:00-04:00'
+date = '2021-12-20T12:00:00-04:00'
 draft = false
 title = 'Visualizing the Complex Plane'
 
