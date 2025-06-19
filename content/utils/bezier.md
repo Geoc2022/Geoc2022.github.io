@@ -29,10 +29,15 @@ fediverse = "@geoc@mathstodon.xyz"
       box-shadow: 0 0 4px rgba(0,0,0,0.2);
       border: 1px solid var(--bg1);
       transition: background 0.3s border-color 0.3s;
+      transition: transform 1s cubic-bezier(.4,2,.6,1), box-shadow 1s;
       vertical-align: top;
     }
     .bezier-box:hover {
       background: var(--bg1);
+    }
+    .bezier-box:active {
+        transform: scale(1.15);
+        box-shadow: 0 0 16px 4px rgba(0,0,0,0.25);
     }
     .bezier-graph {
       display: block;

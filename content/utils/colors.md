@@ -17,23 +17,29 @@ fediverse = "@geoc@mathstodon.xyz"
 # Extract Colors from Text
 <style>
     .color-box {
-      display: inline-block;
-      width: 75px;
-      height: 75px;
-      margin: 5px;
-      cursor: pointer;
-      border: 0px solid #ccc;
-      box-shadow: 0 0 4px rgba(0,0,0,0.2);
+        display: inline-block;
+        width: 75px;
+        height: 75px;
+        margin: 5px;
+        cursor: pointer;
+        border: 0px solid #ccc;
+        box-shadow: 0 0 4px rgba(0,0,0,0.2);
+        transition: transform 1s cubic-bezier(.4,2,.6,1), box-shadow 1s;
+    }
+
+    .color-box:active {
+        transform: scale(1.15);
+        box-shadow: 0 0 16px 4px rgba(0,0,0,0.25);
     }
 
     .dropzone {
-      border: 2px dashed #ccc;
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-      margin-bottom: 10px;
-      color: #888;
-      cursor: pointer;
+        border: 0px dashed #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+        color: #888;
+        cursor: pointer;
     }
 </style>
 
@@ -171,7 +177,7 @@ imageInput.parentNode.insertBefore(dropZone, imageInput);
         e.preventDefault();
         e.stopPropagation();
         dropZone.style.borderColor = "#888";
-        dropZone.style.background = "#f8f8f8";
+        dropZone.style.background = "var(--accent)";
     });
 });
 
