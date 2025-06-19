@@ -3,8 +3,8 @@ date = '2023-02-27T12:00:00-04:00'
 draft = false
 title = 'Differential Equations and Eigenvalues'
 
-summary = "Explore how the eigenvalues of a matrix determine the behavior of differential equations"
-description = "A visual introduction to the differential equation x' = Ax, showing how the nature of the matrix A — specifically its eigenvalues — shapes the solution."
+summary = "How to use spectral theory to visualize differential equations"
+description = "How to use spectral theory to visualize differential equations"
 readTime = false
 autonumber = false
 math = true

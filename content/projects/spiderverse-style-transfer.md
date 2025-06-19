@@ -3,8 +3,8 @@ title = "Across the Spider-Verse Style Transfer"
 date = "2023-05-19"
 draft = false
 
-summary = "Recreating the universes of *Across the Spider-Verse* by using Style Transfer and Transfer Learning"
-description = "Recreating the universes of *Across the Spider-Verse* by using Style Transfer and Transfer Learning"
+summary = "Recreating the universes of *Across the Spider-Verse* by using Style Transfer"
+description = "Recreating the universes of *Across the Spider-Verse* by using Style Transfer"
 readTime = false
 autonumber = false
 math = true

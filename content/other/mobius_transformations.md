@@ -3,8 +3,8 @@ date = '2022-05-15T12:00:00-04:00'
 draft = false
 title = 'Möbius Transformations'
 
-summary = "Explore how Möbius transformations map the complex plane"
-description = "Explore how Möbius transformations map the complex plane"
+summary = "See how Möbius transformations map the complex plane"
+description = "See how Möbius transformations map the complex plane"
 readTime = false
 autonumber = false
 math = true
