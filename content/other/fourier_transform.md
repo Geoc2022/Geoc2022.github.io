@@ -1,10 +1,10 @@
 +++
-title = "Desmos Fourier Transform Visualization "
+title = "Fourier Transform Visualization"
 date = "2022-01-10"
 draft = false
 
-summary = "3b1b's Fourier Transform visualization on Desmos"
-description = "3b1b's Fourier Transform visualization on Desmos"
+summary = "3b1b's Fourier Transform visualization in Desmos"
+description = "3b1b's Fourier Transform visualization in Desmos"
 readTime = false
 autonumber = false
 math = true
