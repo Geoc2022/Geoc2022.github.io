@@ -93,7 +93,18 @@ document.addEventListener('DOMContentLoaded', function() {
   let animationTimeouts = [];
 
   const audio = document.createElement('audio');
-  audio.src = './../../chacha.mp3';
+  const audioPath = '/chacha.mp3';
+  fetch(audioPath, { method: 'HEAD' })
+    .then(res => {
+      if (res.ok) {
+        audio.src = audioPath;
+      } else {
+        audio.src = '../../chacha.mp3';
+      }
+    })
+    .catch(() => {
+      audio.src = './../../chacha.mp3';
+    });
   audio.preload = 'auto';
 
   const emojiSteps = [
