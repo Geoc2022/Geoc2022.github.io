@@ -18,12 +18,12 @@ The following is a collection of problems from [Hartshorne's](https://en.wikiped
 
 ### Counting Steps
 
-#### What **is** counted as a step:
+#### What is counted as a step:
 - Using the ruler to **draw a new line** through two distinct points (given or previously constructed)
 - Using the ruler to **extend a given or previously constructed line** in either direction
 - Using the compass to **draw a new circle** with center at a given or constructed point and radius equal to the distance between two given or constructed points
 
-#### What is **not** counted as a step:
+#### What is not counted as a step:
 - **Extending** lines that are already given or constructed
 - **Choosing points at random** (or subject to conditions, such as lying on a given line or circle)
 - **Obtaining new points** as intersections of lines and circles (these points are considered constructed automatically)
