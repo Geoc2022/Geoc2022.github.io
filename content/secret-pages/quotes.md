@@ -1,6 +1,6 @@
 +++
 date = '2025-06-22T13:19:30-04:00'
-draft = true
+draft = false
 title = 'Quotes'
 
 summary = "A collection of quotes over the years that I like"
