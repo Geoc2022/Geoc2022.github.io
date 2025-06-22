@@ -25,8 +25,8 @@ The following is a collection of problems from [Hartshorne's](https://en.wikiped
 
 #### What is not counted as a step:
 - **Extending** lines that are already given or constructed
-- **Choosing points at random** (or subject to conditions, such as lying on a given line or circle)
-- **Obtaining new points** as intersections of lines and circles (these points are considered constructed automatically)
+- **Choosing points at random** or subject to conditions, such as lying on a given line or circle
+- **Obtaining new points** as intersections of lines and circles - these points are considered constructed automatically
 
 > The ruler may not be used to measure distances or have any markings (it is a straightedge only).
 
