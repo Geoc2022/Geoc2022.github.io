@@ -8,7 +8,7 @@ description = "A random number generator"
 readTime = false
 autonumber = false
 math = false
-hideBackToTop = true
+hideBackToTop = false
 tags = ["utils"]
 showTags = false
 fediverse = "@geoc@mathstodon.xyz"
@@ -27,8 +27,8 @@ reroll -->
         <input type="text" id="outOf" placeholder="6" style="font-size:1em; width:4em; min-width:3em; text-align:left;" oninput="rollDice()" autofocus>
     </h1>
 </div>
-<div align="center" style="margin-top: 20px;">  
-    <button id="roll" style="border-radius: 6px; border: 1px solid #ccc; padding: 2px 5px; font-size: 1em;">Roll</button>
+<div align="center">  
+    <button id="roll" style="font-size: 1.5em;">↻</button>
 </div>
 
 <script>
