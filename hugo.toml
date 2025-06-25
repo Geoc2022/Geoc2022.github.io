@@ -232,7 +232,7 @@ url = "/whoami"
 # Syntax highlight on code blocks
 [markup]
 [markup.highlight]
-style = 'arduino'
+style = 'monokai'
 
 # Giscus comments
 [params.giscus]
