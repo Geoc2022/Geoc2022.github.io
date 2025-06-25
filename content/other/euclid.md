@@ -3,8 +3,8 @@ date = '2025-04-20T23:34:21-04:00'
 draft = false
 title = 'Interactive Proofs of Intro Euclidian Geometry'
 
-summary = "Some Euclidean constructions from the first book of Euclid's Elements"
-description = "Some Euclidean constructions from the first book of Euclid's Elements"
+summary = "Some Euclidean constructions from Euclid's Elements"
+description = "Some Euclidean constructions from Euclid's Elements"
 readTime = false
 autonumber = false
 math = true
