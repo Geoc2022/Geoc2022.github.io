@@ -1,6 +1,6 @@
 +++
 date = '2025-06-29T12:53:17-04:00'
-draft = true
+draft = false
 title = 'Julia Set Filter'
 
 summary = "Become the Julia Set with your webcam"
