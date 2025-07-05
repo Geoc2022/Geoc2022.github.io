@@ -1,6 +1,6 @@
 +++
 date = '2025-07-04T15:54:17-04:00'
-draft = true
+draft = false
 title = 'Img to ASCII'
 
 summary = "Convert images to ASCII art"
@@ -141,7 +141,6 @@ async function processImage() {
   const webcamVideo = document.getElementById('webcamVideo');
 
   if (webcamActive && webcamVideo.style.display !== "none" && webcamVideo.srcObject) {
-    // Use webcam frame
     const width = webcamVideo.videoWidth;
     const height = webcamVideo.videoHeight;
     canvas.width = width;
@@ -230,7 +229,7 @@ function toggleWebcam() {
     return;
   }
   stopWebcam();
-  fileInput.value = ""; // Clear file input
+  fileInput.value = "";
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(stream => {
       webcamStream = stream;
@@ -238,7 +237,6 @@ function toggleWebcam() {
       webcamVideo.style.display = "block";
       webcamActive = true;
       webcamVideo.onloadedmetadata = () => {
-        // Set up factor select based on webcam video dimensions
         const width = webcamVideo.videoWidth || 320;
         const height = webcamVideo.videoHeight || 240;
         const commonDivisor = gcd(width, height);
