@@ -26,6 +26,9 @@ fediverse = "@geoc@mathstodon.xyz"
     color: var(--content-primary);
     background: #00000000;
   }
+  #webcamVideo {
+    display: none !important;
+  }
 </style>
 
 <input type="file" accept="image/*" id="imageInput" onchange="onImageInputChange()">
@@ -36,7 +39,7 @@ fediverse = "@geoc@mathstodon.xyz"
 <br><br>
 <button onclick="processImage()">Render</button>
 
-<video id="webcamVideo" width="320" height="240" autoplay style="display:none"></video>
+<video id="webcamVideo" width="320" height="240" autoplay></video>
 <canvas id="canvas" style="display: none"></canvas>
 
 <div id="output"></div>
@@ -45,6 +48,9 @@ fediverse = "@geoc@mathstodon.xyz"
 let webcamRendering = false;
 let webcamActive = false;
 let webcamStream = null;
+
+const exampleImageUrl = "https://upload.wikimedia.org/wikipedia/commons/0/0b/Pitstone-windmill.600px.jpg";
+const exampleFactor = 10;
 
 function gcd(a, b) {
   while (b !== 0) {
@@ -93,7 +99,6 @@ function stopWebcam() {
     webcamStream = null;
   }
   webcamVideo.srcObject = null;
-  webcamVideo.style.display = "none";
   webcamActive = false;
   webcamRendering = false;
 }
@@ -140,7 +145,7 @@ async function processImage() {
   const output = document.getElementById('output');
   const webcamVideo = document.getElementById('webcamVideo');
 
-  if (webcamActive && webcamVideo.style.display !== "none" && webcamVideo.srcObject) {
+  if (webcamActive && webcamVideo.srcObject) {
     const width = webcamVideo.videoWidth;
     const height = webcamVideo.videoHeight;
     canvas.width = width;
@@ -234,7 +239,6 @@ function toggleWebcam() {
     .then(stream => {
       webcamStream = stream;
       webcamVideo.srcObject = stream;
-      webcamVideo.style.display = "block";
       webcamActive = true;
       webcamVideo.onloadedmetadata = () => {
         const width = webcamVideo.videoWidth || 320;
@@ -249,12 +253,12 @@ function toggleWebcam() {
           option.textContent = factor;
           factorSelect.appendChild(option);
         });
+        factorSelect.value = 10;
         startWebcamAsciiRender();
       };
     })
     .catch(err => {
       alert("Could not access webcam: " + err);
-      webcamVideo.style.display = "none";
       webcamActive = false;
     });
 }
@@ -269,7 +273,7 @@ function startWebcamAsciiRender() {
   const factorSelect = document.getElementById('factorSelect');
 
   function renderLoop() {
-    if (!webcamActive || webcamVideo.style.display === "none" || !webcamVideo.srcObject) {
+    if (!webcamActive || !webcamVideo.srcObject) {
       webcamRendering = false;
       return;
     }
@@ -285,4 +289,27 @@ function startWebcamAsciiRender() {
   }
   renderLoop();
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  const img = new Image();
+  img.crossOrigin = "Anonymous";
+  img.onload = () => {
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    const width = img.width;
+    const height = img.height;
+    const commonDivisor = gcd(width, height);
+    const factors = returnFactors(commonDivisor);
+    const factorSelect = document.getElementById('factorSelect');
+    factorSelect.value = exampleFactor;
+
+    const output = document.getElementById('output');
+    processCanvasToAscii(width, height, ctx, exampleFactor, output);
+  };
+  img.src = exampleImageUrl;
+});
 </script>
