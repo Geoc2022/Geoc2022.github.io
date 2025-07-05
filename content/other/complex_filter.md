@@ -9,7 +9,7 @@ readTime = false
 autonumber = false
 math = false
 hideBackToTop = false
-tags = []
+tags = [ "webcam", "julia set", "filter", "complex" ]
 showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++

@@ -9,7 +9,7 @@ readTime = false
 autonumber = false
 math = false
 hideBackToTop = false
-tags = []
+tags = [ "image", "ascii", "webcam", "filter"]
 showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
