@@ -2,22 +2,16 @@
 date = '2025-07-06T02:06:27-04:00'
 draft = false
 title = '8 Ball'
-summary = ""
-description = ""
+summary = "Ask the 8 Ball a question and get an answer using three.js"
+description = "Ask the 8 Ball a question and get an answer using three.js"
 readTime = false
 autonumber = false
 math = false
 hideBackToTop = false
-tags = []
+tags = [ "8 ball", "three.js", "webgl", "interactive" ]
 showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
-
-# 8 Ball: Three.js Geometries Demo
-
-This page demonstrates various 3D geometries rendered using [three.js](https://threejs.org/).
-
-> **Note:** This interactive demo requires a modern browser and will only work if your site supports JavaScript modules and the correct file structure for three.js and its assets.
 
 <div id="info">
     <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> bvh csg -
@@ -79,13 +73,13 @@ function init() {
     camera.position.set(-1, 1, 1).normalize().multiplyScalar(10);
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x222);
+    scene.background = new THREE.Color(0xffffff);
 
     // lights
-    const ambient = new THREE.HemisphereLight(0xffffff, 0xbfd4d2, 3);
+    const ambient = new THREE.HemisphereLight(0xffffff, 0x000000, 3);
     scene.add(ambient);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.3);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
     directionalLight.position.set(1, 4, 3).multiplyScalar(3);
     directionalLight.castShadow = true;
     directionalLight.shadow.mapSize.setScalar(2048);
@@ -125,29 +119,43 @@ function init() {
     // create brushes
     evaluator = new Evaluator();
     baseBrush = new Brush(
-        new THREE.IcosahedronGeometry(2, 3),
+        new THREE.IcosahedronGeometry(2, 2),
         new THREE.MeshStandardMaterial({
             flatShading: true,
+            color: 0x000000,
             polygonOffset: true,
+            roughness: 0.0,
             polygonOffsetUnits: 1,
             polygonOffsetFactor: 1,
         }),
     );
+    // liquidBrush = new Brush(
+    //     new THREE.IcosahedronGeometry(1.9, 2),
+    //     new THREE.MeshStandardMaterial({
+    //         trasnsparent: true,
+    //         opacity: 0.5,
+    //         color: 0x000aff,
+    //         polygonOffset: true,
+    //         roughness: 0.0,
+    //         polygonOffsetUnits: 1,
+    //         polygonOffsetFactor: 1,
+    //     }),
+    // );
     brush = new Brush(
-        new THREE.CylinderGeometry(0.75, 1, 5, 45),
+        new THREE.CylinderGeometry(1, 0, 4, 32),
         new THREE.MeshStandardMaterial({
-            color: 0x80cbc4,
+            color: 0x000000,
             polygonOffset: true,
             polygonOffsetUnits: 1,
             polygonOffsetFactor: 1,
         }),
     );
     core = new Brush(
-        new THREE.IcosahedronGeometry(1.75, 1),
+        new THREE.IcosahedronGeometry(1.75, 0),
         new THREE.MeshStandardMaterial({
             flatShading: true,
-            color: 0xff9800,
-            emissive: 0xff9800,
+            color: 0x000aff,
+            emissive: 0x0000ff,
             emissiveIntensity: 0.35,
             polygonOffset: true,
             polygonOffsetUnits: 1,
@@ -156,6 +164,12 @@ function init() {
     );
     core.castShadow = true;
     scene.add(core);
+
+    // const coreWireframe = new THREE.LineSegments(
+    //     new THREE.WireframeGeometry(core.geometry),
+    //     new THREE.LineBasicMaterial({ color: 0xffffff })
+    // );
+    // core.add(coreWireframe);
 
     // create wireframe
     wireframe = new THREE.Mesh(
@@ -195,18 +209,42 @@ function onWindowResize() {
 
 function animate() {
     // update the transforms
-    const t = window.performance.now() + 9000;
-    // baseBrush.rotation.x = t * 0.0001;
-    // baseBrush.rotation.y = t * 0.00025;
-    // baseBrush.rotation.z = t * 0.0005;
-    // baseBrush.updateMatrixWorld();
+    function randomFace() {
+        const geometry = core.geometry;
+        geometry.computeFaceNormals?.();
+        const faces = geometry.index ? geometry.index.count / 3 : geometry.attributes.position.count / 3;
+        const faceIndex = Math.floor(Math.random() * faces);
 
-    // brush.rotation.x = t * -0.0002;
-    // brush.rotation.y = t * -0.0005;
-    // brush.rotation.z = t * -0.001;
-    // const s = 0.5 + 0.5 * (1 + Math.sin(t * 0.001));
-    // brush.scale.set(s, 1, s);
-    // brush.updateMatrixWorld();
+        let a, b, c;
+        if (geometry.index) {
+            a = geometry.index.getX(faceIndex * 3);
+            b = geometry.index.getX(faceIndex * 3 + 1);
+            c = geometry.index.getX(faceIndex * 3 + 2);
+        } else {
+            a = faceIndex * 3;
+            b = faceIndex * 3 + 1;
+            c = faceIndex * 3 + 2;
+        }
+
+        const pos = geometry.attributes.position;
+        const vA = new THREE.Vector3().fromBufferAttribute(pos, a);
+        const vB = new THREE.Vector3().fromBufferAttribute(pos, b);
+        const vC = new THREE.Vector3().fromBufferAttribute(pos, c);
+
+        const cb = new THREE.Vector3().subVectors(vC, vB);
+        const ab = new THREE.Vector3().subVectors(vA, vB);
+        const normal = new THREE.Vector3().crossVectors(cb, ab).normalize();
+
+        const up = new THREE.Vector3(0, 1, 0);
+        const quat = new THREE.Quaternion().setFromUnitVectors(up, normal);
+        core._targetQuat = quat;
+        core._lastChange = performance.now();
+    }
+
+    if (!core._targetQuat || !core._lastChange || performance.now() - core._lastChange > 3000) {
+        randomFace();
+    }
+    core.quaternion.slerp(core._targetQuat, 0.01);
 
     // update the csg
     updateCSG();
