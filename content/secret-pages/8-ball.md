@@ -13,6 +13,9 @@ showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
+<div id="render">
+</div>
+
 <style>
     #info {
         margin-bottom: 1em;
@@ -65,6 +68,18 @@ const faceLabels = [
     "Absolutely", "Doubtful", "Possibly", "Try later", "Sure", "No way",
     "Outlook good", "Don't count on it", "Yes, but", "Cannot predict", "Very likely", "Very doubtful",
     "Most likely", "My sources say no"
+];
+
+const funnyLabels = [
+    "Pay $0.99 for 1 more answer",
+    "New Ball. Who this?",
+    "We have been trying to reach you regarding your car's extended warranty.",
+    "404",
+    "Stupid lasts forever",
+    "Ignore previous answer",
+    "Information Available",
+    "42",
+    "…"
 ];
 
 init();
@@ -168,7 +183,8 @@ function addLabelsToIcosahedron(geometry, labels) {
 function init() {
     // environment
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 100);
-    camera.position.set(-1, 1, 1).normalize().multiplyScalar(5);
+    camera.position.set(-1, 1, 10).normalize().multiplyScalar(5);
+    camera.lookAt(0, 0, 0);
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xffffff);
@@ -188,12 +204,12 @@ function init() {
     // renderer
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight * 0.8);
+    renderer.setSize(window.innerHeight * 0.8, window.innerHeight * 0.8);
     renderer.setAnimationLoop(animate);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.domElement.classList.add('threejs-demo-canvas');
-    document.body.appendChild(renderer.domElement);
+    document.getElementById('render').appendChild(renderer.domElement);
 
     stats = new Stats();
     document.body.appendChild(stats.dom);
@@ -217,18 +233,18 @@ function init() {
     // create brushes
     evaluator = new Evaluator();
     baseBrush = new Brush(
-        new THREE.IcosahedronGeometry(2, 2),
+        new THREE.IcosahedronGeometry(2, 1),
         new THREE.MeshStandardMaterial({
             flatShading: true,
             color: 0x000000,
             polygonOffset: true,
-            roughness: 0.0,
+            roughness: .5,
             polygonOffsetUnits: 1,
             polygonOffsetFactor: 1,
         }),
     );
     brush = new Brush(
-        new THREE.CylinderGeometry(1, 0, 4, 32),
+        new THREE.CylinderGeometry(.9, 0, 4, 12),
         new THREE.MeshStandardMaterial({
             color: 0x000000,
             polygonOffset: true,
@@ -237,12 +253,13 @@ function init() {
         }),
     );
     core = new Brush(
-        new THREE.IcosahedronGeometry(1.75, 0),
+        new THREE.IcosahedronGeometry(1.70, 0),
         new THREE.MeshStandardMaterial({
             flatShading: true,
             color: 0x000aff,
-            emissive: 0x0000ff,
-            emissiveIntensity: 1,
+            emissive: 0x000aff,
+            roughness: 0.0,
+            emissiveIntensity: 10,
             polygonOffset: true,
             polygonOffsetUnits: 1,
             polygonOffsetFactor: 1,
@@ -255,24 +272,29 @@ function init() {
     const coreLabels = addLabelsToIcosahedron(core.geometry, faceLabels);
     core.add(coreLabels);
 
-    // Add the liquid inside the 8 ball
+    // Add the liquid inside the 8 ball (murky/foggy water effect)
     const liquidBrush = new Brush(
-        new THREE.IcosahedronGeometry(1.9, 2),
-        new THREE.MeshStandardMaterial({
+        new THREE.IcosahedronGeometry(1.85, 1),
+        new THREE.MeshPhysicalMaterial({
             transparent: true,
-            opacity: 0.1,
-            color: 0x000aff,
-            emissive: 0x0000ff,
-            emissiveIntensity: 0.5,
+            opacity: 1,
+            color: 0x000122,
+            roughness: 0.95,
+            transmission: 0.5,
+            thickness: 1,
+            ior: 1.33,
+            attenuationColor: 0x1a237e,
+            attenuationDistance: 0.7,
             polygonOffset: true,
-            roughness: 1,
             polygonOffsetUnits: 1,
             polygonOffsetFactor: 1,
             depthWrite: false,
+            fog: true
         }),
     );
     liquidBrush.castShadow = false;
     liquidBrush.receiveShadow = false;
+    liquidBrush.rotation.x = .333
     scene.add(liquidBrush);
 
     // create wireframe
@@ -284,8 +306,8 @@ function init() {
 
     // controls
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.minDistance = 5;
-    controls.maxDistance = 75;
+    controls.minDistance = 3;
+    controls.maxDistance = 50;
 
     // set up gui
     const gui = new GUI();
