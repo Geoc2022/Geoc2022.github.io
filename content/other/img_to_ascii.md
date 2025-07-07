@@ -84,12 +84,32 @@ function getLuminance(r, g, b) {
 }
 
 function logPixel(value, mean, stdev) {
+  // Detect if the theme is light by checking the computed background color
+  let isLightTheme = false;
+  try {
+    const root = document.documentElement;
+    const bg = getComputedStyle(root).getPropertyValue('--bg');
+    // You may need to adjust this check based on your CSS variables
+    isLightTheme = (bg[0] === '#' && parseInt(bg.slice(1, 3), 16) > 128 &&
+                    parseInt(bg.slice(3, 5), 16) > 128 &&
+                    parseInt(bg.slice(5, 7), 16) > 128);
+  } catch (e) {}
+
   const z = (value - mean) / stdev;
-  if (z >= 1) return '██';
-  else if (z >= 0.65) return '▓▓';
-  else if (z >= 0) return '▒▒';
-  else if (z >= -0.65) return '░░';
-  else return '  ';
+  if (!isLightTheme) {
+    if (z >= 1) return '██';
+    else if (z >= 0.65) return '▓▓';
+    else if (z >= 0) return '▒▒';
+    else if (z >= -0.65) return '░░';
+    else return '  ';
+  } else {
+    // Flip: dark chars for low z, light for high z
+    if (z >= 1) return '  ';
+    else if (z >= 0.65) return '░░';
+    else if (z >= 0) return '▒▒';
+    else if (z >= -0.65) return '▓▓';
+    else return '██';
+  }
 }
 
 function stopWebcam() {
