@@ -13,12 +13,6 @@ showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
-<div id="info">
-    <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> bvh csg -
-    <a href="https://github.com/gkjohnson/three-bvh-csg" target="_blank" rel="noopener">three-bvh-csg</a><br/>
-    See <a href="https://github.com/gkjohnson/three-bvh-csg" target="_blank" rel="noopener">main project repository</a> for more information and examples on constructive solid geometry.
-</div>
-
 <style>
     #info {
         margin-bottom: 1em;
@@ -65,12 +59,116 @@ const params = {
     wireframe: false,
 };
 
+// 8 Ball face labels
+const faceLabels = [
+    "Yes", "No", "Maybe", "Ask again", "Definitely", "Unlikely",
+    "Absolutely", "Doubtful", "Possibly", "Try later", "Sure", "No way",
+    "Outlook good", "Don't count on it", "Yes, but", "Cannot predict", "Very likely", "Very doubtful",
+    "Most likely", "My sources say no"
+];
+
 init();
+
+function createLabelTexture(text) {
+    // Create a canvas and draw the label text with automatic line breaks
+    const size = 256;
+    const canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = "#00000000";
+    ctx.fillRect(0, 0, size, size);
+    if (text.length > 50) {
+        ctx.font = `{32 * (Math.log(50) / Math.log(text.length - 50))}px monospace`;
+    } else {
+        ctx.font = "32px monospace";
+    }
+    ctx.lineWidth = 1;
+    ctx.fillStyle = "#fff";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    // Split text into lines that fit the canvas width
+    function wrapText(ctx, text, maxWidth) {
+        const words = text.split(' ');
+        const lines = [];
+        let line = '';
+        for (let n = 0; n < words.length; n++) {
+            const testLine = line + (line ? ' ' : '') + words[n];
+            const metrics = ctx.measureText(testLine);
+            if (metrics.width > maxWidth && line) {
+                lines.push(line);
+                line = words[n];
+            } else {
+                line = testLine;
+            }
+        }
+        lines.push(line);
+        return lines;
+    }
+
+    const maxWidth = size * 0.8;
+    const lines = wrapText(ctx, text, maxWidth);
+    const lineHeight = 38;
+    const totalHeight = lines.length * lineHeight;
+    let y = size / 2 - totalHeight / 2 + lineHeight / 2;
+
+    for (let i = 0; i < lines.length; i++) {
+        ctx.fillText(lines[i], size / 2, y + i * lineHeight);
+    }
+
+    return new THREE.CanvasTexture(canvas);
+}
+
+function addLabelsToIcosahedron(geometry, labels) {
+    const group = new THREE.Group();
+    const pos = geometry.attributes.position;
+    const index = geometry.index;
+    const faceCount = index ? index.count / 3 : pos.count / 3;
+    for (let i = 0; i < faceCount && i < labels.length; i++) {
+        let a, b, c;
+        if (index) {
+            a = index.getX(i * 3);
+            b = index.getX(i * 3 + 1);
+            c = index.getX(i * 3 + 2);
+        } else {
+            a = i * 3;
+            b = i * 3 + 1;
+            c = i * 3 + 2;
+        }
+        const vA = new THREE.Vector3().fromBufferAttribute(pos, a);
+        const vB = new THREE.Vector3().fromBufferAttribute(pos, b);
+        const vC = new THREE.Vector3().fromBufferAttribute(pos, c);
+        const center = new THREE.Vector3().addVectors(vA, vB).add(vC).divideScalar(3);
+
+        // Compute face normal
+        const cb = new THREE.Vector3().subVectors(vC, vB);
+        const ab = new THREE.Vector3().subVectors(vA, vB);
+        const normal = new THREE.Vector3().crossVectors(cb, ab).normalize();
+
+        // Create a plane for the label
+        const planeSize = 0.6;
+        const labelTexture = createLabelTexture(labels[i]);
+        const mat = new THREE.MeshBasicMaterial({
+            map: labelTexture,
+            transparent: true,
+            side: THREE.DoubleSide
+        });
+        const plane = new THREE.Mesh(
+            new THREE.PlaneGeometry(planeSize, planeSize),
+            mat
+        );
+        plane.position.copy(center.clone().add(normal.clone().multiplyScalar(0.005)));
+        plane.lookAt(center.clone().add(normal));
+        group.add(plane);
+    }
+    return group;
+}
 
 function init() {
     // environment
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 100);
-    camera.position.set(-1, 1, 1).normalize().multiplyScalar(10);
+    camera.position.set(-1, 1, 1).normalize().multiplyScalar(5);
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xffffff);
@@ -129,18 +227,6 @@ function init() {
             polygonOffsetFactor: 1,
         }),
     );
-    // liquidBrush = new Brush(
-    //     new THREE.IcosahedronGeometry(1.9, 2),
-    //     new THREE.MeshStandardMaterial({
-    //         trasnsparent: true,
-    //         opacity: 0.5,
-    //         color: 0x000aff,
-    //         polygonOffset: true,
-    //         roughness: 0.0,
-    //         polygonOffsetUnits: 1,
-    //         polygonOffsetFactor: 1,
-    //     }),
-    // );
     brush = new Brush(
         new THREE.CylinderGeometry(1, 0, 4, 32),
         new THREE.MeshStandardMaterial({
@@ -156,7 +242,7 @@ function init() {
             flatShading: true,
             color: 0x000aff,
             emissive: 0x0000ff,
-            emissiveIntensity: 0.35,
+            emissiveIntensity: 1,
             polygonOffset: true,
             polygonOffsetUnits: 1,
             polygonOffsetFactor: 1,
@@ -165,11 +251,29 @@ function init() {
     core.castShadow = true;
     scene.add(core);
 
-    // const coreWireframe = new THREE.LineSegments(
-    //     new THREE.WireframeGeometry(core.geometry),
-    //     new THREE.LineBasicMaterial({ color: 0xffffff })
-    // );
-    // core.add(coreWireframe);
+    // Add face labels to the core
+    const coreLabels = addLabelsToIcosahedron(core.geometry, faceLabels);
+    core.add(coreLabels);
+
+    // Add the liquid inside the 8 ball
+    const liquidBrush = new Brush(
+        new THREE.IcosahedronGeometry(1.9, 2),
+        new THREE.MeshStandardMaterial({
+            transparent: true,
+            opacity: 0.1,
+            color: 0x000aff,
+            emissive: 0x0000ff,
+            emissiveIntensity: 0.5,
+            polygonOffset: true,
+            roughness: 1,
+            polygonOffsetUnits: 1,
+            polygonOffsetFactor: 1,
+            depthWrite: false,
+        }),
+    );
+    liquidBrush.castShadow = false;
+    liquidBrush.receiveShadow = false;
+    scene.add(liquidBrush);
 
     // create wireframe
     wireframe = new THREE.Mesh(
