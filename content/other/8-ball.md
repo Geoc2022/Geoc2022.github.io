@@ -24,7 +24,7 @@ fediverse = "@geoc@mathstodon.xyz"
 
 > Much of this was based on [this demo](https://github.com/mrdoob/three.js/blob/master/examples/webgl_geometry_csg.html) which you can see in action [here](https://threejs.org/examples/#webgl_geometry_csg).
 
-It turns out three.js is a lot easier/fun to use than I thought. Stick on the page to see all the different answers - some of the faces might not be what you remember...
+It turns out three.js is a lot easier/fun to use than I thought. Stick on the page to see all the different answers - some of the faces might not be what you remember... Also, it might take a few seconds for the font to fully load.
 
 <style>
     .threejs-demo-canvas {
@@ -116,9 +116,9 @@ function createLabelTexture(text) {
     ctx.fillStyle = "#00000000";
     ctx.fillRect(0, 0, size, size);
     if (text.length > 50) {
-        ctx.font = `{42 * (Math.log(50) / Math.log(text.length - 50))}px Manufacturing Consent`;
+        ctx.font = `{42 * (Math.log(50) / Math.log(text.length - 50))}px Manufacturing Consent, Times, serif`;
     } else {
-        ctx.font = "42px Manufacturing Consent";
+        ctx.font = "42px Manufacturing Consent, Times, serif";
     }
     ctx.lineWidth = 1;
     ctx.fillStyle = "#fff";
