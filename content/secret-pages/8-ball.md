@@ -17,19 +17,20 @@ fediverse = "@geoc@mathstodon.xyz"
 </div>
 
 <style>
-    #info {
-        margin-bottom: 1em;
-        font-size: 1em;
-        background: var(--bg);
-        padding: 0.5em 1em;
-        border-radius: 6px;
-    }
     .threejs-demo-canvas {
-        width: 100vw;
-        height: 80vh;
-        display: block;
-        margin: 0 auto;
-        background: var(--bg)
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+    min-height: 300px;
+    display: block;
+    margin: 0 auto;
+    background: transparent !important;
+    }
+    @media (min-width: 700px) {
+        .threejs-demo-canvas {
+            min-width: 600px;
+            min-height: 600px;
+        }
     }
 </style>
 
@@ -63,7 +64,7 @@ const params = {
 };
 
 // 8 Ball face labels
-const faceLabels = [
+const normalLabels = [
     "Yes", "No", "Maybe", "Ask again", "Definitely", "Unlikely",
     "Absolutely", "Doubtful", "Possibly", "Try later", "Sure", "No way",
     "Outlook good", "Don't count on it", "Yes, but", "Cannot predict", "Very likely", "Very doubtful",
@@ -73,14 +74,15 @@ const faceLabels = [
 const funnyLabels = [
     "Pay $0.99 for 1 more answer",
     "New Ball. Who this?",
-    "We have been trying to reach you regarding your car's extended warranty.",
+    "We have been trying to reach you regarding...",
     "404",
-    "Stupid lasts forever",
     "Ignore previous answer",
     "Information Available",
     "42",
     "…"
 ];
+
+let faceLabels = normalLabels
 
 init();
 
@@ -182,12 +184,10 @@ function addLabelsToIcosahedron(geometry, labels) {
 
 function init() {
     // environment
-    camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 100);
-    camera.position.set(-1, 1, 10).normalize().multiplyScalar(5);
+    camera = new THREE.PerspectiveCamera(50, 1, 1, 100);
+    camera.position.set(-.5, 4.5, -.5);
     camera.lookAt(0, 0, 0);
-
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xffffff);
 
     // lights
     const ambient = new THREE.HemisphereLight(0xffffff, 0x000000, 3);
@@ -202,9 +202,9 @@ function init() {
     scene.add(directionalLight);
 
     // renderer
-    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer = new THREE.WebGLRenderer({ antialias: true , alpha: true });
+    renderer.setClearColor( 0x000000, 0 ); // Transparent
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerHeight * 0.8, window.innerHeight * 0.8);
     renderer.setAnimationLoop(animate);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -218,9 +218,9 @@ function init() {
     const plane = new THREE.Mesh(
         new THREE.PlaneGeometry(),
         new THREE.ShadowMaterial({
-            color: 0xd81b60,
+            color: 0x781b60,
             transparent: true,
-            opacity: 0.075,
+            opacity: 0.04,
             side: THREE.DoubleSide,
         }),
     );
@@ -257,9 +257,9 @@ function init() {
         new THREE.MeshStandardMaterial({
             flatShading: true,
             color: 0x000aff,
-            emissive: 0x000aff,
-            roughness: 0.0,
-            emissiveIntensity: 10,
+            // emissive: 0x000aff,
+            // roughness: 0.0,
+            // emissiveIntensity: 10,
             polygonOffset: true,
             polygonOffsetUnits: 1,
             polygonOffsetFactor: 1,
@@ -328,9 +328,12 @@ function updateCSG() {
 }
 
 function onWindowResize() {
-    camera.aspect = window.innerWidth / (window.innerHeight * 0.8);
+    const container = document.getElementById('render');
+    const width = container ? container.clientWidth : window.innerWidth;
+    const height = container ? container.clientHeight : window.innerHeight;
+    camera.aspect = width / height;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight * 0.8);
+    renderer.setSize(width, height);
 }
 
 function animate() {
@@ -367,7 +370,7 @@ function animate() {
         core._lastChange = performance.now();
     }
 
-    if (!core._targetQuat || !core._lastChange || performance.now() - core._lastChange > 3000) {
+    if (!core._targetQuat || !core._lastChange || performance.now() - core._lastChange > 10000) {
         randomFace();
     }
     core.quaternion.slerp(core._targetQuat, 0.01);
