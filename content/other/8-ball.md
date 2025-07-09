@@ -1,22 +1,30 @@
 +++
 date = '2025-07-06T02:06:27-04:00'
 draft = false
-title = '8 Ball'
-summary = "Ask the 8 Ball a question and get an answer using three.js"
-description = "Ask the 8 Ball a question and get an answer using three.js"
+title = 'Magic 8 Ball'
+summary = "Ask the Magic 8 Ball a question and get an answer using three.js"
+description = "Ask the Magic 8 Ball a question and get an answer using three.js"
 readTime = false
 autonumber = false
 math = false
 hideBackToTop = false
-tags = [ "8 ball", "three.js", "webgl", "interactive" ]
+tags = [ "magic", "three.js", "webgl", "interactive" ]
 showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
+
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap" rel="stylesheet">
+</head>
 
 <div id="render">
 </div>
 
 > Much of this was based on [this demo](https://github.com/mrdoob/three.js/blob/master/examples/webgl_geometry_csg.html) which you can see in action [here](https://threejs.org/examples/#webgl_geometry_csg).
+
+It turns out three.js is a lot easier/fun to use than I thought. Stick on the page to see all the different answers - some of the faces might not be what you remember...
 
 <style>
     .threejs-demo-canvas {
@@ -34,6 +42,13 @@ fediverse = "@geoc@mathstodon.xyz"
             min-height: 600px;
         }
     }
+
+    .manufacturing-consent-regular {
+        font-family: "Manufacturing Consent", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+
 </style>
 
 <script type="importmap">
@@ -51,7 +66,7 @@ fediverse = "@geoc@mathstodon.xyz"
 import * as THREE from 'three';
 import Stats from 'three/addons/libs/stats.module.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+// import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 import { SUBTRACTION, INTERSECTION, ADDITION, Brush, Evaluator } from 'three-bvh-csg';
 
 let stats;
@@ -101,9 +116,9 @@ function createLabelTexture(text) {
     ctx.fillStyle = "#00000000";
     ctx.fillRect(0, 0, size, size);
     if (text.length > 50) {
-        ctx.font = `{32 * (Math.log(50) / Math.log(text.length - 50))}px monospace`;
+        ctx.font = `{42 * (Math.log(50) / Math.log(text.length - 50))}px Manufacturing Consent`;
     } else {
-        ctx.font = "32px monospace";
+        ctx.font = "42px Manufacturing Consent";
     }
     ctx.lineWidth = 1;
     ctx.fillStyle = "#fff";
@@ -190,7 +205,7 @@ function addLabelsToIcosahedron(geometry, labels) {
 function init() {
     // environment
     camera = new THREE.PerspectiveCamera(50, 1, 1, 100);
-    camera.position.set(-.5, 4.5, -.5);
+    camera.position.set(-.2, 4.5, -.5);
     camera.lookAt(0, 0, 0);
     scene = new THREE.Scene();
 
@@ -262,6 +277,8 @@ function init() {
         new THREE.MeshStandardMaterial({
             flatShading: true,
             color: 0x000aff,
+            // transparent: true,
+            // opacity: 0.0,
             // emissive: 0x000aff,
             // roughness: 0.0,
             // emissiveIntensity: 10,
@@ -315,10 +332,10 @@ function init() {
     controls.maxDistance = 50;
 
     // set up gui
-    const gui = new GUI();
-    gui.add(params, 'operation', { SUBTRACTION, INTERSECTION, ADDITION });
-    gui.add(params, 'wireframe');
-    gui.add(params, 'useGroups');
+    // const gui = new GUI();
+    // gui.add(params, 'operation', { SUBTRACTION, INTERSECTION, ADDITION });
+    // gui.add(params, 'wireframe');
+    // gui.add(params, 'useGroups');
 
     window.addEventListener('resize', onWindowResize);
     onWindowResize();
