@@ -16,6 +16,8 @@ fediverse = "@geoc@mathstodon.xyz"
 <div id="render">
 </div>
 
+> Much of this was based on [this demo](https://github.com/mrdoob/three.js/blob/master/examples/webgl_geometry_csg.html) which you can see in action [here](https://threejs.org/examples/#webgl_geometry_csg).
+
 <style>
     .threejs-demo-canvas {
     width: 100%;
@@ -79,7 +81,10 @@ const funnyLabels = [
     "Ignore previous answer",
     "Information Available",
     "42",
-    "…"
+    "…",
+    "Ask your mom",
+    "Made with 3.js",
+    "Ask google",
 ];
 
 let faceLabels = normalLabels
@@ -368,6 +373,18 @@ function animate() {
         const quat = new THREE.Quaternion().setFromUnitVectors(up, normal);
         core._targetQuat = quat;
         core._lastChange = performance.now();
+
+        if (Math.random() < 0.5) {
+            faceLabels[Math.round(faceIndex) % faceLabels.length] = funnyLabels[Math.round(faceIndex) % funnyLabels.length];
+            // delete the labels;
+            const coreLabels = core.children.find(child => child instanceof THREE.Group);
+            if (coreLabels) {
+                core.remove(coreLabels);
+                // remake the labels
+                const newCoreLabels = addLabelsToIcosahedron(core.geometry, faceLabels);
+                core.add(newCoreLabels);
+            }
+        }
     }
 
     if (!core._targetQuat || !core._lastChange || performance.now() - core._lastChange > 10000) {
