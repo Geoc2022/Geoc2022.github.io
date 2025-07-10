@@ -112,7 +112,7 @@ function showColorBoxes(colors, containerId, countId) {
 function extractColors() {
     const text = document.getElementById("inputText").value;
     const regexes = {
-        hex: /#(?:[0-9a-fA-F]{3}){1,2}/g,
+        hex: /(?:0x|#)(?:[0-9a-fA-F]{3}){1,2}/g,
         rgb: /rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)/g,
         hsl: /hsl\(\s*\d+\s*,\s*\d+%?\s*,\s*\d+%?\s*\)/g
     };
@@ -124,6 +124,9 @@ function extractColors() {
     }
 
     const toHex = (color) => {
+        if (color.startsWith("0x")) {
+            color = "#" + color.slice(2);
+        }
         const ctx = document.createElement("canvas").getContext("2d");
         ctx.fillStyle = color;
         return ctx.fillStyle;
