@@ -99,6 +99,7 @@ const funnyLabels = [
     "Ask your mom",
     "Made with 3.js",
     "Ask google",
+    "Yes, no, maybe, idk, can you repeat the question?",
 ];
 
 let faceLabels = normalLabels
@@ -114,10 +115,11 @@ function createLabelTexture(text) {
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = "#00000000";
     ctx.fillRect(0, 0, size, size);
-    if (text.length > 50) {
-        ctx.font = `{42 * (Math.log(50) / Math.log(text.length - 50))}px Manufacturing Consent, Times, serif`;
+    if (text.length > 20) {
+        let fontSize = 64 - Math.floor(Math.log(text.length) * 5);
+        ctx.font = `${fontSize}px Manufacturing Consent, Times, serif`;
     } else {
-        ctx.font = "42px Manufacturing Consent, Times, serif";
+        ctx.font = "64px Manufacturing Consent, Times, serif";
     }
     ctx.lineWidth = 1;
     ctx.fillStyle = "#354157";
@@ -143,7 +145,7 @@ function createLabelTexture(text) {
         return lines;
     }
 
-    const maxWidth = size * 0.8;
+    const maxWidth = size * 0.75;
     const lines = wrapText(ctx, text, maxWidth);
     const lineHeight = 38;
     const totalHeight = lines.length * lineHeight;
@@ -210,7 +212,7 @@ function init() {
     // scene.fog = new THREE.FogExp2( 0xefd1b5, 0.0025 );
 
     // lights
-    const ambient = new THREE.HemisphereLight(0xffffff, 0x000000, 3.5);
+    const ambient = new THREE.HemisphereLight(0xffffff, 0xffffff, 3.5);
     scene.add(ambient);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
