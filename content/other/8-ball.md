@@ -19,12 +19,11 @@ fediverse = "@geoc@mathstodon.xyz"
 <link href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap" rel="stylesheet">
 </head>
 
-<div id="render">
-</div>
+<div id="render"></div>
 
 > Much of this was based on [this demo](https://github.com/mrdoob/three.js/blob/master/examples/webgl_geometry_csg.html) which you can see in action [here](https://threejs.org/examples/#webgl_geometry_csg).
 
-It turns out three.js is a lot easier/fun to use than I thought. Stick on the page to see all the different answers - some of the faces might not be what you remember... Also, it might take a few seconds for the font to fully load.
+It turns out three.js is a lot easier/fun to use than I thought. Stick on the page to see all the different answers - some of the faces might not be what you remember... 
 
 <style>
     .threejs-demo-canvas {
@@ -121,7 +120,7 @@ function createLabelTexture(text) {
         ctx.font = "42px Manufacturing Consent, Times, serif";
     }
     ctx.lineWidth = 1;
-    ctx.fillStyle = "#fff";
+    ctx.fillStyle = "#354157";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
@@ -205,15 +204,16 @@ function addLabelsToIcosahedron(geometry, labels) {
 function init() {
     // environment
     camera = new THREE.PerspectiveCamera(50, 1, 1, 100);
-    camera.position.set(-.2, 4.5, -.5);
+    camera.position.set(-1, 4.5, 1);
     camera.lookAt(0, 0, 0);
     scene = new THREE.Scene();
+    // scene.fog = new THREE.FogExp2( 0xefd1b5, 0.0025 );
 
     // lights
-    const ambient = new THREE.HemisphereLight(0xffffff, 0x000000, 3);
+    const ambient = new THREE.HemisphereLight(0xffffff, 0x000000, 3.5);
     scene.add(ambient);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
     directionalLight.position.set(1, 4, 3).multiplyScalar(3);
     directionalLight.castShadow = true;
     directionalLight.shadow.mapSize.setScalar(2048);
@@ -256,9 +256,9 @@ function init() {
         new THREE.IcosahedronGeometry(2, 1),
         new THREE.MeshStandardMaterial({
             flatShading: true,
-            color: 0x000000,
+            color: 0x020205,
             polygonOffset: true,
-            roughness: .5,
+            roughness: .8,
             polygonOffsetUnits: 1,
             polygonOffsetFactor: 1,
         }),
@@ -266,7 +266,7 @@ function init() {
     brush = new Brush(
         new THREE.CylinderGeometry(.9, 0, 4, 12),
         new THREE.MeshStandardMaterial({
-            color: 0x000000,
+            color: 0x020205,
             polygonOffset: true,
             polygonOffsetUnits: 1,
             polygonOffsetFactor: 1,
@@ -294,15 +294,14 @@ function init() {
     const coreLabels = addLabelsToIcosahedron(core.geometry, faceLabels);
     core.add(coreLabels);
 
-    // Add the liquid inside the 8 ball (murky/foggy water effect)
     const liquidBrush = new Brush(
         new THREE.IcosahedronGeometry(1.85, 1),
         new THREE.MeshPhysicalMaterial({
             transparent: true,
             opacity: 1,
-            color: 0x000122,
+            color: 0x000119,
             roughness: 0.95,
-            transmission: 0.5,
+            transmission: 0.1,
             thickness: 1,
             ior: 1.33,
             attenuationColor: 0x1a237e,
@@ -311,7 +310,6 @@ function init() {
             polygonOffsetUnits: 1,
             polygonOffsetFactor: 1,
             depthWrite: false,
-            fog: true
         }),
     );
     liquidBrush.castShadow = false;
@@ -339,6 +337,10 @@ function init() {
 
     window.addEventListener('resize', onWindowResize);
     onWindowResize();
+
+    document.fonts.ready.then(() => {
+      refresh_labels();
+    });
 }
 
 function updateCSG() {
@@ -358,9 +360,21 @@ function onWindowResize() {
     renderer.setSize(width, height);
 }
 
+function refresh_labels() {
+    // delete the labels;
+    const coreLabels = core.children.find(child => child instanceof THREE.Group);
+    if (coreLabels) {
+        core.remove(coreLabels);
+        // remake the labels
+        const newCoreLabels = addLabelsToIcosahedron(core.geometry, faceLabels);
+        core.add(newCoreLabels);
+    }
+}
+
 function animate() {
     // update the transforms
     function randomFace() {
+        refresh_labels();
         const geometry = core.geometry;
         geometry.computeFaceNormals?.();
         const faces = geometry.index ? geometry.index.count / 3 : geometry.attributes.position.count / 3;
@@ -393,14 +407,7 @@ function animate() {
 
         if (Math.random() < 0.5) {
             faceLabels[Math.round(faceIndex) % faceLabels.length] = funnyLabels[Math.round(faceIndex) % funnyLabels.length];
-            // delete the labels;
-            const coreLabels = core.children.find(child => child instanceof THREE.Group);
-            if (coreLabels) {
-                core.remove(coreLabels);
-                // remake the labels
-                const newCoreLabels = addLabelsToIcosahedron(core.geometry, faceLabels);
-                core.add(newCoreLabels);
-            }
+            refresh_labels();
         }
     }
 
