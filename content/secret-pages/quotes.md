@@ -35,7 +35,7 @@ fediverse = "@geoc@mathstodon.xyz"
 				const randomQuote = data[Math.floor(Math.random() * data.length)];
 				quoteElement.innerHTML = `<blockquote style="font-style: italic; margin: 1em 0; padding-left: 1em;">${randomQuote.quote}</blockquote>`;
 				if (randomQuote.link) {
-					quoteElement.innerHTML += `<p><a href="${randomQuote.link}" target="_blank">${randomQuote.author}</a></p>`;
+					quoteElement.innerHTML += `<p><em>- <a href="${randomQuote.link}" target="_blank">${randomQuote.author}</a></em></p>`;
 				} else {
 					quoteElement.innerHTML += `<p><em>- ${randomQuote.author}</em></p>`;
 				}
