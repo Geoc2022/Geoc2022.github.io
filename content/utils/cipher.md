@@ -20,9 +20,9 @@ Here are some tools to play with ciphers and encodings. You can use the URL para
 
 > [message=hail+ceaser&caesar=-1](/utils/cipher/?message=hail+ceaser&caesar=-1)
 >
-> [message=daisy+daisy&binary=true&binary=false&hex=true&hex=false](/utils/cipher/?message=daisy+daisy&binary=true&binary=false&hex=true&hex=false)
->
 > [message=](/utils/cipher/?message=WIN&morse=true)[WIN](https://youtu.be/JI6V2jmJxq4)[&morse=true](/utils/cipher/?message=WIN&morse=true)
+>
+> [message=daisy+daisy&binary=true&binary=false&hex=true&hex=false](/utils/cipher/?message=daisy+daisy&binary=true&binary=false&hex=true&hex=false)
 
 <script>
 const searchParams = new URLSearchParams(window.location.search);
