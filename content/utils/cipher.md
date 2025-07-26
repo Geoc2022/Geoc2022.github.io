@@ -14,68 +14,131 @@ showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
-<div id="message" style="font-family: var(--font-mono)"></div>
+<div id="message" style="font-family: var(--font-mono); font-size: 24px;"></div>
+<br>
+Here are some tools to play with ciphers and encodings. You can use the URL parameters to try out each of the ciphers.
+
+> [message=hail+ceaser&caesar=-1](/utils/cipher/?message=hail+ceaser&caesar=-1)
+>
+> [message=daisy+daisy&binary=true&binary=false&hex=true&hex=false](/utils/cipher/?message=daisy+daisy&binary=true&binary=false&hex=true&hex=false)
+>
+> [message=](/utils/cipher/?message=WIN&morse=true)[WIN](https://youtu.be/JI6V2jmJxq4)[&morse=true](/utils/cipher/?message=WIN&morse=true)
 
 <script>
 const searchParams = new URLSearchParams(window.location.search);
 for (const param of searchParams) {
   console.log(param);
 }
-let text = "message"
-if (searchParams.has('message')); {
-    text = searchParams.get('message')
+let text = "message";
+if (searchParams.has('message')) {
+    text = searchParams.get('message');
 }
 let shifts = [];
 if (searchParams.has('caesar')) {
     shifts = searchParams.getAll('caesar').map(Number);
 }
-let i = 0;
+const binary = searchParams.getAll('binary').map(v => v === 'true');
+const hex = searchParams.getAll('hex').map(v => v === 'true');
+const morse = searchParams.getAll('morse').map(v => v === 'true');
+
 const el = document.getElementById("message");
-function decode() {
-  function decodeChar(c, shift) {
-    let code = c.charCodeAt(0);
-    return String.fromCharCode(code - shift);
-  }
 
-  const hashedTitle = text;
-  let current = hashedTitle.split('');
-  let targets = [hashedTitle.split('')];
+// Morse code maps
+const morseMap = {
+  'A': '.-',    'B': '-...',  'C': '-.-.', 'D': '-..',  'E': '.',
+  'F': '..-.',  'G': '--.',   'H': '....', 'I': '..',   'J': '.---',
+  'K': '-.-',   'L': '.-..',  'M': '--',   'N': '-.',   'O': '---',
+  'P': '.--.',  'Q': '--.-',  'R': '.-.',  'S': '...',  'T': '-',
+  'U': '..-',   'V': '...-',  'W': '.--',  'X': '-..-', 'Y': '-.--',
+  'Z': '--..',  '0': '-----', '1': '.----','2': '..---','3': '...--',
+  '4': '....-', '5': '.....', '6': '-....','7': '--...','8': '---..',
+  '9': '----.', ' ': '/',     '.': '.-.-.-', ',': '--..--'
+};
+const morseRevMap = Object.fromEntries(Object.entries(morseMap).map(([k, v]) => [v, k]));
+
+function caesarDecode(str, shift) {
+  return str.split('').map(c => String.fromCharCode(c.charCodeAt(0) - shift)).join('');
+}
+function caesarEncode(str, shift) {
+  return str.split('').map(c => String.fromCharCode(c.charCodeAt(0) + shift)).join('');
+}
+function textToBinary(str) {
+  return str.split('').map(c => c.charCodeAt(0).toString(2).padStart(8, '0')).join(' ');
+}
+function binaryToText(str) {
+  return str.split(' ').map(b => String.fromCharCode(parseInt(b, 2))).join('');
+}
+function textToHex(str) {
+  return str.split('').map(c => c.charCodeAt(0).toString(16).padStart(2, '0')).join(' ');
+}
+function hexToText(str) {
+  return str.split(' ').map(h => String.fromCharCode(parseInt(h, 16))).join('');
+}
+function textToMorse(str) {
+  return Array.from(str.toUpperCase()).map(c => morseMap[c] || c).join(' ');
+}
+function morseToText(str) {
+  return str.split(' ').map(m => morseRevMap[m] || m).join('');
+}
+
+function buildStages(text) {
+  let stages = [text];
+
   for (const shift of shifts) {
-      const prev = targets[targets.length - 1];
-      targets.push(prev.map(c => decodeChar(c, shift)));
+    stages.push(caesarDecode(stages[stages.length - 1], shift));
   }
-  const target = targets[targets.length - 1];
 
-  function step(stage = 1) {
-    if (stage >= targets.length) return;
+  for (const b of binary) {
+    const prev = stages[stages.length - 1];
+    stages.push(b ? textToBinary(prev) : binaryToText(prev));
+  }
 
-    let current = targets[stage - 1].slice();
-    const nextTarget = targets[stage];
+  for (const h of hex) {
+    const prev = stages[stages.length - 1];
+    stages.push(h ? textToHex(prev) : hexToText(prev));
+  }
 
-    function reveal() {
-        const unrevealed = [];
-        for (let i = 0; i < current.length; i++) {
-            if (current[i] !== nextTarget[i]) unrevealed.push(i);
-        }
-        if (unrevealed.length === 0) {
-            el.textContent = current.join('');
-            setTimeout(() => step(stage + 1), 400);
-            return;
-        }
+  for (const m of morse) {
+    const prev = stages[stages.length - 1];
+    stages.push(m ? textToMorse(prev) : morseToText(prev));
+  }
 
-        const idx = unrevealed[Math.floor(Math.random() * unrevealed.length)];
-        current[idx] = nextTarget[idx];
-        el.textContent = current.join('');
+  return stages;
+}
 
-        setTimeout(reveal, 50);
+function animateStages(stages, el) {
+  let stage = 0;
+  function step() {
+    if (stage >= stages.length - 1) {
+      el.textContent = stages[stage];
+      return;
     }
-
+    let current = stages[stage].split('');
+    const next = stages[stage + 1].split('');
+    function reveal() {
+      const unrevealed = [];
+      for (let i = 0; i < next.length; i++) {
+        if (current[i] !== next[i]) unrevealed.push(i);
+      }
+      if (unrevealed.length === 0) {
+        el.textContent = next.join('');
+        stage++;
+        setTimeout(step, 400);
+        return;
+      }
+      const idx = unrevealed[Math.floor(Math.random() * unrevealed.length)];
+      current[idx] = next[idx];
+      el.textContent = current.join('');
+      setTimeout(reveal, 50);
+    }
     el.textContent = current.join('');
     reveal();
-}
-
-  el.textContent = hashedTitle;
+  }
   step();
 }
-if (el) decode();
+
+if (el) {
+  const stages = buildStages(text);
+  animateStages(stages, el);
+}
 </script>
