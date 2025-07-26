@@ -25,47 +25,54 @@ let text = "message"
 if (searchParams.has('message')); {
     text = searchParams.get('message')
 }
-let shift = 0
-if (searchParams.has('caesar')); {
-    shift = searchParams.get('caesar')
+let shifts = [];
+if (searchParams.has('caesar')) {
+    shifts = searchParams.getAll('caesar').map(Number);
 }
 let i = 0;
 const el = document.getElementById("message");
 function decode() {
-  function decodeChar(c) {
+  function decodeChar(c, shift) {
     let code = c.charCodeAt(0);
     return String.fromCharCode(code - shift);
   }
 
   const hashedTitle = text;
   let current = hashedTitle.split('');
-  const target = hashedTitle.split('').map(decodeChar);
-
-  function randomIndices(arr, count) {
-    const indices = [];
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] !== target[i]) indices.push(i);
-    }
-    for (let i = indices.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [indices[i], indices[j]] = [indices[j], indices[i]];
-    }
-    return indices.slice(0, count);
+  let targets = [hashedTitle.split('')];
+  for (const shift of shifts) {
+      const prev = targets[targets.length - 1];
+      targets.push(prev.map(c => decodeChar(c, shift)));
   }
+  const target = targets[targets.length - 1];
 
-  function step() {
-    const unrevealed = [];
-    for (let i = 0; i < current.length; i++) {
-      if (current[i] !== target[i]) unrevealed.push(i);
+  function step(stage = 1) {
+    if (stage >= targets.length) return;
+
+    let current = targets[stage - 1].slice();
+    const nextTarget = targets[stage];
+
+    function reveal() {
+        const unrevealed = [];
+        for (let i = 0; i < current.length; i++) {
+            if (current[i] !== nextTarget[i]) unrevealed.push(i);
+        }
+        if (unrevealed.length === 0) {
+            el.textContent = current.join('');
+            setTimeout(() => step(stage + 1), 400);
+            return;
+        }
+
+        const idx = unrevealed[Math.floor(Math.random() * unrevealed.length)];
+        current[idx] = nextTarget[idx];
+        el.textContent = current.join('');
+
+        setTimeout(reveal, 50);
     }
-    if (unrevealed.length === 0) return;
 
-    const idx = unrevealed[Math.floor(Math.random() * unrevealed.length)];
-    current[idx] = target[idx];
     el.textContent = current.join('');
-
-    setTimeout(step, 50);
-  }
+    reveal();
+}
 
   el.textContent = hashedTitle;
   step();
