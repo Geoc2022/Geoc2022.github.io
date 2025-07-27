@@ -39,18 +39,6 @@ function decode() {
   let current = hashedTitle.split('');
   const target = hashedTitle.split('').map(decodeChar);
 
-  function randomIndices(arr, count) {
-    const indices = [];
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] !== target[i]) indices.push(i);
-    }
-    for (let i = indices.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [indices[i], indices[j]] = [indices[j], indices[i]];
-    }
-    return indices.slice(0, count);
-  }
-
   function step() {
     const unrevealed = [];
     for (let i = 0; i < current.length; i++) {
