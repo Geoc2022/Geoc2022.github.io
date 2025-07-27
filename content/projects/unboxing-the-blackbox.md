@@ -101,3 +101,18 @@ We tested our models on MNIST, Fashion-MNIST, and CIFAR-10. Below are some quali
 * **Attention models** retain high accuracy and offer insight into the model's decision process through visualized attention.
 
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/Geoc2022/Focus-and-Attention-Based-CNNs)
+
+<script>
+const text = "Unboxing the Black Box";
+let i = 13;
+const el = document.getElementsByClassName("single-title")[0];
+function type() {
+    if (i <= text.length) {
+        el.textContent = text.slice(0, i) + (i < text.length ? "░".repeat(text.length - i) : "");
+        i++;
+        setTimeout(type, 150);
+    }
+}
+if (el) type();
+</script>
+
