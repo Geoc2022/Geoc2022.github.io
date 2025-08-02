@@ -56,10 +56,12 @@ def latex_to_markdown(latex_text):
                 if cite and cite not in citation_list:
                     citation_list.append(cite)
         citation_map = {cite: idx + 1 for idx, cite in enumerate(citation_list)}
+
         def replace_cite(match):
             keys = [k.strip() for k in match.group(1).split(",")]
             refs = [f"[^{citation_map[k]}]" for k in keys if k in citation_map]
             return "".join(refs)
+
         latex_text = citation_pattern.sub(replace_cite, latex_text)
         if citation_list:
             latex_text += "\n\n"
@@ -77,8 +79,8 @@ def latex_to_markdown(latex_text):
     latex_text = re.sub(r"\\textbf{(.+?)}", r"**\1**", latex_text)
     latex_text = re.sub(r"\\textit{(.+?)}", r"*\1*", latex_text)
     latex_text = re.sub(r"\\emph{(.+?)}", r"*\1*", latex_text)
-    latex_text = re.sub(r"\\\((.+?)\\\)", r"$\1$", latex_text)
-    latex_text = re.sub(r"\\\[\n?(.+?)\n?\\\]", r"$$\1$$", latex_text)
+    latex_text = re.sub(r"\\\(\n*(.+?)\n*\\\)", r"$\1$", latex_text)
+    latex_text = re.sub(r"\\\[\n*(.+?)\n*\\\]", r"$$\1$$", latex_text)
     # convert included images to imported images in Markdown
     latex_text = re.sub(
         r"\\includegraphics(?:\[.+\])?\{(.+?)\}", r"![Image](media/\1)", latex_text
@@ -117,15 +119,28 @@ def latex_to_markdown(latex_text):
     latex_text = re.sub(
         r"\\begin{equation}(.+?)\\end{equation}", r"$$\1$$", latex_text, flags=re.DOTALL
     )
+
+    def convert_multiline_math(match):
+        content = match.group(2)
+        lines = content.strip().split("\\\\")
+        lines = [re.sub(r"\s*&\s*", "", line.strip()) for line in lines if line.strip()]
+        return "\n".join(f"$$ {line} $$" for line in lines)
+
     latex_text = re.sub(
-        r"\\begin{align\*?}(.+?)\\end{align\*?}", r"$$\1$$", latex_text, flags=re.DOTALL
-    )
-    latex_text = re.sub(
-        r"\\begin{gather}(.+?)\\end{gather}", r"$$\1$$", latex_text, flags=re.DOTALL
+        r"\\begin{(align\*?|gather\*?)}(.+?)\\end{\1}",
+        convert_multiline_math,
+        latex_text,
+        flags=re.DOTALL,
     )
     latex_text = re.sub(
         r"\\begin{center}(.+?)\\end{center}",
         r"<div align=\"center\">\1<\\div>",
+        latex_text,
+        flags=re.DOTALL,
+    )
+    latex_text = re.sub(
+        r"\\begin{abstract}\n*(.+?)\n*\\end{abstract}",
+        r">\1\n\n",
         latex_text,
         flags=re.DOTALL,
     )
@@ -185,7 +200,9 @@ def list_items_to_markdown(match):
 def numbered_list_items_to_markdown(match):
     # convert LaTeX itemize environment to Markdown unordered list
     item_list = re.findall(r"\\item (.+)", match.group(1))
-    markdown_items = "\n\n".join([f"{i}. {item}" for i, item in enumerate(item_list)])
+    markdown_items = "\n\n".join(
+        [f"{i + 1}. {item}" for i, item in enumerate(item_list)]
+    )
     return markdown_items
 
 
@@ -240,7 +257,6 @@ try:
             "---\n"
             f"title: {title_input.title()}\n"
             f'date: "{get_current_datetime()}"\n'
-            'template: "post"\n'
             "draft: false\n"
             "---\n"
         )
