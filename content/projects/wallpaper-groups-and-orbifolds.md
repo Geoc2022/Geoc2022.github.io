@@ -214,7 +214,7 @@ This condition ensures the pattern repeats in two non-parallel directions, tilin
 The group **$\ast2222$** features two independent translations, four rotation centers of order 2, and reflection lines. It satisfies both conditions and qualifies as a wallpaper group.
 
 
-<img src="./../wallpaper-group-media/SymBlend_pmm.svg.png" id="fig:pmm_symmetry" />
+<img src="./../wallpaper-group-media/SymBlend_pmm.svg.png" id="fig:pmm_symmetry" title="By Martin Von Gagern"/>
 
 
 Here, we see that one "tile" can be translated in two independent directions, following the arrows, relected across the lines, and rotated $\frac{\pi}{2}$ over the rotation centers.
@@ -241,22 +241,38 @@ It's a difficult to find all the symmetries in a complex wallpaper pattern, so l
 
 A pattern with only translations:
  
-<center><img src="./../wallpaper-group-media/SymBlend_p1.svg.png" id="fig:only_translations" width = 75% /></center>
+<center>
+<a href="https://commons.wikimedia.org/wiki/File:SymBlend_p1.svg">
+<img src="./../wallpaper-group-media/SymBlend_p1.svg.png" id="fig:only_translations" width = 90% title="By Martin Von Gagern" />
+</a>
+</center>
 
 
 A pattern with 2-fold symmetry rotational symmetry:
  
-<center><img src="./../wallpaper-group-media/SymBlend_p2.svg.png" id="fig:rotational_symmetry" width = 75% /></center>
+<center>
+<a href="https://commons.wikimedia.org/wiki/File:SymBlend_p2.svg">
+<img src="./../wallpaper-group-media/SymBlend_p2.svg.png" id="fig:rotational_symmetry" width = 90% title="By Martin Von Gagern" />
+</a>
+</center>
 
 
 A pattern with reflections:
  
-<center><img src="./../wallpaper-group-media/SymBlend_pm.svg.png" id="fig:reflections" width = 75% /></center>
+<center>
+<a href="https://commons.wikimedia.org/wiki/File:SymBlend_pm.svg">
+<img src="./../wallpaper-group-media/SymBlend_pm.svg.png" id="fig:reflections" width = 90% title="By Martin Von Gagern" />
+</a>
+</center>
 
 
 A pattern with glide reflections:
  
-<center><img src="./../wallpaper-group-media/SymBlend_pg.svg.png" id="fig:glide_reflections" width = 75% /></center>
+<center>
+<a href="https://commons.wikimedia.org/wiki/File:SymBlend_pg.svg">
+<img src="./../wallpaper-group-media/SymBlend_pg.svg.png" id="fig:glide_reflections" width = 90% title="By Martin Von Gagern" />
+</a>
+</center>
 
 
 ## Historical Context: Wallpaper Groups in the Alhambra
@@ -456,3 +472,4 @@ Wallpaper groups classify all two-dimensional repetitive patterns through their 
 - **Peter Doyle.** *The Euler characteristic of an orbifold*. URL: [http://www.geom.uiuc.edu/docs/doyle/mpls/handouts/node35.html](http://www.geom.uiuc.edu/docs/doyle/mpls/handouts/node35.html).
 - **Peter Doyle.** *Symmetry and orbifolds*. URL: [http://www.geom.uiuc.edu/docs/doyle/mpls/handouts/node30.html](http://www.geom.uiuc.edu/docs/doyle/mpls/handouts/node30.html).
 - **Brian Fox.** *The Magic Theorem: There are only 17 Symmetric Planar Patterns*. URL: [https://www.math.csi.cuny.edu/Undergraduate/HonorsTheses/2018-fox.pdf](https://www.math.csi.cuny.edu/Undergraduate/HonorsTheses/2018-fox.pdf).
+- **Martin von Gagern.** Wallpaper Group Examples. URL: [http://www.morenaments.de/gallery/exampleDiagrams/](https://web.archive.org/web/20220522022229/http://www.morenaments.de/gallery/exampleDiagrams/)
