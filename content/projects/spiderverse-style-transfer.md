@@ -1,6 +1,6 @@
 +++
 title = "Across the Spider-Verse Style Transfer"
-date = "2023-05-19"
+date = "2024-05-16"
 draft = false
 
 summary = "Recreating the universes of *Across the Spider-Verse* by using Style Transfer"
