@@ -46,6 +46,29 @@ def latex_to_markdown(latex_text):
         flags=re.DOTALL,
     )
 
+    def enumerate_citations(latex_text):
+        citation_pattern = re.compile(r"\\cite[t|p]?{([^}]+)}")
+        citations = citation_pattern.findall(latex_text)
+        citation_list = []
+        for group in citations:
+            for cite in group.split(","):
+                cite = cite.strip()
+                if cite and cite not in citation_list:
+                    citation_list.append(cite)
+        citation_map = {cite: idx + 1 for idx, cite in enumerate(citation_list)}
+        def replace_cite(match):
+            keys = [k.strip() for k in match.group(1).split(",")]
+            refs = [f"[^{citation_map[k]}]" for k in keys if k in citation_map]
+            return "".join(refs)
+        latex_text = citation_pattern.sub(replace_cite, latex_text)
+        if citation_list:
+            latex_text += "\n\n"
+            for cite in citation_list:
+                latex_text += f"[^{citation_map[cite]}]: {cite}\n"
+        return latex_text
+
+    latex_text = enumerate_citations(latex_text)
+
     # match LaTeX commands that should be replaced with their corresponding Markdown syntax
     latex_text = re.sub(r"\\title(?:\*?){(.+?)}", r"\n# \1", latex_text)
     latex_text = re.sub(r"\\section(?:\*?){(.+?)}", r"\n## \1", latex_text)
@@ -95,10 +118,10 @@ def latex_to_markdown(latex_text):
         r"\\begin{equation}(.+?)\\end{equation}", r"$$\1$$", latex_text, flags=re.DOTALL
     )
     latex_text = re.sub(
-        r"\\begin{align\*?}(.+?)\\end{align\*?}", r"\1", latex_text, flags=re.DOTALL
+        r"\\begin{align\*?}(.+?)\\end{align\*?}", r"$$\1$$", latex_text, flags=re.DOTALL
     )
     latex_text = re.sub(
-        r"\\begin{gather}(.+?)\\end{gather}", r"\1", latex_text, flags=re.DOTALL
+        r"\\begin{gather}(.+?)\\end{gather}", r"$$\1$$", latex_text, flags=re.DOTALL
     )
     latex_text = re.sub(
         r"\\begin{center}(.+?)\\end{center}",
@@ -168,7 +191,7 @@ def numbered_list_items_to_markdown(match):
 
 ## Gatsby Formatting Functions
 def get_current_datetime():
-    return datetime.utcnow().isoformat() + "Z"
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S %Z")
 
 
 def format_title(title):
@@ -191,8 +214,8 @@ print(
 )
 
 try:
-    # Get the current path of the script file
-    current_path = os.path.dirname(os.path.abspath(__file__))
+    # Get the current path
+    current_path = os.getcwd()
 
     # Construct the full path to the TeX file
     tex_filename = input(
