@@ -345,7 +345,7 @@ $$ (g^{sk}, g^{r_n}, g^{sk \cdot r_n + v_n}) $$
 where $n$ is the number of candidates, $v_i$ is the vote for candidate $i$, and $r_i$ is a random number. 
 
 
-Therefore, when we multiply the votes together componentwise and preseve first component, we get
+Therefore, when we multiply the votes together componentwise and preserve first component, we get
 
 $$(g^{sk}, g^{r}, g^{sk \cdot r + \sum_{i=1}^n v_i})$$
 
