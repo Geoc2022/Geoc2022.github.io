@@ -273,7 +273,7 @@ A zero-knowledge proof (ZKP) is a cryptographic protocol that allows one party (
 This protocol will be useful in our voting system to ensure that each voter votes either 0 or 1 for each candidate, and that they vote for exactly $k$ candidates. The ZKP will allow the voter to prove to the verifier that they have voted for exactly $k$ candidates without revealing which candidates they voted for.
 
 
-However, one of the limitations of ZKPs is that they can be interactive, meaning that the prover and verifier must communicate back and forth to complete the proof. This can be a problem in some scenarios, such as in our voting system where we want to ensure that the votes are private and cannot be traced back to the voter. If we did not have a way to make the ZKP non-interactive, each of the agents in out problem would have to communicate with the orgional voter to verify the proof. This would be a problem in our voting system, as we want to ensure that the votes are private and cannot be traced back to the voter.
+However, one of the limitations of ZKPs is that they can be interactive, meaning that the prover and verifier must communicate back and forth to complete the proof. This can be a problem in some scenarios, such as in our voting system where we want to ensure that the votes are private and cannot be traced back to the voter. If we did not have a way to make the ZKP non-interactive, each of the agents in out problem would have to communicate with the original voter to verify the proof. This would be a problem in our voting system, as we want to ensure that the votes are private and cannot be traced back to the voter.
 
 
 
