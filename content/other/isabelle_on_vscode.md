@@ -51,9 +51,10 @@ echo "export PATH=\"$(pwd):\$PATH\"" >> ~/.zshrc
 
 ## Using isabelle with VSCode
 
-Now, after restarting your shell, you can use `isabelle vscode` instead of `code` to edit isabelle files.
+Now, after restarting your shell, you can use the command `isabelle vscode` in your terminal instead of `code` to edit isabelle files. For example, if I'm in the directory my isabelle files are in. I can just run `isabelle vscode .` to open the directory.
 
-You now may want to include some of the extensions you use in your normal VSCode Sessions:
+You now may want to include some of the extensions you use in your normal VSCode Sessions <span class="annotation__text" data-annotation="I also haven't gotten themes to work">though it's a bit limited</span>:
+
 
 ![VSCode Extensions](IsabelleExtensions.png)
 
