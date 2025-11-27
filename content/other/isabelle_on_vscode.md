@@ -16,6 +16,8 @@ fediverse = "@geoc@mathstodon.xyz"
 
 > System OS: macOS Sequoia 15.6.1 | Isabelle Version: Isabelle2025
 
+I was trying to look for any documentation on how to set up Isabelle on VSCode but couldn't find any good resources, so I decided to write a quick tutorial for anyone else who might be looking for it.
+
 ## Locating the Isabelle Binary
 
 We first want to find our Isabelle binary located in our Isabelle app. Typically this should be installed in the home `Applications` folder but could also be in our user `Applications` folder:
