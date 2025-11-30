@@ -14,7 +14,7 @@ showTags = false
 fediverse = "@geoc@mathstodon.xyz"
 +++
 
-<!-- Redirect to https://george.chemmala.com/finite-automaton-autograder/dfa_create -->
-<meta http-equiv="refresh" content="0; url=https://george.chemmala.com/finite-automaton-autograder/dfa_create" />
-If you are not redirected automatically, follow this <a href="https://george.chemmala.com/finite-automaton-autograder/dfa_create">link</a>.
+<!-- Redirect to https://george.chemmala.com/finite-automaton-autograder/fa_create -->
+<meta http-equiv="refresh" content="0; url=https://george.chemmala.com/finite-automaton-autograder/fa_create" />
+If you are not redirected automatically, follow this <a href="https://george.chemmala.com/finite-automaton-autograder/fa_create">link</a>.
 
