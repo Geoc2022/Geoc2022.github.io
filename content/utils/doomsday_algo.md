@@ -1,6 +1,6 @@
 +++
 date = '2026-01-03T13:03:32-04:00'
-draft = true
+draft = false
 title = 'Doomsday Algorithm'
 
 summary = "Practice the Doomsday algorithm"
@@ -15,18 +15,48 @@ fediverse = "@geoc@mathstodon.xyz"
 +++
 
 <div id="doomsday-trainer" align="center">
-  <h1 style="font-size:2.5em; font-weight:bold; display:None; align-items:center; justify-content:center; gap:0.5em; width:100%;" id="num_date">
-      <input type="text" id="DayNum" placeholder="dd" style="font-size:1em; width:2.5em; min-width:2em; text-align:right;">
+  <style>
+    .doomsday-trainer-h1 {
+      font-size:2.5em;
+      font-weight:bold;
+      align-items:center;
+      justify-content:center;
+      gap:0.5em;
+      width:100%;
+    }
+    .doomsday-input {
+      font-size:1em;
+      min-width:2em;
+    }
+    .doomsday-input-day-month {
+      width:2.5em;
+      text-align:center;
+    }
+    .doomsday-input-year {
+      width:4em;
+      text-align:left;
+    }
+    .doomsday-input-day-full {
+      width:1.5em;
+      text-align:center;
+    }
+    .doomsday-input-month-full {
+      width:5.5em;
+      text-align:right;
+    }
+  </style>
+  <h1 class="doomsday-trainer-h1" style="display:None;" id="num_date">
+      <input type="text" id="DayNum" placeholder="dd" class="doomsday-input doomsday-input-day-month" style="text-align:right;">
       <span>/</span>
-      <input type="text" id="MonthNum" placeholder="mm" style="font-size:1em; width:2.5em; min-width:2em; text-align:center;">
+      <input type="text" id="MonthNum" placeholder="mm" class="doomsday-input doomsday-input-day-month">
       <span>/</span>
-      <input type="text" id="YearNum" placeholder="yyyy" style="font-size:1em; width:4em; min-width:3em; text-align:left;">
+      <input type="text" id="YearNum" placeholder="yyyy" class="doomsday-input doomsday-input-year">
   </h1>
-  <h1 style="font-size:2.5em; font-weight:bold; display:flex; align-items:center; justify-content:center; gap:0.25em; width:100%;" id="full_date">
-      <input type="text" id="MonthFull" placeholder="Month" style="font-size:1em; width:5.5em; min-width:2em; text-align:right;">
-      <input type="text" id="DayFull" placeholder="Day" style="font-size:1em; width:1.5em; min-width:1.5em; text-align:center;">
+  <h1 class="doomsday-trainer-h1" style="display:flex; gap:0.25em;" id="full_date">
+      <input type="text" id="MonthFull" placeholder="Month" class="doomsday-input doomsday-input-month-full">
+      <input type="text" id="DayFull" placeholder="Day" class="doomsday-input doomsday-input-day-full">
       <span>,</span>
-      <input type="text" id="YearFull" placeholder="Year" style="font-size:1em; width:4em; min-width:3em; text-align:left;">
+      <input type="text" id="YearFull" placeholder="Year" class="doomsday-input doomsday-input-year">
   </h1>
   <p id="result" style="font-size:1.2em; min-height: 1.5em;">Type 0-6 to guess for Sun-Sat</p>
   <button id="redo-button" style="font-size: 1.5em;">↻</button>
@@ -48,6 +78,8 @@ The Doomsday algorithm is a method to calculate the day of the week for any give
 </details>
 
 <script>
+let easyMode = localStorage.getItem('easyMode') === 'true';
+
 const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const monthNames = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const monthAbbr = ["", "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
@@ -94,24 +126,22 @@ const easyDoomsdaysByMonth = {
     12: [12]
 };
 
-const currentDate = new Date();
-const currentYear = currentDate.getFullYear();
-document.getElementById('InfoYearInput').placeholder = currentYear;
-
-document.getElementById('InfoDoomsdaysContent').innerHTML = (() => {
-    const leap = isLeap(currentYear);
+function updateInfoDoomsdays(year) {
+    if (isNaN(year)) return;
+    const leap = isLeap(year);
+    const doomsdaysSet = easyMode ? easyDoomsdaysByMonth : doomsdaysByMonth;
     let doomsdaysText = '';
     for (let month = 1; month <= 12; month++) {
         let monthDoomsdays;
         if (month === 1 || month === 2) {
-            monthDoomsdays = doomsdaysByMonth[month][leap ? 'leap' : 'common'];
+            monthDoomsdays = doomsdaysSet[month][leap ? 'leap' : 'common'];
         } else {
-            monthDoomsdays = doomsdaysByMonth[month];
+            monthDoomsdays = doomsdaysSet[month];
         }
         doomsdaysText += `${monthNames[month]}: ${monthDoomsdays.join(', ')}<br>`;
     }
-    return doomsdaysText;
-})();
+    document.getElementById('InfoDoomsdaysContent').innerHTML = doomsdaysText;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const resultEl = document.getElementById('result');
@@ -130,12 +160,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const numDateEl = document.getElementById('num_date');
     const fullDateEl = document.getElementById('full_date');
     const trainerEl = document.getElementById('doomsday-trainer');
+    const titleEl = document.querySelector('.single-title');
+    const infoYearInput = document.getElementById('InfoYearInput');
 
     let startTime;
     let correctDay;
     let yearDoomsday;
     let closestDoomsday;
     let randomDate;
+
+    if (easyMode && titleEl) {
+        titleEl.textContent = 'Practice the Simplified Doomsday Algorithm';
+    }
+
+    if (titleEl) {
+        titleEl.addEventListener('click', () => {
+            easyMode = !easyMode;
+            localStorage.setItem('easyMode', easyMode);
+            titleEl.textContent = easyMode ? 'Practice the Simplified Doomsday Algorithm' : 'Doomsday Algorithm';
+            updateInfoDoomsdays(parseInt(infoYearInput.value) || new Date().getFullYear());
+            generateNewDate();
+        });
+    }
+
+    const currentYear = new Date().getFullYear();
+    infoYearInput.placeholder = currentYear;
+    updateInfoDoomsdays(currentYear);
+
+    infoYearInput.addEventListener('input', (e) => {
+        const year = parseInt(e.target.value) || new Date().getFullYear();
+        updateInfoDoomsdays(year);
+    });
 
     dayNumInput.addEventListener('input', (e) => dayFullInput.value = e.target.value);
     dayFullInput.addEventListener('input', (e) => dayNumInput.value = e.target.value);
@@ -181,11 +236,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getClosestDoomsday(month, day, year) {
         const leap = isLeap(year);
+        const doomsdaysSet = easyMode ? easyDoomsdaysByMonth : doomsdaysByMonth;
         let monthDoomsdays;
         if (month === 1 || month === 2) {
-            monthDoomsdays = doomsdaysByMonth[month][leap ? 'leap' : 'common'];
+            monthDoomsdays = doomsdaysSet[month][leap ? 'leap' : 'common'];
         } else {
-            monthDoomsdays = doomsdaysByMonth[month];
+            monthDoomsdays = doomsdaysSet[month];
         }
 
         let closest = monthDoomsdays[0];
