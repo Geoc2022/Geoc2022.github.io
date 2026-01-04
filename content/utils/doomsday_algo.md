@@ -92,6 +92,25 @@ function getDoomsdayForYear(y) {
     return (2 + 5 * (y % 4) + 4 * (y % 100) + 6 * (y % 400)) % 7;
 }
 
+function getAllDoomsdayDatesForYear(year) {
+    const leap = isLeap(year);
+    const doomsdaysSet = easyMode ? easyDoomsdaysByMonth : doomsdaysByMonth;
+    const allDoomsdays = [];
+
+    for (let month = 1; month <= 12; month++) {
+        let monthDoomsdays;
+        if (month === 1 || month === 2) {
+            monthDoomsdays = doomsdaysSet[month][leap ? 'leap' : 'common'];
+        } else {
+            monthDoomsdays = doomsdaysSet[month];
+        }
+        monthDoomsdays.forEach(day => {
+            allDoomsdays.push({ month: month, day: day });
+        });
+    }
+    return allDoomsdays;
+}
+
 // https://rosettacode.org/wiki/Doomsday_rule
 const doomsdaysByMonth = {
     1: { common: [3, 10, 17, 24, 31], leap: [4, 11, 18, 25] },
@@ -234,26 +253,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    function getClosestDoomsday(month, day, year) {
-        const leap = isLeap(year);
-        const doomsdaysSet = easyMode ? easyDoomsdaysByMonth : doomsdaysByMonth;
-        let monthDoomsdays;
-        if (month === 1 || month === 2) {
-            monthDoomsdays = doomsdaysSet[month][leap ? 'leap' : 'common'];
-        } else {
-            monthDoomsdays = doomsdaysSet[month];
-        }
+    function getClosestDoomsdayDateInfo(targetMonth, targetDay, targetYear) {
+        const allDoomsdays = getAllDoomsdayDatesForYear(targetYear);
+        const targetDate = new Date(targetYear, targetMonth - 1, targetDay);
 
-        let closest = monthDoomsdays[0];
-        let minDiff = Math.abs(day - closest);
-        for (let i = 1; i < monthDoomsdays.length; i++) {
-            const diff = Math.abs(day - monthDoomsdays[i]);
+        let closestDoomsdayMonth = 0;
+        let closestDoomsdayDay = 0;
+        let minDiff = Infinity;
+
+        allDoomsdays.forEach(dd => {
+            const doomsdayDate = new Date(targetYear, dd.month - 1, dd.day);
+            const diff = Math.abs(targetDate.getTime() - doomsdayDate.getTime());
+
             if (diff < minDiff) {
                 minDiff = diff;
-                closest = monthDoomsdays[i];
+                closestDoomsdayMonth = dd.month;
+                closestDoomsdayDay = dd.day;
             }
-        }
-        return closest;
+        });
+        return { month: closestDoomsdayMonth, day: closestDoomsdayDay };
     }
 
     function generateNewDate() {
@@ -304,14 +322,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const monthForClosest = randomDate.getMonth() + 1;
         const dayForClosest = randomDate.getDate();
         const yearForClosest = randomDate.getFullYear();
-        closestDoomsday = getClosestDoomsday(monthForClosest, dayForClosest, yearForClosest);
 
-        let dayOfWeek = (yearDoomsday + (dayForClosest - closestDoomsday)) % 7;
+        const { month: closestDoomsdayMonth, day: closestDoomsdayDay } = getClosestDoomsdayDateInfo(monthForClosest, dayForClosest, yearForClosest);
+
+        let dayOfWeek = (yearDoomsday + (dayForClosest - closestDoomsdayDay)) % 7;
         correctDay = (dayOfWeek < 0) ? (dayOfWeek + 7) : dayOfWeek;
 
-        const monthName = randomDate.toLocaleDateString(undefined, { month: 'long' });
-        hintEl.innerHTML = `${dayNames[yearDoomsday]}`;
-        hint2El.innerHTML = `${monthName} ${closestDoomsday}`;
+        const doomsdayHintValue = numDateEl.style.display === 'flex' ? yearDoomsday.toString() : dayNames[yearDoomsday];
+
+        hintEl.innerHTML = `${doomsdayHintValue}`;
+        const monthDoomsdayHint = numDateEl.style.display === 'flex'
+            ? `${closestDoomsdayMonth}/${closestDoomsdayDay}`
+            : `${monthNames[closestDoomsdayMonth]} ${closestDoomsdayDay}`;
+        hint2El.innerHTML = `${monthDoomsdayHint}`;
 
         startTime = new Date();
     }
@@ -323,10 +346,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const endTime = new Date();
             const timeTaken = (endTime - startTime) / 1000;
 
+            const displayValue = numDateEl.style.display === 'flex' ? correctDay.toString() : dayNames[correctDay];
+
             if (guess === correctDay) {
-                resultEl.innerHTML = `<span style="color: var(--green);">${dayNames[correctDay]}</span> ${timeTaken.toFixed(2)}s`;
+                resultEl.innerHTML = `<span style="color: var(--green);">${displayValue}</span> ${timeTaken.toFixed(2)}s`;
             } else {
-                resultEl.innerHTML = `<span style="color: var(--red);">${dayNames[correctDay]}</span> ${timeTaken.toFixed(2)}s`;
+                resultEl.innerHTML = `<span style="color: var(--red);">${displayValue}</span> ${timeTaken.toFixed(2)}s`;
             }
 
             setTimeout(generateNewDate, 0);
