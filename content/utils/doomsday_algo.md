@@ -66,7 +66,7 @@ fediverse = "@geoc@mathstodon.xyz"
 <p id="hint-content" style="margin-top: 0.5em;"></p>
 </details>
 <details style="margin-top: 1em;">
-<summary>Closest Doomsday</summary>
+<summary>Month Doomsday</summary>
 <p id="hint2-content" style="margin-top: 0.5em;"></p>
 </details>
 
@@ -114,7 +114,7 @@ const doomsdaysByMonth = {
 const easyDoomsdaysByMonth = {
     1: { common: [3], leap: [4] },
     2: { common: [28], leap: [29] },
-    3: [0],
+    3: [],
     4: [4],
     5: [9],
     6: [6],
@@ -138,7 +138,7 @@ function updateInfoDoomsdays(year) {
         } else {
             monthDoomsdays = doomsdaysSet[month];
         }
-        doomsdaysText += `${monthNames[month]}: ${monthDoomsdays.join(', ')}<br>`;
+        doomsdaysText += `${easyMode ? month.toString() : monthNames[month]} ${easyMode ? '/' : ':'} ${monthDoomsdays.join(', ')}<br>`;
     }
     document.getElementById('InfoDoomsdaysContent').innerHTML = doomsdaysText;
 }
