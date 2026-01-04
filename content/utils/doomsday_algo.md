@@ -15,16 +15,21 @@ fediverse = "@geoc@mathstodon.xyz"
 +++
 
 <div id="doomsday-trainer" align="center">
-  <h1 style="font-size:2.5em; font-weight:bold; display:flex; align-items:center; justify-content:center; gap:0.5em; width:100%;">
-      <input type="text" id="Day" placeholder="6" style="font-size:1em; width:4em; min-width:3em; text-align:right;" oninput="generateNewDate()">
+  <h1 style="font-size:2.5em; font-weight:bold; display:None; align-items:center; justify-content:center; gap:0.5em; width:100%;" id="num_date">
+      <input type="text" id="DayNum" placeholder="dd" style="font-size:1em; width:2.5em; min-width:2em; text-align:right;">
       <span>/</span>
-      <input type="text" id="Month" placeholder="6" style="font-size:1em; width:4em; min-width:3em; text-align:center;" oninput="generateNewDate()">
+      <input type="text" id="MonthNum" placeholder="mm" style="font-size:1em; width:2.5em; min-width:2em; text-align:center;">
       <span>/</span>
-      <input type="text" id="Year" placeholder="6" style="font-size:1em; width:4em; min-width:3em; text-align:left;" oninput="generateNewDate()">
+      <input type="text" id="YearNum" placeholder="yyyy" style="font-size:1em; width:4em; min-width:3em; text-align:left;">
   </h1>
-  <p style="font-size:1.2em;" id="random-date">?</p>
+  <h1 style="font-size:2.5em; font-weight:bold; display:flex; align-items:center; justify-content:center; gap:0.25em; width:100%;" id="full_date">
+      <input type="text" id="MonthFull" placeholder="Month" style="font-size:1em; width:5.5em; min-width:2em; text-align:right;">
+      <input type="text" id="DayFull" placeholder="Day" style="font-size:1em; width:1.5em; min-width:1.5em; text-align:center;">
+      <span>,</span>
+      <input type="text" id="YearFull" placeholder="Year" style="font-size:1em; width:4em; min-width:3em; text-align:left;">
+  </h1>
+  <p id="result" style="font-size:1.2em; min-height: 1.5em;">Type 0-6 to guess for Sun-Sat</p>
   <button id="redo-button" style="font-size: 1.5em;">↻</button>
-  <p id="result" style="font-size:1.2em; min-height: 1.5em;"></p>
 </div>
 <details style="margin-top: 1em;">
 <summary>Doomsday</summary>
@@ -35,13 +40,96 @@ fediverse = "@geoc@mathstodon.xyz"
 <p id="hint2-content" style="margin-top: 0.5em;"></p>
 </details>
 
+The Doomsday algorithm is a method to calculate the day of the week for any given date. The key concept is that certain dates in each year always fall on the same day of the week, known as "Doomsdays." By memorizing these dates and using modular calculations, you can quickly determine the day of the week for any date.
+
+<details style="margin-top: 1em;">
+<summary>Doomsdays for the year <input type="text" id="InfoYearInput" placeholder="YYYY"></summary>
+<p id="InfoDoomsdaysContent" style="margin-top: 0.5em;"></p>
+</details>
+
 <script>
+const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const monthNames = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const monthAbbr = ["", "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+
+function isLeap(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
+function getDoomsdayForYear(y) {
+    return (2 + 5 * (y % 4) + 4 * (y % 100) + 6 * (y % 400)) % 7;
+}
+
+// https://rosettacode.org/wiki/Doomsday_rule
+const doomsdaysByMonth = {
+    1: { common: [3, 10, 17, 24, 31], leap: [4, 11, 18, 25] },
+    2: { common: [7, 14, 21, 28], leap: [1, 8, 15, 22, 29] },
+    3: [7, 14, 21, 28],
+    4: [4, 11, 18, 25],
+    5: [2, 9, 16, 23, 30],
+    6: [6, 13, 20, 27],
+    7: [4, 11, 18, 25],
+    8: [1, 8, 15, 22, 29],
+    9: [5, 12, 19, 26],
+    10: [3, 10, 17, 24, 31],
+    11: [7, 14, 21, 28],
+    12: [5, 12, 19, 26]
+};
+
+// 4/4 6/6 8/8 10/10 12/12
+// 5/9 7/11 9/5 11/7
+// 1/3 (1/4) 2/28 (2/29) “March 0”
+const easyDoomsdaysByMonth = {
+    1: { common: [3], leap: [4] },
+    2: { common: [28], leap: [29] },
+    3: [0],
+    4: [4],
+    5: [9],
+    6: [6],
+    7: [11],
+    8: [8],
+    9: [5],
+    10: [10],
+    11: [7],
+    12: [12]
+};
+
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+document.getElementById('InfoYearInput').placeholder = currentYear;
+
+document.getElementById('InfoDoomsdaysContent').innerHTML = (() => {
+    const leap = isLeap(currentYear);
+    let doomsdaysText = '';
+    for (let month = 1; month <= 12; month++) {
+        let monthDoomsdays;
+        if (month === 1 || month === 2) {
+            monthDoomsdays = doomsdaysByMonth[month][leap ? 'leap' : 'common'];
+        } else {
+            monthDoomsdays = doomsdaysByMonth[month];
+        }
+        doomsdaysText += `${monthNames[month]}: ${monthDoomsdays.join(', ')}<br>`;
+    }
+    return doomsdaysText;
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
-    const dateEl = document.getElementById('random-date');
     const resultEl = document.getElementById('result');
     const redoBtn = document.getElementById('redo-button');
     const hintEl = document.getElementById('hint-content');
     const hint2El = document.getElementById('hint2-content');
+
+    const dayNumInput = document.getElementById('DayNum');
+    const monthNumInput = document.getElementById('MonthNum');
+    const yearNumInput = document.getElementById('YearNum');
+
+    const dayFullInput = document.getElementById('DayFull');
+    const monthFullInput = document.getElementById('MonthFull');
+    const yearFullInput = document.getElementById('YearFull');
+
+    const numDateEl = document.getElementById('num_date');
+    const fullDateEl = document.getElementById('full_date');
+    const trainerEl = document.getElementById('doomsday-trainer');
 
     let startTime;
     let correctDay;
@@ -49,29 +137,47 @@ document.addEventListener('DOMContentLoaded', () => {
     let closestDoomsday;
     let randomDate;
 
-    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const doomsdaysByMonth = {
-        1: { common: [3, 10, 17, 24, 31], leap: [4, 11, 18, 25] },
-        2: { common: [7, 14, 21, 28], leap: [1, 8, 15, 22, 29] },
-        3: [7, 14, 21, 28],
-        4: [4, 11, 18, 25],
-        5: [2, 9, 16, 23, 30],
-        6: [6, 13, 20, 27],
-        7: [4, 11, 18, 25],
-        8: [1, 8, 15, 22, 29],
-        9: [5, 12, 19, 26],
-        10: [3, 10, 17, 24, 31],
-        11: [7, 14, 21, 28],
-        12: [5, 12, 19, 26]
-    };
+    dayNumInput.addEventListener('input', (e) => dayFullInput.value = e.target.value);
+    dayFullInput.addEventListener('input', (e) => dayNumInput.value = e.target.value);
+    yearNumInput.addEventListener('input', (e) => yearFullInput.value = e.target.value);
+    yearFullInput.addEventListener('input', (e) => yearNumInput.value = e.target.value);
 
-    function isLeap(year) {
-        return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-    }
+    monthNumInput.addEventListener('input', (e) => {
+        const monthNum = parseInt(e.target.value);
+        if (monthNum >= 1 && monthNum <= 12) {
+            monthFullInput.value = monthNames[monthNum];
+        } else {
+            monthFullInput.value = '';
+        }
+    });
 
-    function getDoomsdayForYear(y) {
-        return (2 + 5 * (y % 4) + 4 * (y % 100) + 6 * (y % 400)) % 7;
-    }
+    monthFullInput.addEventListener('input', (e) => {
+        const monthStr = e.target.value.toLowerCase();
+        let monthNum = -1;
+
+        const fullMonthIndex = monthNames.findIndex(m => m.toLowerCase() === monthStr);
+        if (fullMonthIndex > 0) {
+            monthNum = fullMonthIndex;
+        }
+
+        if (monthNum === -1) {
+            const abbrMonthIndex = monthAbbr.findIndex(m => m === monthStr);
+            if (abbrMonthIndex > 0) {
+                monthNum = abbrMonthIndex;
+            }
+        }
+
+        if (monthNum !== -1) {
+            monthNumInput.value = monthNum;
+        } else {
+            const parsed = parseInt(monthStr);
+            if (!isNaN(parsed) && parsed >= 1 && parsed <= 12) {
+                monthNumInput.value = parsed;
+            } else {
+                monthNumInput.value = '';
+            }
+        }
+    });
 
     function getClosestDoomsday(month, day, year) {
         const leap = isLeap(year);
@@ -95,13 +201,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function generateNewDate() {
-        const year = Math.floor(Math.random() * 300) + 1900;
-        const month = Math.floor(Math.random() * 12) + 1;
-        const day = Math.floor(Math.random() * 28) + 1;
+        const desiredDay = dayNumInput.value ? parseInt(dayNumInput.value) : null;
+        const desiredMonth = monthNumInput.value ? parseInt(monthNumInput.value) : null;
+        const desiredYear = yearNumInput.value ? parseInt(yearNumInput.value) : null;
 
-        randomDate = new Date(year, month - 1, day);
+        let year, month, day, date;
+        let validDate = false;
+        let attempts = 0;
 
-        dateEl.textContent = randomDate.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+        while (!validDate && attempts < 100) {
+            attempts++;
+            year = desiredYear !== null ? desiredYear : Math.floor(Math.random() * 300) + 1900;
+            month = desiredMonth !== null ? desiredMonth : Math.floor(Math.random() * 12) + 1;
+            const maxDay = new Date(year, month, 0).getDate();
+            day = desiredDay !== null ? desiredDay : Math.floor(Math.random() * maxDay) + 1;
+
+            if (desiredDay !== null && day !== desiredDay) {
+                continue;
+            }
+
+            date = new Date(year, month - 1, day);
+
+            if (date.getFullYear() === year && (date.getMonth() + 1) === month && date.getDate() === day) {
+                validDate = true;
+            }
+        }
+
+        if (!validDate) {
+            const fallbackYear = Math.floor(Math.random() * 300) + 1900;
+            const fallbackMonth = Math.floor(Math.random() * 12) + 1;
+            const fallbackDay = Math.floor(Math.random() * 28) + 1;
+            randomDate = new Date(fallbackYear, fallbackMonth - 1, fallbackDay);
+        } else {
+            randomDate = date;
+        }
+
+        dayNumInput.placeholder = randomDate.getDate().toString();
+        monthNumInput.placeholder = (randomDate.getMonth() + 1).toString();
+        yearNumInput.placeholder = randomDate.getFullYear().toString();
+
+        dayFullInput.placeholder = randomDate.getDate().toString();
+        monthFullInput.placeholder = randomDate.toLocaleDateString(undefined, { month: 'long' });
+        yearFullInput.placeholder = randomDate.getFullYear().toString();
 
         yearDoomsday = getDoomsdayForYear(randomDate.getFullYear());
         const monthForClosest = randomDate.getMonth() + 1;
@@ -113,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
         correctDay = (dayOfWeek < 0) ? (dayOfWeek + 7) : dayOfWeek;
 
         const monthName = randomDate.toLocaleDateString(undefined, { month: 'long' });
-        hintEl.innerHTML = `${yearDoomsday}: ${dayNames[yearDoomsday]}`;
+        hintEl.innerHTML = `${dayNames[yearDoomsday]}`;
         hint2El.innerHTML = `${monthName} ${closestDoomsday}`;
 
         startTime = new Date();
@@ -127,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const timeTaken = (endTime - startTime) / 1000;
 
             if (guess === correctDay) {
-                resultEl.innerHTML = `<span style="color: var(--green);">✓ ${timeTaken.toFixed(2)}s</span>`;
+                resultEl.innerHTML = `<span style="color: var(--green);">${dayNames[correctDay]}</span> ${timeTaken.toFixed(2)}s`;
             } else {
                 resultEl.innerHTML = `<span style="color: var(--red);">${dayNames[correctDay]}</span> ${timeTaken.toFixed(2)}s`;
             }
@@ -136,8 +277,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function toggleDateDisplay(event) {
+        if (event.target.id === 'doomsday-trainer') {
+            if (numDateEl.style.display === 'none') {
+                numDateEl.style.display = 'flex';
+                fullDateEl.style.display = 'none';
+            } else {
+                numDateEl.style.display = 'none';
+                fullDateEl.style.display = 'flex';
+            }
+        }
+    }
+
     redoBtn.addEventListener('click', generateNewDate);
     document.addEventListener('keydown', handleGuess);
+    trainerEl.addEventListener('click', toggleDateDisplay);
 
     generateNewDate();
 });
