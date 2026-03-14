@@ -25,25 +25,67 @@ fediverse = "@geoc@mathstodon.xyz"
 </html>
 
 <script>
-	const quoteElement = document.getElementById('quote');
-	const redoButton = document.getElementById('redo');
+const quoteElement = document.getElementById('quote');
+const redoButton = document.getElementById('redo');
 
-	function displayRandomQuote() {
-		fetch('./../quotes_data.json')
-			.then(response => response.json())
-			.then(data => {
-				const randomQuote = data[Math.floor(Math.random() * data.length)];
-				quoteElement.innerHTML = `<blockquote style="font-style: italic; margin: 1em 0; padding-left: 1em;">${randomQuote.quote}</blockquote>`;
-				if (randomQuote.link) {
-					quoteElement.innerHTML += `<p><em>- <a href="${randomQuote.link}" target="_blank">${randomQuote.author}</a></em></p>`;
-				} else {
-					quoteElement.innerHTML += `<p><em>- ${randomQuote.author}</em></p>`;
-				}
-			})
-			.catch(error => console.error('Error fetching quotes:', error));
-	}
+let quotesData = [];
 
-	displayRandomQuote();
+async function loadQuotes() {
+    const response = await fetch('./../quotes_data.json');
+    quotesData = await response.json();
+}
 
-	redoButton.addEventListener('click', displayRandomQuote);
+function hashString(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        const char = str.charCodeAt(i);
+        hash = (hash << 5) - hash + char;
+        hash |= 0;
+    }
+    return Math.abs(hash).toString(16);
+}
+
+function displayQuote(quote) {
+    const hash = hashString(quote.quote);
+    history.replaceState(null, '', `#${hash}`);
+
+    quoteElement.innerHTML = `<blockquote style="font-style: italic; margin: 1em 0; padding-left: 1em;">${quote.quote}</blockquote>`;
+    if (quote.link) {
+        quoteElement.innerHTML += `<p><em>- <a href="${quote.link}" target="_blank">${quote.author}</a></em></p>`;
+    } else {
+        quoteElement.innerHTML += `<p><em>- ${quote.author}</em></p>`;
+    }
+}
+
+function displayRandomQuote() {
+    const randomQuote = quotesData[Math.floor(Math.random() * quotesData.length)];
+    displayQuote(randomQuote);
+}
+
+function displayQuoteFromHash(hash) {
+    const matchedQuote = quotesData.find(q => hashString(q.quote) === hash);
+    if (matchedQuote) {
+        displayQuote(matchedQuote);
+    } else {
+        displayRandomQuote();
+    }
+}
+
+async function init() {
+    try {
+        await loadQuotes();
+        const hash = window.location.hash.slice(1);
+        if (hash) {
+            displayQuoteFromHash(hash);
+        } else {
+            displayRandomQuote();
+        }
+    } catch (error) {
+        console.error('Error fetching quotes:', error);
+    }
+}
+
+init();
+
+redoButton.addEventListener('click', displayRandomQuote);
 </script>
