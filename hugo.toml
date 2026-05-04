@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 '''
 homeIntroContent = '''
-I'm a senior at Brown University studying Computer Science and Mathematics, with current interests in cryptography, machine learning, and formal proof verification.
+I'm a student at Brown University studying Computer Science and Mathematics, with current interests in cryptography, machine learning, and formal proof verification.
 
 Check out my projects below, but also take a look at some of my [other](/other) stuff and try to find all the easter eggs!
 <br>
